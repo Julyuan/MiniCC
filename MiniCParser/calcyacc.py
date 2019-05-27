@@ -215,6 +215,9 @@ s = '''
 int a;
 '''
 
+def parse_grammar(s):
+    result = parser.parse(s)
+    return result
 
 result = parser.parse(s)
 print result
