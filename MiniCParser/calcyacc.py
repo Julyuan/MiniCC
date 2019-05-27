@@ -133,7 +133,7 @@ def p_declarationList(p):
         p[0] = (p[1][0], temp)
 
 def p_error(p):
-    print "Syntax error in input!"
+    print("Syntax error in input!")
 
 def p_declaration(p):
     '''declaration : staticVariableDeclaration
@@ -220,4 +220,4 @@ def parse_grammar(s):
     return result
 
 result = parser.parse(s)
-print result
+print(result)

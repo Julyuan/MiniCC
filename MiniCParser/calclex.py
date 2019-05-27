@@ -67,7 +67,7 @@ def t_newline(t):
 t_ignore = ' \t'
 
 def t_error(t):
-    print "Illegal character '%s'" % t.value[0]
+    print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
 
 def t_ID(t):
@@ -91,4 +91,4 @@ lexer.input(data)
 while True:
     tok = lexer.token()
     if not tok: break      # No more input
-    print tok
+    print(tok)
