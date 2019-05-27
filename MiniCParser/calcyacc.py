@@ -17,7 +17,7 @@ precedence = (
 #     ('left', 'PLUS', 'MINUS'),
 #     ('left', 'TIMES', 'DIVIDE'),
 # )
-start = 'declarationList'
+start = 'program'
 
 def p_functionDeclaration(p):
     '''functionDeclaration : typeSpec ID LPAREN parameters RPAREN compoundStatement'''
@@ -174,7 +174,6 @@ def p_whileStatement(p):
 def p_localDeclarations(p):
     '''localDeclarations : localDeclarations localDeclaration
                         | localDeclaration'''
-    print('call local decls')
     if len(p)<=2:
         temp = list()
         temp.append(p[1])
@@ -186,7 +185,6 @@ def p_localDeclarations(p):
 
 def p_localDeclaration(p):
     '''localDeclaration : typeSpec ID SEMICOLON'''
-    print('call local decl')
     p[0] = ('localDeclaration',p[1],p[2])
 
 def p_optionalElseStatement(p):
@@ -212,7 +210,11 @@ def p_breakStatement(p):
 parser = yacc.yacc()
 
 s = '''
+int main(void){
 int a;
+a=0;
+return a;
+}
 '''
 
 def parse_grammar(s):

@@ -2,7 +2,7 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Grammar
 
-Rule 0     S' -> declarationList
+Rule 0     S' -> program
 Rule 1     functionDeclaration -> typeSpec ID LPAREN parameters RPAREN compoundStatement
 Rule 2     compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY
 Rule 3     optionalStatementList -> statementList
@@ -99,7 +99,7 @@ Nonterminals, with rules where they appear
 breakStatement       : 18
 compoundStatement    : 1 14
 declaration          : 39 40
-declarationList      : 10 39 0
+declarationList      : 10 39
 empty                : 4 7 54
 expression           : 19 21 22 22 23 23 24 24 25 25 26 26 27 27 28 28 29 29 30 30 31 31 32 32 33 33 36 37 38 49 55 56
 expressionStatement  : 13
@@ -113,7 +113,7 @@ optionalStatementList : 2
 parameter            : 47 48
 parameterList        : 8 47
 parameters           : 1
-program              : 
+program              : 0
 returnStatement      : 17
 statement            : 11 12 49 53 55
 statementList        : 3 11
@@ -125,7 +125,8 @@ Parsing method: LALR
 
 state 0
 
-    (0) S' -> . declarationList
+    (0) S' -> . program
+    (10) program -> . declarationList
     (39) declarationList -> . declarationList declaration
     (40) declarationList -> . declaration
     (41) declaration -> . staticVariableDeclaration
@@ -140,9 +141,10 @@ state 0
 
     functionDeclaration            shift and go to state 1
     declarationList                shift and go to state 4
-    declaration                    shift and go to state 5
-    typeSpec                       shift and go to state 6
-    staticVariableDeclaration      shift and go to state 7
+    program                        shift and go to state 5
+    declaration                    shift and go to state 6
+    typeSpec                       shift and go to state 7
+    staticVariableDeclaration      shift and go to state 8
 
 state 1
 
@@ -169,7 +171,7 @@ state 3
 
 state 4
 
-    (0) S' -> declarationList .
+    (10) program -> declarationList .
     (39) declarationList -> declarationList . declaration
     (41) declaration -> . staticVariableDeclaration
     (42) declaration -> . functionDeclaration
@@ -178,15 +180,22 @@ state 4
     (43) typeSpec -> . VOID
     (44) typeSpec -> . INT
 
+    $end            reduce using rule 10 (program -> declarationList .)
     VOID            shift and go to state 3
     INT             shift and go to state 2
 
     functionDeclaration            shift and go to state 1
-    declaration                    shift and go to state 8
-    typeSpec                       shift and go to state 6
-    staticVariableDeclaration      shift and go to state 7
+    declaration                    shift and go to state 9
+    typeSpec                       shift and go to state 7
+    staticVariableDeclaration      shift and go to state 8
 
 state 5
+
+    (0) S' -> program .
+
+
+
+state 6
 
     (40) declarationList -> declaration .
 
@@ -195,15 +204,15 @@ state 5
     $end            reduce using rule 40 (declarationList -> declaration .)
 
 
-state 6
+state 7
 
     (45) staticVariableDeclaration -> typeSpec . ID SEMICOLON
     (1) functionDeclaration -> typeSpec . ID LPAREN parameters RPAREN compoundStatement
 
-    ID              shift and go to state 9
+    ID              shift and go to state 10
 
 
-state 7
+state 8
 
     (41) declaration -> staticVariableDeclaration .
 
@@ -212,7 +221,7 @@ state 7
     $end            reduce using rule 41 (declaration -> staticVariableDeclaration .)
 
 
-state 8
+state 9
 
     (39) declarationList -> declarationList declaration .
 
@@ -221,16 +230,16 @@ state 8
     $end            reduce using rule 39 (declarationList -> declarationList declaration .)
 
 
-state 9
+state 10
 
     (45) staticVariableDeclaration -> typeSpec ID . SEMICOLON
     (1) functionDeclaration -> typeSpec ID . LPAREN parameters RPAREN compoundStatement
 
-    SEMICOLON       shift and go to state 10
-    LPAREN          shift and go to state 11
+    SEMICOLON       shift and go to state 11
+    LPAREN          shift and go to state 12
 
 
-state 10
+state 11
 
     (45) staticVariableDeclaration -> typeSpec ID SEMICOLON .
 
@@ -239,7 +248,7 @@ state 10
     $end            reduce using rule 45 (staticVariableDeclaration -> typeSpec ID SEMICOLON .)
 
 
-state 11
+state 12
 
     (1) functionDeclaration -> typeSpec ID LPAREN . parameters RPAREN compoundStatement
     (8) parameters -> . parameterList
@@ -250,22 +259,22 @@ state 11
     (43) typeSpec -> . VOID
     (44) typeSpec -> . INT
 
-    VOID            shift and go to state 13
+    VOID            shift and go to state 14
     INT             shift and go to state 2
 
-    parameterList                  shift and go to state 14
-    typeSpec                       shift and go to state 15
-    parameter                      shift and go to state 16
-    parameters                     shift and go to state 12
+    parameterList                  shift and go to state 15
+    typeSpec                       shift and go to state 16
+    parameter                      shift and go to state 17
+    parameters                     shift and go to state 13
 
-state 12
+state 13
 
     (1) functionDeclaration -> typeSpec ID LPAREN parameters . RPAREN compoundStatement
 
-    RPAREN          shift and go to state 17
+    RPAREN          shift and go to state 18
 
 
-state 13
+state 14
 
     (9) parameters -> VOID .
     (43) typeSpec -> VOID .
@@ -274,23 +283,23 @@ state 13
     ID              reduce using rule 43 (typeSpec -> VOID .)
 
 
-state 14
+state 15
 
     (8) parameters -> parameterList .
     (47) parameterList -> parameterList . COMMA parameter
 
     RPAREN          reduce using rule 8 (parameters -> parameterList .)
-    COMMA           shift and go to state 18
-
-
-state 15
-
-    (46) parameter -> typeSpec . ID
-
-    ID              shift and go to state 19
+    COMMA           shift and go to state 19
 
 
 state 16
+
+    (46) parameter -> typeSpec . ID
+
+    ID              shift and go to state 20
+
+
+state 17
 
     (48) parameterList -> parameter .
 
@@ -298,16 +307,16 @@ state 16
     RPAREN          reduce using rule 48 (parameterList -> parameter .)
 
 
-state 17
+state 18
 
     (1) functionDeclaration -> typeSpec ID LPAREN parameters RPAREN . compoundStatement
     (2) compoundStatement -> . LCURLY optionalLocalDeclarations optionalStatementList RCURLY
 
-    LCURLY          shift and go to state 21
+    LCURLY          shift and go to state 22
 
-    compoundStatement              shift and go to state 20
+    compoundStatement              shift and go to state 21
 
-state 18
+state 19
 
     (47) parameterList -> parameterList COMMA . parameter
     (46) parameter -> . typeSpec ID
@@ -317,10 +326,10 @@ state 18
     VOID            shift and go to state 3
     INT             shift and go to state 2
 
-    typeSpec                       shift and go to state 15
-    parameter                      shift and go to state 22
+    typeSpec                       shift and go to state 16
+    parameter                      shift and go to state 23
 
-state 19
+state 20
 
     (46) parameter -> typeSpec ID .
 
@@ -328,7 +337,7 @@ state 19
     RPAREN          reduce using rule 46 (parameter -> typeSpec ID .)
 
 
-state 20
+state 21
 
     (1) functionDeclaration -> typeSpec ID LPAREN parameters RPAREN compoundStatement .
 
@@ -337,7 +346,7 @@ state 20
     $end            reduce using rule 1 (functionDeclaration -> typeSpec ID LPAREN parameters RPAREN compoundStatement .)
 
 
-state 21
+state 22
 
     (2) compoundStatement -> LCURLY . optionalLocalDeclarations optionalStatementList RCURLY
     (6) optionalLocalDeclarations -> . localDeclarations
@@ -364,13 +373,13 @@ state 21
     VOID            shift and go to state 3
     INT             shift and go to state 2
 
-    optionalLocalDeclarations      shift and go to state 23
-    localDeclaration               shift and go to state 24
-    typeSpec                       shift and go to state 25
-    empty                          shift and go to state 26
-    localDeclarations              shift and go to state 27
+    optionalLocalDeclarations      shift and go to state 24
+    localDeclaration               shift and go to state 25
+    typeSpec                       shift and go to state 26
+    empty                          shift and go to state 27
+    localDeclarations              shift and go to state 28
 
-state 22
+state 23
 
     (47) parameterList -> parameterList COMMA parameter .
 
@@ -378,7 +387,7 @@ state 22
     RPAREN          reduce using rule 47 (parameterList -> parameterList COMMA parameter .)
 
 
-state 23
+state 24
 
     (2) compoundStatement -> LCURLY optionalLocalDeclarations . optionalStatementList RCURLY
     (3) optionalStatementList -> . statementList
@@ -419,31 +428,31 @@ state 23
     (38) expression -> . EXCLAMATION expression
 
     RCURLY          reduce using rule 5 (empty -> .)
-    SEMICOLON       shift and go to state 35
-    LCURLY          shift and go to state 21
-    IF              shift and go to state 44
-    WHILE           shift and go to state 33
-    RETURN          shift and go to state 30
-    BREAK           shift and go to state 47
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    SEMICOLON       shift and go to state 36
+    LCURLY          shift and go to state 22
+    IF              shift and go to state 45
+    WHILE           shift and go to state 34
+    RETURN          shift and go to state 31
+    BREAK           shift and go to state 48
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    optionalStatementList          shift and go to state 29
-    compoundStatement              shift and go to state 31
-    expressionStatement            shift and go to state 45
-    whileStatement                 shift and go to state 40
-    statementList                  shift and go to state 36
-    breakStatement                 shift and go to state 46
-    statement                      shift and go to state 37
-    returnStatement                shift and go to state 42
-    expression                     shift and go to state 48
-    empty                          shift and go to state 39
-    ifStatement                    shift and go to state 38
+    optionalStatementList          shift and go to state 30
+    compoundStatement              shift and go to state 32
+    expressionStatement            shift and go to state 46
+    whileStatement                 shift and go to state 41
+    statementList                  shift and go to state 37
+    breakStatement                 shift and go to state 47
+    statement                      shift and go to state 38
+    returnStatement                shift and go to state 43
+    expression                     shift and go to state 49
+    empty                          shift and go to state 40
+    ifStatement                    shift and go to state 39
 
-state 24
+state 25
 
     (51) localDeclarations -> localDeclaration .
 
@@ -463,14 +472,14 @@ state 24
     RCURLY          reduce using rule 51 (localDeclarations -> localDeclaration .)
 
 
-state 25
+state 26
 
     (52) localDeclaration -> typeSpec . ID SEMICOLON
 
-    ID              shift and go to state 49
+    ID              shift and go to state 50
 
 
-state 26
+state 27
 
     (7) optionalLocalDeclarations -> empty .
 
@@ -488,7 +497,7 @@ state 26
     RCURLY          reduce using rule 7 (optionalLocalDeclarations -> empty .)
 
 
-state 27
+state 28
 
     (6) optionalLocalDeclarations -> localDeclarations .
     (50) localDeclarations -> localDeclarations . localDeclaration
@@ -511,10 +520,10 @@ state 27
     VOID            shift and go to state 3
     INT             shift and go to state 2
 
-    typeSpec                       shift and go to state 25
-    localDeclaration               shift and go to state 50
+    typeSpec                       shift and go to state 26
+    localDeclaration               shift and go to state 51
 
-state 28
+state 29
 
     (38) expression -> EXCLAMATION . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -536,22 +545,22 @@ state 28
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 51
+    expression                     shift and go to state 52
 
-state 29
+state 30
 
     (2) compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList . RCURLY
 
-    RCURLY          shift and go to state 52
+    RCURLY          shift and go to state 53
 
 
-state 30
+state 31
 
     (56) returnStatement -> RETURN . expression SEMICOLON
     (21) expression -> . ID SINGLEEQUAL expression
@@ -573,15 +582,15 @@ state 30
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 53
+    expression                     shift and go to state 54
 
-state 31
+state 32
 
     (14) statement -> compoundStatement .
 
@@ -600,7 +609,7 @@ state 31
     ELSE            reduce using rule 14 (statement -> compoundStatement .)
 
 
-state 32
+state 33
 
     (34) expression -> NUMBER .
 
@@ -620,14 +629,14 @@ state 32
     RPAREN          reduce using rule 34 (expression -> NUMBER .)
 
 
-state 33
+state 34
 
     (49) whileStatement -> WHILE . LPAREN expression RPAREN statement
 
-    LPAREN          shift and go to state 54
+    LPAREN          shift and go to state 55
 
 
-state 34
+state 35
 
     (37) expression -> MINUS . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -649,15 +658,15 @@ state 34
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 55
+    expression                     shift and go to state 56
 
-state 35
+state 36
 
     (20) expressionStatement -> SEMICOLON .
 
@@ -676,7 +685,7 @@ state 35
     ELSE            reduce using rule 20 (expressionStatement -> SEMICOLON .)
 
 
-state 36
+state 37
 
     (3) optionalStatementList -> statementList .
     (11) statementList -> statementList . statement
@@ -713,28 +722,28 @@ state 36
     (38) expression -> . EXCLAMATION expression
 
     RCURLY          reduce using rule 3 (optionalStatementList -> statementList .)
-    SEMICOLON       shift and go to state 35
-    LCURLY          shift and go to state 21
-    IF              shift and go to state 44
-    WHILE           shift and go to state 33
-    RETURN          shift and go to state 30
-    BREAK           shift and go to state 47
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    SEMICOLON       shift and go to state 36
+    LCURLY          shift and go to state 22
+    IF              shift and go to state 45
+    WHILE           shift and go to state 34
+    RETURN          shift and go to state 31
+    BREAK           shift and go to state 48
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expressionStatement            shift and go to state 45
-    compoundStatement              shift and go to state 31
-    whileStatement                 shift and go to state 40
-    breakStatement                 shift and go to state 46
-    statement                      shift and go to state 56
-    returnStatement                shift and go to state 42
-    expression                     shift and go to state 48
-    ifStatement                    shift and go to state 38
+    expressionStatement            shift and go to state 46
+    compoundStatement              shift and go to state 32
+    whileStatement                 shift and go to state 41
+    breakStatement                 shift and go to state 47
+    statement                      shift and go to state 57
+    returnStatement                shift and go to state 43
+    expression                     shift and go to state 49
+    ifStatement                    shift and go to state 39
 
-state 37
+state 38
 
     (12) statementList -> statement .
 
@@ -752,7 +761,7 @@ state 37
     RCURLY          reduce using rule 12 (statementList -> statement .)
 
 
-state 38
+state 39
 
     (15) statement -> ifStatement .
 
@@ -771,14 +780,14 @@ state 38
     ELSE            reduce using rule 15 (statement -> ifStatement .)
 
 
-state 39
+state 40
 
     (4) optionalStatementList -> empty .
 
     RCURLY          reduce using rule 4 (optionalStatementList -> empty .)
 
 
-state 40
+state 41
 
     (16) statement -> whileStatement .
 
@@ -797,7 +806,7 @@ state 40
     ELSE            reduce using rule 16 (statement -> whileStatement .)
 
 
-state 41
+state 42
 
     (36) expression -> LPAREN . expression RPAREN
     (21) expression -> . ID SINGLEEQUAL expression
@@ -819,15 +828,15 @@ state 41
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 57
+    expression                     shift and go to state 58
 
-state 42
+state 43
 
     (17) statement -> returnStatement .
 
@@ -846,12 +855,12 @@ state 42
     ELSE            reduce using rule 17 (statement -> returnStatement .)
 
 
-state 43
+state 44
 
     (21) expression -> ID . SINGLEEQUAL expression
     (35) expression -> ID .
 
-    SINGLEEQUAL     shift and go to state 58
+    SINGLEEQUAL     shift and go to state 59
     PLUS            reduce using rule 35 (expression -> ID .)
     MINUS           reduce using rule 35 (expression -> ID .)
     TIMES           reduce using rule 35 (expression -> ID .)
@@ -868,14 +877,14 @@ state 43
     RPAREN          reduce using rule 35 (expression -> ID .)
 
 
-state 44
+state 45
 
     (55) ifStatement -> IF . LPAREN expression RPAREN statement optionalElseStatement
 
-    LPAREN          shift and go to state 59
+    LPAREN          shift and go to state 60
 
 
-state 45
+state 46
 
     (13) statement -> expressionStatement .
 
@@ -894,7 +903,7 @@ state 45
     ELSE            reduce using rule 13 (statement -> expressionStatement .)
 
 
-state 46
+state 47
 
     (18) statement -> breakStatement .
 
@@ -913,14 +922,14 @@ state 46
     ELSE            reduce using rule 18 (statement -> breakStatement .)
 
 
-state 47
+state 48
 
     (57) breakStatement -> BREAK . SEMICOLON
 
-    SEMICOLON       shift and go to state 60
+    SEMICOLON       shift and go to state 61
 
 
-state 48
+state 49
 
     (19) expressionStatement -> expression . SEMICOLON
     (22) expression -> expression . PLUS expression
@@ -936,29 +945,29 @@ state 48
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
-    SEMICOLON       shift and go to state 64
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    BANGEQUAL       shift and go to state 72
-    DOUBLEEQUAL     shift and go to state 62
-    PERCENT         shift and go to state 66
-
-
-state 49
-
-    (52) localDeclaration -> typeSpec ID . SEMICOLON
-
-    SEMICOLON       shift and go to state 74
+    SEMICOLON       shift and go to state 65
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    BANGEQUAL       shift and go to state 73
+    DOUBLEEQUAL     shift and go to state 63
+    PERCENT         shift and go to state 67
 
 
 state 50
+
+    (52) localDeclaration -> typeSpec ID . SEMICOLON
+
+    SEMICOLON       shift and go to state 75
+
+
+state 51
 
     (50) localDeclarations -> localDeclarations localDeclaration .
 
@@ -978,7 +987,7 @@ state 50
     RCURLY          reduce using rule 50 (localDeclarations -> localDeclarations localDeclaration .)
 
 
-state 51
+state 52
 
     (38) expression -> EXCLAMATION expression .
     (22) expression -> expression . PLUS expression
@@ -1009,27 +1018,24 @@ state 51
     SEMICOLON       reduce using rule 38 (expression -> EXCLAMATION expression .)
     RPAREN          reduce using rule 38 (expression -> EXCLAMATION expression .)
 
-  ! PLUS            [ shift and go to state 68 ]
-  ! MINUS           [ shift and go to state 73 ]
-  ! TIMES           [ shift and go to state 67 ]
-  ! DIVIDE          [ shift and go to state 63 ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
-  ! PERCENT         [ shift and go to state 66 ]
+  ! PLUS            [ shift and go to state 69 ]
+  ! MINUS           [ shift and go to state 74 ]
+  ! TIMES           [ shift and go to state 68 ]
+  ! DIVIDE          [ shift and go to state 64 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
+  ! PERCENT         [ shift and go to state 67 ]
 
 
-state 52
+state 53
 
     (2) compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .
 
-    VOID            reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
-    INT             reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
-    $end            reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
     SEMICOLON       reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
     LCURLY          reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
     IF              reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
@@ -1043,9 +1049,12 @@ state 52
     EXCLAMATION     reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
     RCURLY          reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
     ELSE            reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
+    VOID            reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
+    INT             reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
+    $end            reduce using rule 2 (compoundStatement -> LCURLY optionalLocalDeclarations optionalStatementList RCURLY .)
 
 
-state 53
+state 54
 
     (56) returnStatement -> RETURN expression . SEMICOLON
     (22) expression -> expression . PLUS expression
@@ -1061,22 +1070,22 @@ state 53
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
-    SEMICOLON       shift and go to state 75
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    BANGEQUAL       shift and go to state 72
-    DOUBLEEQUAL     shift and go to state 62
-    PERCENT         shift and go to state 66
+    SEMICOLON       shift and go to state 76
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    BANGEQUAL       shift and go to state 73
+    DOUBLEEQUAL     shift and go to state 63
+    PERCENT         shift and go to state 67
 
 
-state 54
+state 55
 
     (49) whileStatement -> WHILE LPAREN . expression RPAREN statement
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1098,15 +1107,15 @@ state 54
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 76
+    expression                     shift and go to state 77
 
-state 55
+state 56
 
     (37) expression -> MINUS expression .
     (22) expression -> expression . PLUS expression
@@ -1137,21 +1146,21 @@ state 55
     SEMICOLON       reduce using rule 37 (expression -> MINUS expression .)
     RPAREN          reduce using rule 37 (expression -> MINUS expression .)
 
-  ! PLUS            [ shift and go to state 68 ]
-  ! MINUS           [ shift and go to state 73 ]
-  ! TIMES           [ shift and go to state 67 ]
-  ! DIVIDE          [ shift and go to state 63 ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
-  ! PERCENT         [ shift and go to state 66 ]
+  ! PLUS            [ shift and go to state 69 ]
+  ! MINUS           [ shift and go to state 74 ]
+  ! TIMES           [ shift and go to state 68 ]
+  ! DIVIDE          [ shift and go to state 64 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
+  ! PERCENT         [ shift and go to state 67 ]
 
 
-state 56
+state 57
 
     (11) statementList -> statementList statement .
 
@@ -1169,7 +1178,7 @@ state 56
     RCURLY          reduce using rule 11 (statementList -> statementList statement .)
 
 
-state 57
+state 58
 
     (36) expression -> LPAREN expression . RPAREN
     (22) expression -> expression . PLUS expression
@@ -1185,22 +1194,22 @@ state 57
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
-    RPAREN          shift and go to state 77
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    BANGEQUAL       shift and go to state 72
-    DOUBLEEQUAL     shift and go to state 62
-    PERCENT         shift and go to state 66
+    RPAREN          shift and go to state 78
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    BANGEQUAL       shift and go to state 73
+    DOUBLEEQUAL     shift and go to state 63
+    PERCENT         shift and go to state 67
 
 
-state 58
+state 59
 
     (21) expression -> ID SINGLEEQUAL . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1222,15 +1231,15 @@ state 58
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 78
+    expression                     shift and go to state 79
 
-state 59
+state 60
 
     (55) ifStatement -> IF LPAREN . expression RPAREN statement optionalElseStatement
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1252,15 +1261,15 @@ state 59
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 79
+    expression                     shift and go to state 80
 
-state 60
+state 61
 
     (57) breakStatement -> BREAK SEMICOLON .
 
@@ -1279,7 +1288,7 @@ state 60
     ELSE            reduce using rule 57 (breakStatement -> BREAK SEMICOLON .)
 
 
-state 61
+state 62
 
     (27) expression -> expression LANGLE . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1301,15 +1310,15 @@ state 61
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 80
+    expression                     shift and go to state 81
 
-state 62
+state 63
 
     (32) expression -> expression DOUBLEEQUAL . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1331,15 +1340,15 @@ state 62
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 81
+    expression                     shift and go to state 82
 
-state 63
+state 64
 
     (25) expression -> expression DIVIDE . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1361,15 +1370,15 @@ state 63
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 82
+    expression                     shift and go to state 83
 
-state 64
+state 65
 
     (19) expressionStatement -> expression SEMICOLON .
 
@@ -1388,7 +1397,7 @@ state 64
     ELSE            reduce using rule 19 (expressionStatement -> expression SEMICOLON .)
 
 
-state 65
+state 66
 
     (26) expression -> expression DOUBLEPIPES . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1410,15 +1419,15 @@ state 65
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 83
+    expression                     shift and go to state 84
 
-state 66
+state 67
 
     (33) expression -> expression PERCENT . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1440,15 +1449,15 @@ state 66
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 84
+    expression                     shift and go to state 85
 
-state 67
+state 68
 
     (24) expression -> expression TIMES . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1470,15 +1479,15 @@ state 67
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 85
+    expression                     shift and go to state 86
 
-state 68
+state 69
 
     (22) expression -> expression PLUS . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1500,15 +1509,15 @@ state 68
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 86
+    expression                     shift and go to state 87
 
-state 69
+state 70
 
     (30) expression -> expression RANGLEEQUAL . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1530,15 +1539,15 @@ state 69
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 87
+    expression                     shift and go to state 88
 
-state 70
+state 71
 
     (29) expression -> expression LANGLEEQUAL . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1560,15 +1569,15 @@ state 70
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 88
+    expression                     shift and go to state 89
 
-state 71
+state 72
 
     (28) expression -> expression RANGLE . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1590,15 +1599,15 @@ state 71
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 89
+    expression                     shift and go to state 90
 
-state 72
+state 73
 
     (31) expression -> expression BANGEQUAL . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1620,15 +1629,15 @@ state 72
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 90
+    expression                     shift and go to state 91
 
-state 73
+state 74
 
     (23) expression -> expression MINUS . expression
     (21) expression -> . ID SINGLEEQUAL expression
@@ -1650,15 +1659,15 @@ state 73
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expression                     shift and go to state 91
+    expression                     shift and go to state 92
 
-state 74
+state 75
 
     (52) localDeclaration -> typeSpec ID SEMICOLON .
 
@@ -1678,7 +1687,7 @@ state 74
     RCURLY          reduce using rule 52 (localDeclaration -> typeSpec ID SEMICOLON .)
 
 
-state 75
+state 76
 
     (56) returnStatement -> RETURN expression SEMICOLON .
 
@@ -1697,7 +1706,7 @@ state 75
     ELSE            reduce using rule 56 (returnStatement -> RETURN expression SEMICOLON .)
 
 
-state 76
+state 77
 
     (49) whileStatement -> WHILE LPAREN expression . RPAREN statement
     (22) expression -> expression . PLUS expression
@@ -1713,22 +1722,22 @@ state 76
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
-    RPAREN          shift and go to state 92
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    BANGEQUAL       shift and go to state 72
-    DOUBLEEQUAL     shift and go to state 62
-    PERCENT         shift and go to state 66
+    RPAREN          shift and go to state 93
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    BANGEQUAL       shift and go to state 73
+    DOUBLEEQUAL     shift and go to state 63
+    PERCENT         shift and go to state 67
 
 
-state 77
+state 78
 
     (36) expression -> LPAREN expression RPAREN .
 
@@ -1748,7 +1757,7 @@ state 77
     RPAREN          reduce using rule 36 (expression -> LPAREN expression RPAREN .)
 
 
-state 78
+state 79
 
     (21) expression -> ID SINGLEEQUAL expression .
     (22) expression -> expression . PLUS expression
@@ -1766,18 +1775,18 @@ state 78
 
     SEMICOLON       reduce using rule 21 (expression -> ID SINGLEEQUAL expression .)
     RPAREN          reduce using rule 21 (expression -> ID SINGLEEQUAL expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    BANGEQUAL       shift and go to state 72
-    DOUBLEEQUAL     shift and go to state 62
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    BANGEQUAL       shift and go to state 73
+    DOUBLEEQUAL     shift and go to state 63
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 21 (expression -> ID SINGLEEQUAL expression .) ]
   ! MINUS           [ reduce using rule 21 (expression -> ID SINGLEEQUAL expression .) ]
@@ -1793,7 +1802,7 @@ state 78
   ! PERCENT         [ reduce using rule 21 (expression -> ID SINGLEEQUAL expression .) ]
 
 
-state 79
+state 80
 
     (55) ifStatement -> IF LPAREN expression . RPAREN statement optionalElseStatement
     (22) expression -> expression . PLUS expression
@@ -1809,22 +1818,22 @@ state 79
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
-    RPAREN          shift and go to state 93
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    BANGEQUAL       shift and go to state 72
-    DOUBLEEQUAL     shift and go to state 62
-    PERCENT         shift and go to state 66
+    RPAREN          shift and go to state 94
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    BANGEQUAL       shift and go to state 73
+    DOUBLEEQUAL     shift and go to state 63
+    PERCENT         shift and go to state 67
 
 
-state 80
+state 81
 
     (27) expression -> expression LANGLE expression .
     (22) expression -> expression . PLUS expression
@@ -1848,12 +1857,12 @@ state 80
     DOUBLEEQUAL     reduce using rule 27 (expression -> expression LANGLE expression .)
     SEMICOLON       reduce using rule 27 (expression -> expression LANGLE expression .)
     RPAREN          reduce using rule 27 (expression -> expression LANGLE expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
   ! MINUS           [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
@@ -1861,15 +1870,15 @@ state 80
   ! DIVIDE          [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
   ! DOUBLEPIPES     [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
   ! PERCENT         [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 81
+state 82
 
     (32) expression -> expression DOUBLEEQUAL expression .
     (22) expression -> expression . PLUS expression
@@ -1889,16 +1898,16 @@ state 81
     DOUBLEEQUAL     reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .)
     SEMICOLON       reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .)
     RPAREN          reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! MINUS           [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
@@ -1910,11 +1919,11 @@ state 81
   ! LANGLEEQUAL     [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! RANGLEEQUAL     [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 82
+state 83
 
     (25) expression -> expression DIVIDE expression .
     (22) expression -> expression . PLUS expression
@@ -1945,21 +1954,21 @@ state 82
     SEMICOLON       reduce using rule 25 (expression -> expression DIVIDE expression .)
     RPAREN          reduce using rule 25 (expression -> expression DIVIDE expression .)
 
-  ! PLUS            [ shift and go to state 68 ]
-  ! MINUS           [ shift and go to state 73 ]
-  ! TIMES           [ shift and go to state 67 ]
-  ! DIVIDE          [ shift and go to state 63 ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
-  ! PERCENT         [ shift and go to state 66 ]
+  ! PLUS            [ shift and go to state 69 ]
+  ! MINUS           [ shift and go to state 74 ]
+  ! TIMES           [ shift and go to state 68 ]
+  ! DIVIDE          [ shift and go to state 64 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
+  ! PERCENT         [ shift and go to state 67 ]
 
 
-state 83
+state 84
 
     (26) expression -> expression DOUBLEPIPES expression .
     (22) expression -> expression . PLUS expression
@@ -1984,27 +1993,27 @@ state 83
     DOUBLEEQUAL     reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
     SEMICOLON       reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
     RPAREN          reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! MINUS           [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! TIMES           [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! DIVIDE          [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! PERCENT         [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 84
+state 85
 
     (33) expression -> expression PERCENT expression .
     (22) expression -> expression . PLUS expression
@@ -2035,21 +2044,21 @@ state 84
     SEMICOLON       reduce using rule 33 (expression -> expression PERCENT expression .)
     RPAREN          reduce using rule 33 (expression -> expression PERCENT expression .)
 
-  ! PLUS            [ shift and go to state 68 ]
-  ! MINUS           [ shift and go to state 73 ]
-  ! TIMES           [ shift and go to state 67 ]
-  ! DIVIDE          [ shift and go to state 63 ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
-  ! PERCENT         [ shift and go to state 66 ]
+  ! PLUS            [ shift and go to state 69 ]
+  ! MINUS           [ shift and go to state 74 ]
+  ! TIMES           [ shift and go to state 68 ]
+  ! DIVIDE          [ shift and go to state 64 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
+  ! PERCENT         [ shift and go to state 67 ]
 
 
-state 85
+state 86
 
     (24) expression -> expression TIMES expression .
     (22) expression -> expression . PLUS expression
@@ -2080,21 +2089,21 @@ state 85
     SEMICOLON       reduce using rule 24 (expression -> expression TIMES expression .)
     RPAREN          reduce using rule 24 (expression -> expression TIMES expression .)
 
-  ! PLUS            [ shift and go to state 68 ]
-  ! MINUS           [ shift and go to state 73 ]
-  ! TIMES           [ shift and go to state 67 ]
-  ! DIVIDE          [ shift and go to state 63 ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
-  ! PERCENT         [ shift and go to state 66 ]
+  ! PLUS            [ shift and go to state 69 ]
+  ! MINUS           [ shift and go to state 74 ]
+  ! TIMES           [ shift and go to state 68 ]
+  ! DIVIDE          [ shift and go to state 64 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
+  ! PERCENT         [ shift and go to state 67 ]
 
 
-state 86
+state 87
 
     (22) expression -> expression PLUS expression .
     (22) expression -> expression . PLUS expression
@@ -2121,25 +2130,25 @@ state 86
     DOUBLEEQUAL     reduce using rule 22 (expression -> expression PLUS expression .)
     SEMICOLON       reduce using rule 22 (expression -> expression PLUS expression .)
     RPAREN          reduce using rule 22 (expression -> expression PLUS expression .)
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    PERCENT         shift and go to state 66
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    PERCENT         shift and go to state 67
 
   ! TIMES           [ reduce using rule 22 (expression -> expression PLUS expression .) ]
   ! DIVIDE          [ reduce using rule 22 (expression -> expression PLUS expression .) ]
   ! PERCENT         [ reduce using rule 22 (expression -> expression PLUS expression .) ]
-  ! PLUS            [ shift and go to state 68 ]
-  ! MINUS           [ shift and go to state 73 ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! PLUS            [ shift and go to state 69 ]
+  ! MINUS           [ shift and go to state 74 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 87
+state 88
 
     (30) expression -> expression RANGLEEQUAL expression .
     (22) expression -> expression . PLUS expression
@@ -2163,12 +2172,12 @@ state 87
     DOUBLEEQUAL     reduce using rule 30 (expression -> expression RANGLEEQUAL expression .)
     SEMICOLON       reduce using rule 30 (expression -> expression RANGLEEQUAL expression .)
     RPAREN          reduce using rule 30 (expression -> expression RANGLEEQUAL expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
   ! MINUS           [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
@@ -2176,15 +2185,15 @@ state 87
   ! DIVIDE          [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
   ! DOUBLEPIPES     [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 88
+state 89
 
     (29) expression -> expression LANGLEEQUAL expression .
     (22) expression -> expression . PLUS expression
@@ -2208,12 +2217,12 @@ state 88
     DOUBLEEQUAL     reduce using rule 29 (expression -> expression LANGLEEQUAL expression .)
     SEMICOLON       reduce using rule 29 (expression -> expression LANGLEEQUAL expression .)
     RPAREN          reduce using rule 29 (expression -> expression LANGLEEQUAL expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
   ! MINUS           [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
@@ -2221,15 +2230,15 @@ state 88
   ! DIVIDE          [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
   ! DOUBLEPIPES     [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 89
+state 90
 
     (28) expression -> expression RANGLE expression .
     (22) expression -> expression . PLUS expression
@@ -2253,12 +2262,12 @@ state 89
     DOUBLEEQUAL     reduce using rule 28 (expression -> expression RANGLE expression .)
     SEMICOLON       reduce using rule 28 (expression -> expression RANGLE expression .)
     RPAREN          reduce using rule 28 (expression -> expression RANGLE expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
   ! MINUS           [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
@@ -2266,15 +2275,15 @@ state 89
   ! DIVIDE          [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
   ! DOUBLEPIPES     [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
   ! PERCENT         [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 90
+state 91
 
     (31) expression -> expression BANGEQUAL expression .
     (22) expression -> expression . PLUS expression
@@ -2294,16 +2303,16 @@ state 90
     DOUBLEEQUAL     reduce using rule 31 (expression -> expression BANGEQUAL expression .)
     SEMICOLON       reduce using rule 31 (expression -> expression BANGEQUAL expression .)
     RPAREN          reduce using rule 31 (expression -> expression BANGEQUAL expression .)
-    PLUS            shift and go to state 68
-    MINUS           shift and go to state 73
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    DOUBLEPIPES     shift and go to state 65
-    LANGLE          shift and go to state 61
-    RANGLE          shift and go to state 71
-    LANGLEEQUAL     shift and go to state 70
-    RANGLEEQUAL     shift and go to state 69
-    PERCENT         shift and go to state 66
+    PLUS            shift and go to state 69
+    MINUS           shift and go to state 74
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    DOUBLEPIPES     shift and go to state 66
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! MINUS           [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
@@ -2315,11 +2324,11 @@ state 90
   ! LANGLEEQUAL     [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! RANGLEEQUAL     [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 91
+state 92
 
     (23) expression -> expression MINUS expression .
     (22) expression -> expression . PLUS expression
@@ -2346,25 +2355,25 @@ state 91
     DOUBLEEQUAL     reduce using rule 23 (expression -> expression MINUS expression .)
     SEMICOLON       reduce using rule 23 (expression -> expression MINUS expression .)
     RPAREN          reduce using rule 23 (expression -> expression MINUS expression .)
-    TIMES           shift and go to state 67
-    DIVIDE          shift and go to state 63
-    PERCENT         shift and go to state 66
+    TIMES           shift and go to state 68
+    DIVIDE          shift and go to state 64
+    PERCENT         shift and go to state 67
 
   ! TIMES           [ reduce using rule 23 (expression -> expression MINUS expression .) ]
   ! DIVIDE          [ reduce using rule 23 (expression -> expression MINUS expression .) ]
   ! PERCENT         [ reduce using rule 23 (expression -> expression MINUS expression .) ]
-  ! PLUS            [ shift and go to state 68 ]
-  ! MINUS           [ shift and go to state 73 ]
-  ! DOUBLEPIPES     [ shift and go to state 65 ]
-  ! LANGLE          [ shift and go to state 61 ]
-  ! RANGLE          [ shift and go to state 71 ]
-  ! LANGLEEQUAL     [ shift and go to state 70 ]
-  ! RANGLEEQUAL     [ shift and go to state 69 ]
-  ! BANGEQUAL       [ shift and go to state 72 ]
-  ! DOUBLEEQUAL     [ shift and go to state 62 ]
+  ! PLUS            [ shift and go to state 69 ]
+  ! MINUS           [ shift and go to state 74 ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
+  ! LANGLE          [ shift and go to state 62 ]
+  ! RANGLE          [ shift and go to state 72 ]
+  ! LANGLEEQUAL     [ shift and go to state 71 ]
+  ! RANGLEEQUAL     [ shift and go to state 70 ]
+  ! BANGEQUAL       [ shift and go to state 73 ]
+  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
-state 92
+state 93
 
     (49) whileStatement -> WHILE LPAREN expression RPAREN . statement
     (13) statement -> . expressionStatement
@@ -2399,28 +2408,28 @@ state 92
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    SEMICOLON       shift and go to state 35
-    LCURLY          shift and go to state 21
-    IF              shift and go to state 44
-    WHILE           shift and go to state 33
-    RETURN          shift and go to state 30
-    BREAK           shift and go to state 47
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    SEMICOLON       shift and go to state 36
+    LCURLY          shift and go to state 22
+    IF              shift and go to state 45
+    WHILE           shift and go to state 34
+    RETURN          shift and go to state 31
+    BREAK           shift and go to state 48
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expressionStatement            shift and go to state 45
-    compoundStatement              shift and go to state 31
-    whileStatement                 shift and go to state 40
-    breakStatement                 shift and go to state 46
-    statement                      shift and go to state 94
-    returnStatement                shift and go to state 42
-    expression                     shift and go to state 48
-    ifStatement                    shift and go to state 38
+    expressionStatement            shift and go to state 46
+    compoundStatement              shift and go to state 32
+    whileStatement                 shift and go to state 41
+    breakStatement                 shift and go to state 47
+    statement                      shift and go to state 95
+    returnStatement                shift and go to state 43
+    expression                     shift and go to state 49
+    ifStatement                    shift and go to state 39
 
-state 93
+state 94
 
     (55) ifStatement -> IF LPAREN expression RPAREN . statement optionalElseStatement
     (13) statement -> . expressionStatement
@@ -2455,28 +2464,28 @@ state 93
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    SEMICOLON       shift and go to state 35
-    LCURLY          shift and go to state 21
-    IF              shift and go to state 44
-    WHILE           shift and go to state 33
-    RETURN          shift and go to state 30
-    BREAK           shift and go to state 47
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    SEMICOLON       shift and go to state 36
+    LCURLY          shift and go to state 22
+    IF              shift and go to state 45
+    WHILE           shift and go to state 34
+    RETURN          shift and go to state 31
+    BREAK           shift and go to state 48
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expressionStatement            shift and go to state 45
-    compoundStatement              shift and go to state 31
-    whileStatement                 shift and go to state 40
-    breakStatement                 shift and go to state 46
-    statement                      shift and go to state 95
-    returnStatement                shift and go to state 42
-    expression                     shift and go to state 48
-    ifStatement                    shift and go to state 38
+    expressionStatement            shift and go to state 46
+    compoundStatement              shift and go to state 32
+    whileStatement                 shift and go to state 41
+    breakStatement                 shift and go to state 47
+    statement                      shift and go to state 96
+    returnStatement                shift and go to state 43
+    expression                     shift and go to state 49
+    ifStatement                    shift and go to state 39
 
-state 94
+state 95
 
     (49) whileStatement -> WHILE LPAREN expression RPAREN statement .
 
@@ -2495,7 +2504,7 @@ state 94
     ELSE            reduce using rule 49 (whileStatement -> WHILE LPAREN expression RPAREN statement .)
 
 
-state 95
+state 96
 
     (55) ifStatement -> IF LPAREN expression RPAREN statement . optionalElseStatement
     (53) optionalElseStatement -> . ELSE statement
@@ -2503,7 +2512,7 @@ state 95
     (5) empty -> .
 
   ! shift/reduce conflict for ELSE resolved as shift
-    ELSE            shift and go to state 96
+    ELSE            shift and go to state 97
     SEMICOLON       reduce using rule 5 (empty -> .)
     LCURLY          reduce using rule 5 (empty -> .)
     IF              reduce using rule 5 (empty -> .)
@@ -2519,10 +2528,10 @@ state 95
 
   ! ELSE            [ reduce using rule 5 (empty -> .) ]
 
-    empty                          shift and go to state 98
-    optionalElseStatement          shift and go to state 97
+    empty                          shift and go to state 99
+    optionalElseStatement          shift and go to state 98
 
-state 96
+state 97
 
     (53) optionalElseStatement -> ELSE . statement
     (13) statement -> . expressionStatement
@@ -2557,28 +2566,28 @@ state 96
     (37) expression -> . MINUS expression
     (38) expression -> . EXCLAMATION expression
 
-    SEMICOLON       shift and go to state 35
-    LCURLY          shift and go to state 21
-    IF              shift and go to state 44
-    WHILE           shift and go to state 33
-    RETURN          shift and go to state 30
-    BREAK           shift and go to state 47
-    ID              shift and go to state 43
-    NUMBER          shift and go to state 32
-    LPAREN          shift and go to state 41
-    MINUS           shift and go to state 34
-    EXCLAMATION     shift and go to state 28
+    SEMICOLON       shift and go to state 36
+    LCURLY          shift and go to state 22
+    IF              shift and go to state 45
+    WHILE           shift and go to state 34
+    RETURN          shift and go to state 31
+    BREAK           shift and go to state 48
+    ID              shift and go to state 44
+    NUMBER          shift and go to state 33
+    LPAREN          shift and go to state 42
+    MINUS           shift and go to state 35
+    EXCLAMATION     shift and go to state 29
 
-    expressionStatement            shift and go to state 45
-    compoundStatement              shift and go to state 31
-    whileStatement                 shift and go to state 40
-    breakStatement                 shift and go to state 46
-    statement                      shift and go to state 99
-    returnStatement                shift and go to state 42
-    expression                     shift and go to state 48
-    ifStatement                    shift and go to state 38
+    expressionStatement            shift and go to state 46
+    compoundStatement              shift and go to state 32
+    whileStatement                 shift and go to state 41
+    breakStatement                 shift and go to state 47
+    statement                      shift and go to state 100
+    returnStatement                shift and go to state 43
+    expression                     shift and go to state 49
+    ifStatement                    shift and go to state 39
 
-state 97
+state 98
 
     (55) ifStatement -> IF LPAREN expression RPAREN statement optionalElseStatement .
 
@@ -2597,7 +2606,7 @@ state 97
     ELSE            reduce using rule 55 (ifStatement -> IF LPAREN expression RPAREN statement optionalElseStatement .)
 
 
-state 98
+state 99
 
     (54) optionalElseStatement -> empty .
 
@@ -2616,7 +2625,7 @@ state 98
     ELSE            reduce using rule 54 (optionalElseStatement -> empty .)
 
 
-state 99
+state 100
 
     (53) optionalElseStatement -> ELSE statement .
 
@@ -2637,4 +2646,4 @@ state 99
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: shift/reduce conflict for ELSE in state 95 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 96 resolved as shift
