@@ -1,5 +1,9 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
+Unused terminals:
+
+    FLOAT
+
 Grammar
 
 Rule 0     S' -> program
@@ -71,6 +75,7 @@ DOUBLEEQUAL          : 32
 DOUBLEPIPES          : 26
 ELSE                 : 53
 EXCLAMATION          : 38
+FLOAT                : 
 ID                   : 1 21 35 45 46 52
 IF                   : 55
 INT                  : 44
@@ -1849,6 +1854,7 @@ state 81
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
+    DOUBLEPIPES     reduce using rule 27 (expression -> expression LANGLE expression .)
     LANGLE          reduce using rule 27 (expression -> expression LANGLE expression .)
     RANGLE          reduce using rule 27 (expression -> expression LANGLE expression .)
     LANGLEEQUAL     reduce using rule 27 (expression -> expression LANGLE expression .)
@@ -1861,15 +1867,14 @@ state 81
     MINUS           shift and go to state 74
     TIMES           shift and go to state 68
     DIVIDE          shift and go to state 64
-    DOUBLEPIPES     shift and go to state 66
     PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
   ! MINUS           [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
   ! TIMES           [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
   ! DIVIDE          [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
-  ! DOUBLEPIPES     [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
   ! PERCENT         [ reduce using rule 27 (expression -> expression LANGLE expression .) ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
   ! LANGLE          [ shift and go to state 62 ]
   ! RANGLE          [ shift and go to state 72 ]
   ! LANGLEEQUAL     [ shift and go to state 71 ]
@@ -1894,6 +1899,7 @@ state 82
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
+    DOUBLEPIPES     reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .)
     BANGEQUAL       reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .)
     DOUBLEEQUAL     reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .)
     SEMICOLON       reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .)
@@ -1902,7 +1908,6 @@ state 82
     MINUS           shift and go to state 74
     TIMES           shift and go to state 68
     DIVIDE          shift and go to state 64
-    DOUBLEPIPES     shift and go to state 66
     LANGLE          shift and go to state 62
     RANGLE          shift and go to state 72
     LANGLEEQUAL     shift and go to state 71
@@ -1913,12 +1918,12 @@ state 82
   ! MINUS           [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! TIMES           [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! DIVIDE          [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
-  ! DOUBLEPIPES     [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! LANGLE          [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! RANGLE          [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! LANGLEEQUAL     [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! RANGLEEQUAL     [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 32 (expression -> expression DOUBLEEQUAL expression .) ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
   ! BANGEQUAL       [ shift and go to state 73 ]
   ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
@@ -1985,32 +1990,32 @@ state 84
     (33) expression -> expression . PERCENT expression
 
     DOUBLEPIPES     reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
-    LANGLE          reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
-    RANGLE          reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
-    LANGLEEQUAL     reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
-    RANGLEEQUAL     reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
-    BANGEQUAL       reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
-    DOUBLEEQUAL     reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
     SEMICOLON       reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
     RPAREN          reduce using rule 26 (expression -> expression DOUBLEPIPES expression .)
     PLUS            shift and go to state 69
     MINUS           shift and go to state 74
     TIMES           shift and go to state 68
     DIVIDE          shift and go to state 64
+    LANGLE          shift and go to state 62
+    RANGLE          shift and go to state 72
+    LANGLEEQUAL     shift and go to state 71
+    RANGLEEQUAL     shift and go to state 70
+    BANGEQUAL       shift and go to state 73
+    DOUBLEEQUAL     shift and go to state 63
     PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! MINUS           [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! TIMES           [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! DIVIDE          [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
+  ! LANGLE          [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
+  ! RANGLE          [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
+  ! LANGLEEQUAL     [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
+  ! RANGLEEQUAL     [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
+  ! BANGEQUAL       [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
+  ! DOUBLEEQUAL     [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! PERCENT         [ reduce using rule 26 (expression -> expression DOUBLEPIPES expression .) ]
   ! DOUBLEPIPES     [ shift and go to state 66 ]
-  ! LANGLE          [ shift and go to state 62 ]
-  ! RANGLE          [ shift and go to state 72 ]
-  ! LANGLEEQUAL     [ shift and go to state 71 ]
-  ! RANGLEEQUAL     [ shift and go to state 70 ]
-  ! BANGEQUAL       [ shift and go to state 73 ]
-  ! DOUBLEEQUAL     [ shift and go to state 63 ]
 
 
 state 85
@@ -2164,6 +2169,7 @@ state 88
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
+    DOUBLEPIPES     reduce using rule 30 (expression -> expression RANGLEEQUAL expression .)
     LANGLE          reduce using rule 30 (expression -> expression RANGLEEQUAL expression .)
     RANGLE          reduce using rule 30 (expression -> expression RANGLEEQUAL expression .)
     LANGLEEQUAL     reduce using rule 30 (expression -> expression RANGLEEQUAL expression .)
@@ -2176,15 +2182,14 @@ state 88
     MINUS           shift and go to state 74
     TIMES           shift and go to state 68
     DIVIDE          shift and go to state 64
-    DOUBLEPIPES     shift and go to state 66
     PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
   ! MINUS           [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
   ! TIMES           [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
   ! DIVIDE          [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
-  ! DOUBLEPIPES     [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 30 (expression -> expression RANGLEEQUAL expression .) ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
   ! LANGLE          [ shift and go to state 62 ]
   ! RANGLE          [ shift and go to state 72 ]
   ! LANGLEEQUAL     [ shift and go to state 71 ]
@@ -2209,6 +2214,7 @@ state 89
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
+    DOUBLEPIPES     reduce using rule 29 (expression -> expression LANGLEEQUAL expression .)
     LANGLE          reduce using rule 29 (expression -> expression LANGLEEQUAL expression .)
     RANGLE          reduce using rule 29 (expression -> expression LANGLEEQUAL expression .)
     LANGLEEQUAL     reduce using rule 29 (expression -> expression LANGLEEQUAL expression .)
@@ -2221,15 +2227,14 @@ state 89
     MINUS           shift and go to state 74
     TIMES           shift and go to state 68
     DIVIDE          shift and go to state 64
-    DOUBLEPIPES     shift and go to state 66
     PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
   ! MINUS           [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
   ! TIMES           [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
   ! DIVIDE          [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
-  ! DOUBLEPIPES     [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 29 (expression -> expression LANGLEEQUAL expression .) ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
   ! LANGLE          [ shift and go to state 62 ]
   ! RANGLE          [ shift and go to state 72 ]
   ! LANGLEEQUAL     [ shift and go to state 71 ]
@@ -2254,6 +2259,7 @@ state 90
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
+    DOUBLEPIPES     reduce using rule 28 (expression -> expression RANGLE expression .)
     LANGLE          reduce using rule 28 (expression -> expression RANGLE expression .)
     RANGLE          reduce using rule 28 (expression -> expression RANGLE expression .)
     LANGLEEQUAL     reduce using rule 28 (expression -> expression RANGLE expression .)
@@ -2266,15 +2272,14 @@ state 90
     MINUS           shift and go to state 74
     TIMES           shift and go to state 68
     DIVIDE          shift and go to state 64
-    DOUBLEPIPES     shift and go to state 66
     PERCENT         shift and go to state 67
 
   ! PLUS            [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
   ! MINUS           [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
   ! TIMES           [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
   ! DIVIDE          [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
-  ! DOUBLEPIPES     [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
   ! PERCENT         [ reduce using rule 28 (expression -> expression RANGLE expression .) ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
   ! LANGLE          [ shift and go to state 62 ]
   ! RANGLE          [ shift and go to state 72 ]
   ! LANGLEEQUAL     [ shift and go to state 71 ]
@@ -2299,6 +2304,7 @@ state 91
     (32) expression -> expression . DOUBLEEQUAL expression
     (33) expression -> expression . PERCENT expression
 
+    DOUBLEPIPES     reduce using rule 31 (expression -> expression BANGEQUAL expression .)
     BANGEQUAL       reduce using rule 31 (expression -> expression BANGEQUAL expression .)
     DOUBLEEQUAL     reduce using rule 31 (expression -> expression BANGEQUAL expression .)
     SEMICOLON       reduce using rule 31 (expression -> expression BANGEQUAL expression .)
@@ -2307,7 +2313,6 @@ state 91
     MINUS           shift and go to state 74
     TIMES           shift and go to state 68
     DIVIDE          shift and go to state 64
-    DOUBLEPIPES     shift and go to state 66
     LANGLE          shift and go to state 62
     RANGLE          shift and go to state 72
     LANGLEEQUAL     shift and go to state 71
@@ -2318,12 +2323,12 @@ state 91
   ! MINUS           [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! TIMES           [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! DIVIDE          [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
-  ! DOUBLEPIPES     [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! LANGLE          [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! RANGLE          [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! LANGLEEQUAL     [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! RANGLEEQUAL     [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
   ! PERCENT         [ reduce using rule 31 (expression -> expression BANGEQUAL expression .) ]
+  ! DOUBLEPIPES     [ shift and go to state 66 ]
   ! BANGEQUAL       [ shift and go to state 73 ]
   ! DOUBLEEQUAL     [ shift and go to state 63 ]
 

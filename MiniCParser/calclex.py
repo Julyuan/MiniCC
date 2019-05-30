@@ -11,6 +11,7 @@ reserved = {
 }
 tokens = [
     'NUMBER',
+    'FLOAT',
     'PLUS',
     'MINUS',
     'TIMES',
@@ -34,6 +35,7 @@ tokens = [
     'PERCENT'
 ] + list(reserved.values())
 
+t_DOUBLEPIPES = r'\|\|'
 t_PLUS      = r'\+'
 t_MINUS     = r'-'
 t_TIMES     = r'\*'
@@ -53,6 +55,11 @@ t_LANGLEEQUAL = r'<='
 t_RANGLEEQUAL = r'>='
 t_EXCLAMATION = r'!'
 t_PERCENT = r'%'
+
+def t_FLOAT(t):
+    r'\d+\.\d+'
+    t.value = float(t.value)
+    return t
 
 def t_NUMBER(t):
     r'\d+'
@@ -79,8 +86,11 @@ lexer = lex.lex()
 
 # Test it out
 data = '''
-if(a!0){
-            b=0;
+int main(void){
+int a;
+if(a>0 || a < 1)
+    return 0;
+return a;
 }
 '''
 

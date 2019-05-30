@@ -4,9 +4,9 @@ from calclex import tokens
 precedence = (
     #('nonassoc','LESSTHAN', 'GREATERTHAN'),
     ('right','SINGLEEQUAL'),
+    ('left', 'DOUBLEPIPES'),
     ('left','BANGEQUAL','DOUBLEEQUAL'),
     ('left', 'LANGLE','RANGLE','LANGLEEQUAL','RANGLEEQUAL'),
-    ('left','DOUBLEPIPES'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE', 'PERCENT'),
     ('right', 'UMINUS','EXCLAMATION'),
@@ -212,7 +212,8 @@ parser = yacc.yacc()
 s = '''
 int main(void){
 int a;
-a=0;
+if(a>0 || a < 1)
+    return 0;
 return a;
 }
 '''
