@@ -101,9 +101,13 @@ def p_expression_binop(p):
                   '''
     p[0] = ('binary-expression', p[2], p[1], p[3])
 
-def p_expression_number(p):
-    'expression : NUMBER'
-    p[0] = ('number-expression',p[1])
+def p_expression_intliteral(p):
+    'expression : INTLITERAL'
+    p[0] = ('int-expression',p[1])
+
+def p_expression_floatliteral(p):
+    'expression : FLOATLITERAL'
+    p[0] = ('float-expression',p[1])
 
 def p_expression_identifier(p):
     'expression : ID'
@@ -139,8 +143,38 @@ def p_error(p):
 
 def p_declaration(p):
     '''declaration : staticVariableDeclaration
-                  | functionDeclaration'''
+                  | functionDeclaration
+                  | structDeclaration'''
     p[0] = ('declaration', p[1])
+
+def p_structDeclaration(p):
+    '''structDeclaration : staticVariableDeclarationList'''
+    p[0] = ('structDeclaration',p[1])
+
+def p_staticVariableDeclarationList(p):
+    '''staticVariableDeclarationList : staticVariableDeclarationList staticVariableDeclaration
+                                    | staticVariableDeclaration'''
+    if len(p)<=2:
+        temp = list()
+        temp.append(p[1])
+        p[0] = ('staticVariableDeclarationList',temp)
+    else:
+        temp = p[1][1]
+        temp.append(p[2])
+        p[0] = (p[1][0], temp)
+
+def p_forStatement(p):
+    '''forStatement : FOR LPAREN optionalExpression SEMICOLON optionalExpression SEMICOLON optionalExpression SERPAREN statement'''
+    p[0] = ('forStatement',p[3],p[5],p[7],p[9])
+
+def p_optionalExpression(p):
+    '''optionalExpression : expression
+                            | empty'''
+    p[0] = ('optionalExpression',p[1])
+
+def p_continueStatement(p):
+    '''continueStatement : CONTINUE SEMICOLON'''
+    p[0] = ('continueStatement')
 
 def p_typeSpec(p):
     '''typeSpec : VOID
@@ -148,8 +182,24 @@ def p_typeSpec(p):
     p[0] = ('typeSpec',p[1])
 
 def p_staticVariableDeclaration(p):
-    '''staticVariableDeclaration : typeSpec ID SEMICOLON'''
-    p[0] = ('staticVariableDeclaration',p[1],p[2])
+    '''staticVariableDeclaration : typeSpec IDList SEMICOLON
+                                | typeSpec ID LSQUARE INTLITERAL RSQUARE SEMICOLON'''
+    if len(p)<=4:
+        p[0] = ('staticVariableDeclaration',p[1])
+    else:
+        p[0] = ('staticVariableArrayDeclaration',p[1],p[3])
+
+def p_IDList(p):
+    '''IDList : IDList COMMA ID
+                | ID'''
+    if len(p)<=2:
+        temp = list()
+        temp.append(p[1])
+        p[0] = ('IDList',temp)
+    else:
+        temp = p[1][1]
+        temp.append(p[3])
+        p[0] = (p[1][0], temp)
 
 def p_parameter(p):
     '''parameter : typeSpec ID'''
@@ -214,9 +264,15 @@ parser = yacc.yacc()
 s = '''
 int main(void){
 int a;
-if(a>0 || a < 1)
-    return 0;
-return a;
+int b;
+int c;
+int d;
+a=1;
+b=2;
+if(a=3)c=4;
+if(a>b&&(c=5))d=6;
+else d=7;
+return 0;
 }
 '''
 

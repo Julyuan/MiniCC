@@ -7,7 +7,11 @@ reserved = {
     'return' : 'RETURN',
     'break' : 'BREAK',
     'void'  : 'VOID',
-    'int'   : 'INT'
+    'int'   : 'INT',
+    'float' : 'FLOAT',
+    'struct' : 'STRUCT',
+    'for' : 'FOR',
+    'continue' : 'CONTINUE'
 }
 tokens = [
     'NUMBER',
@@ -16,15 +20,23 @@ tokens = [
     'MINUS',
     'TIMES',
     'DIVIDE',
+    'DOUBLEPLUS',
+    'DOUBLEMINUS',
+    'PLUSEQUAL',
+    'MINUSEQUAL',
+    'TIMESEQUAL',
+    'DIVIDEEQUAL',
     'SINGLEEQUAL',
     'DOUBLEEQUAL',
     'DOUBLEPIPES',
-    'DOUBLEAMPERSAND'
+    'DOUBLEAMPERSAND',
     'BANGEQUAL',
     'LPAREN',
     'RPAREN',
     'LCURLY',
     'RCURLY',
+    'LSQUARE',
+    'RSQUARE',
     'SEMICOLON',
     'COMMA',
     'ID',
@@ -33,11 +45,18 @@ tokens = [
     'LANGLEEQUAL',
     'RANGLEEQUAL',
     'EXCLAMATION',
-    'PERCENT'
+    'PERCENT',
+    'PERIOD'
 ] + list(reserved.values())
 
 t_DOUBLEAMPERSAND = r'&&'
 t_DOUBLEPIPES = r'\|\|'
+t_DOUBLEPLUS = r'++'
+t_DOUBLEMINUS = r'--'
+t_PLUSEQUAL = r'+='
+MINUSEQUAL = r'-='
+TIMESEQUAL = r'*='
+DIVIDEEQUAL = r'/='
 t_PLUS      = r'\+'
 t_MINUS     = r'-'
 t_TIMES     = r'\*'
@@ -58,12 +77,12 @@ t_RANGLEEQUAL = r'>='
 t_EXCLAMATION = r'!'
 t_PERCENT = r'%'
 
-def t_FLOAT(t):
+def t_FLOATLITERAL(t):
     r'\d+\.\d+'
     t.value = float(t.value)
     return t
 
-def t_NUMBER(t):
+def t_INTLITERAL(t):
     r'\d+'
     t.value = int(t.value)
     return t
@@ -90,9 +109,15 @@ lexer = lex.lex()
 data = '''
 int main(void){
 int a;
-if(a>0 || a < 1)
-    return 0;
-return a;
+int b;
+int c;
+int d;
+a=1;
+b=2;
+if(a=3)c=4;
+if(a>b&&(c=5))d=6;
+else d=7;
+return 0;
 }
 '''
 
