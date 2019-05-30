@@ -5,6 +5,7 @@ precedence = (
     #('nonassoc','LESSTHAN', 'GREATERTHAN'),
     ('right','SINGLEEQUAL'),
     ('left', 'DOUBLEPIPES'),
+    ('left', 'DOUBLEAMPERSAND'),
     ('left','BANGEQUAL','DOUBLEEQUAL'),
     ('left', 'LANGLE','RANGLE','LANGLEEQUAL','RANGLEEQUAL'),
     ('left', 'PLUS', 'MINUS'),
@@ -89,6 +90,7 @@ def p_expression_binop(p):
                   | expression TIMES expression
                   | expression DIVIDE expression
                   | expression DOUBLEPIPES expression
+                  | expression DOUBLEAMPERSAND expression
                   | expression LANGLE expression
                   | expression RANGLE expression
                   | expression LANGLEEQUAL expression

@@ -19,6 +19,7 @@ tokens = [
     'SINGLEEQUAL',
     'DOUBLEEQUAL',
     'DOUBLEPIPES',
+    'DOUBLEAMPERSAND'
     'BANGEQUAL',
     'LPAREN',
     'RPAREN',
@@ -35,6 +36,7 @@ tokens = [
     'PERCENT'
 ] + list(reserved.values())
 
+t_DOUBLEAMPERSAND = r'&&'
 t_DOUBLEPIPES = r'\|\|'
 t_PLUS      = r'\+'
 t_MINUS     = r'-'
