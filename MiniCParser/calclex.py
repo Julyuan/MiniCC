@@ -9,6 +9,7 @@ reserved = {
     'void'  : 'VOID',
     'int'   : 'INT',
     'float' : 'FLOAT',
+    'char'  : 'CHAR',
     'struct' : 'STRUCT',
     'for' : 'FOR',
     'continue' : 'CONTINUE'
@@ -46,9 +47,11 @@ tokens = [
     'RANGLEEQUAL',
     'EXCLAMATION',
     'PERCENT',
-    'PERIOD'
+    'PERIOD',
+    'DOT'
 ] + list(reserved.values())
 
+t_LEFTARROW = r'->'
 t_DOUBLEAMPERSAND = r'&&'
 t_DOUBLEPIPES = r'\|\|'
 t_DOUBLEPLUS = r'++'
@@ -76,6 +79,7 @@ t_LANGLEEQUAL = r'<='
 t_RANGLEEQUAL = r'>='
 t_EXCLAMATION = r'!'
 t_PERCENT = r'%'
+t_DOT = r'.'
 
 def t_FLOATLITERAL(t):
     r'\d+\.\d+'

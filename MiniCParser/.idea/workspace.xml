@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calclex.py" beforeDir="false" afterPath="$PROJECT_DIR$/calclex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calcyacc.py" beforeDir="false" afterPath="$PROJECT_DIR$/calcyacc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,12 +53,13 @@
     <session id="2119822090">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -81,52 +80,49 @@
         <counts>
           <entry key="design specification" value="2" />
           <entry key="md" value="1879" />
-          <entry key="py" value="2794" />
+          <entry key="py" value="3398" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="1879" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="2794" />
+          <entry key="Python" value="3398" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calclex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="67" column="11" lean-forward="true" selection-start-line="67" selection-start-column="2" selection-end-line="67" selection-end-column="11" />
+            <state relative-caret-position="378">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
               <folding>
-                <marker date="1559231157990" expanded="true" signature="1416:1476" ph="..." />
-                <marker date="1559231157990" expanded="true" signature="1496:1501" ph="..." />
-                <marker date="1559231157990" expanded="true" signature="1548:1549" ph="..." />
-                <marker date="1559231157990" expanded="true" signature="1566:1571" ph="..." />
-                <marker date="1559231157990" expanded="true" signature="1648:1653" ph="..." />
+                <marker date="1559400659810" expanded="true" signature="1482:1542" ph="..." />
+                <marker date="1559400659810" expanded="true" signature="1562:1567" ph="..." />
+                <marker date="1559400659810" expanded="true" signature="1614:1615" ph="..." />
+                <marker date="1559400659810" expanded="true" signature="1632:1637" ph="..." />
+                <marker date="1559400659810" expanded="true" signature="1714:1719" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calcyacc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2655">
-              <caret line="177" column="4" selection-start-line="177" selection-start-column="4" selection-end-line="177" selection-end-column="4" />
+            <state relative-caret-position="391">
+              <caret line="189" selection-start-line="189" selection-end-line="189" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1559232919633" expanded="true" signature="1390:1456" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="2234:2329" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="2355:2356" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="3259:3298" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="3329:3396" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="3422:4023" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="3630:3707" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="5178:5266" ph="..." />
-                <marker date="1559232919633" expanded="true" signature="5701:5946" ph="..." />
+                <marker date="1559400659808" expanded="true" signature="1400:1466" ph="..." />
+                <marker date="1559400659808" expanded="true" signature="2244:2339" ph="..." />
+                <marker date="1559400659808" expanded="true" signature="2365:2366" ph="..." />
+                <marker date="1559400659808" expanded="true" signature="3642:3774" ph="..." />
+                <marker date="1559400659808" expanded="true" signature="5449:5570" ph="..." />
+                <marker date="1559400659808" expanded="true" signature="6312:6377" ph="..." />
               </folding>
             </state>
           </provider>
@@ -215,6 +211,9 @@
       <find>option</find>
       <find>single</find>
       <find>compound</find>
+      <find>UMINUS</find>
+      <find>struct</find>
+      <find>IDLis</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -227,8 +226,8 @@
         <option value="$PROJECT_DIR$/design specification.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/semantic_analysis.py" />
-        <option value="$PROJECT_DIR$/calclex.py" />
         <option value="$PROJECT_DIR$/calcyacc.py" />
+        <option value="$PROJECT_DIR$/calclex.py" />
       </list>
     </option>
   </component>
@@ -377,7 +376,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="840" height="980" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.14224665" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -393,7 +391,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32959184" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32882884" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -410,17 +408,31 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/design specification.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="522">
             <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/semantic_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <marker date="1559211049728" expanded="true" signature="256:266" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="284:294" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="327:342" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="729:733" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="1198:1203" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -454,49 +466,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/semantic_analysis.py">
+    <entry file="file://$PROJECT_DIR$/calcyacc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        <state relative-caret-position="391">
+          <caret line="189" selection-start-line="189" selection-end-line="189" />
           <folding>
-            <marker date="1559211049728" expanded="true" signature="256:266" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="284:294" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="327:342" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="729:733" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="1198:1203" ph="..." />
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1559400659808" expanded="true" signature="1400:1466" ph="..." />
+            <marker date="1559400659808" expanded="true" signature="2244:2339" ph="..." />
+            <marker date="1559400659808" expanded="true" signature="2365:2366" ph="..." />
+            <marker date="1559400659808" expanded="true" signature="3642:3774" ph="..." />
+            <marker date="1559400659808" expanded="true" signature="5449:5570" ph="..." />
+            <marker date="1559400659808" expanded="true" signature="6312:6377" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/calclex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="67" column="11" lean-forward="true" selection-start-line="67" selection-start-column="2" selection-end-line="67" selection-end-column="11" />
+        <state relative-caret-position="378">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
           <folding>
-            <marker date="1559231157990" expanded="true" signature="1416:1476" ph="..." />
-            <marker date="1559231157990" expanded="true" signature="1496:1501" ph="..." />
-            <marker date="1559231157990" expanded="true" signature="1548:1549" ph="..." />
-            <marker date="1559231157990" expanded="true" signature="1566:1571" ph="..." />
-            <marker date="1559231157990" expanded="true" signature="1648:1653" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calcyacc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2655">
-          <caret line="177" column="4" selection-start-line="177" selection-start-column="4" selection-end-line="177" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1559232919633" expanded="true" signature="1390:1456" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="2234:2329" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="2355:2356" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="3259:3298" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="3329:3396" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="3422:4023" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="3630:3707" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="5178:5266" ph="..." />
-            <marker date="1559232919633" expanded="true" signature="5701:5946" ph="..." />
+            <marker date="1559400659810" expanded="true" signature="1482:1542" ph="..." />
+            <marker date="1559400659810" expanded="true" signature="1562:1567" ph="..." />
+            <marker date="1559400659810" expanded="true" signature="1614:1615" ph="..." />
+            <marker date="1559400659810" expanded="true" signature="1632:1637" ph="..." />
+            <marker date="1559400659810" expanded="true" signature="1714:1719" ph="..." />
           </folding>
         </state>
       </provider>

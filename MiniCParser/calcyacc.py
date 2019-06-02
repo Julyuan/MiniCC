@@ -10,7 +10,7 @@ precedence = (
     ('left', 'LANGLE','RANGLE','LANGLEEQUAL','RANGLEEQUAL'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE', 'PERCENT'),
-    ('right', 'UMINUS','EXCLAMATION'),
+    ('right', 'UMINUS','EXCLAMATION','POINTER'),
     ('left','ELSE')
 )
 
@@ -121,6 +121,11 @@ def p_expr_uminus(p):
     'expression : MINUS expression %prec UMINUS'
     p[0] = ('minus',p[2])
 
+def p_identifier_pointer(p):
+    '''pointerID : POINTER pointerID %prec TIMES
+                 | POINTER ID       %prec TIMES'''
+    p[0] = ('pointerID',p[2])
+
 def p_expr_exclamation(p):
     'expression : EXCLAMATION expression'
     p[0] = ('exclamation',p[2])
@@ -143,13 +148,9 @@ def p_error(p):
 
 def p_declaration(p):
     '''declaration : staticVariableDeclaration
-                  | functionDeclaration
-                  | structDeclaration'''
+                  | functionDeclaration '''
     p[0] = ('declaration', p[1])
 
-def p_structDeclaration(p):
-    '''structDeclaration : staticVariableDeclarationList'''
-    p[0] = ('structDeclaration',p[1])
 
 def p_staticVariableDeclarationList(p):
     '''staticVariableDeclarationList : staticVariableDeclarationList staticVariableDeclaration
@@ -178,28 +179,44 @@ def p_continueStatement(p):
 
 def p_typeSpec(p):
     '''typeSpec : VOID
-                | INT'''
+                | INT
+                | FLOAT
+                | structSpecifier'''
     p[0] = ('typeSpec',p[1])
 
+def p_structSpecifier(p):
+    '''structSpecifier : STRUCT ID LCURLY staticVariableDeclarationList RCURLY
+                        | STRUCT ID'''
+
+
 def p_staticVariableDeclaration(p):
-    '''staticVariableDeclaration : typeSpec IDList SEMICOLON
-                                | typeSpec ID LSQUARE INTLITERAL RSQUARE SEMICOLON'''
+    '''staticVariableDeclaration : typeSpec declaratorList SEMICOLON
+                                | typeSpec declarator LSQUARE INTLITERAL RSQUARE SEMICOLON'''
     if len(p)<=4:
         p[0] = ('staticVariableDeclaration',p[1])
     else:
         p[0] = ('staticVariableArrayDeclaration',p[1],p[3])
 
-def p_IDList(p):
-    '''IDList : IDList COMMA ID
-                | ID'''
+def p_declaratorList(p):
+    '''declaratorList : declaratorList COMMA declarator
+                | declarator'''
     if len(p)<=2:
         temp = list()
         temp.append(p[1])
-        p[0] = ('IDList',temp)
+        p[0] = ('declaratorList',temp)
     else:
         temp = p[1][1]
         temp.append(p[3])
         p[0] = (p[1][0], temp)
+
+def p_declarator(p):
+    '''declarator : pointer ID
+                 | ID'''
+
+def p_pointer(p):
+    '''pointer : TIMES
+                | TIMES pointer
+    '''
 
 def p_parameter(p):
     '''parameter : typeSpec ID'''
