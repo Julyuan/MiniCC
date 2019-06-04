@@ -15,8 +15,6 @@ reserved = {
     'continue' : 'CONTINUE'
 }
 tokens = [
-    'NUMBER',
-    'FLOAT',
     'PLUS',
     'MINUS',
     'TIMES',
@@ -47,16 +45,20 @@ tokens = [
     'RANGLEEQUAL',
     'EXCLAMATION',
     'PERCENT',
-    'PERIOD',
-    'DOT'
+    'DOT',
+    'ADDR',
+    'LEFTARROW',
+    'FLOATLITERAL',
+    'INTLITERAL'
 ] + list(reserved.values())
 
-t_LEFTARROW = r'->'
+t_ADDR = r'&'
+t_LEFTARROW = r'\->'
 t_DOUBLEAMPERSAND = r'&&'
 t_DOUBLEPIPES = r'\|\|'
-t_DOUBLEPLUS = r'++'
+t_DOUBLEPLUS = r'\+\+'
 t_DOUBLEMINUS = r'--'
-t_PLUSEQUAL = r'+='
+t_PLUSEQUAL = r'\+='
 MINUSEQUAL = r'-='
 TIMESEQUAL = r'*='
 DIVIDEEQUAL = r'/='
@@ -68,6 +70,8 @@ t_LPAREN    = r'\('
 t_RPAREN    = r'\)'
 t_LCURLY    = r'\{'
 t_RCURLY    = r'\}'
+t_LSQUARE   = r'\['
+t_RSQUARE   = r'\]'
 t_SEMICOLON = r';'
 t_COMMA     = r','
 t_DOUBLEEQUAL = r'=='
@@ -79,7 +83,7 @@ t_LANGLEEQUAL = r'<='
 t_RANGLEEQUAL = r'>='
 t_EXCLAMATION = r'!'
 t_PERCENT = r'%'
-t_DOT = r'.'
+t_DOT = r'\.'
 
 def t_FLOATLITERAL(t):
     r'\d+\.\d+'
@@ -110,19 +114,7 @@ lexer = lex.lex()
 
 
 # Test it out
-data = '''
-int main(void){
-int a;
-int b;
-int c;
-int d;
-a=1;
-b=2;
-if(a=3)c=4;
-if(a>b&&(c=5))d=6;
-else d=7;
-return 0;
-}
+data = '''return 0;
 '''
 
 # Give the lexer some input

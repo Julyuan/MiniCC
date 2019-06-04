@@ -3,14 +3,14 @@ from calclex import tokens
 
 precedence = (
     #('nonassoc','LESSTHAN', 'GREATERTHAN'),
-    ('right','SINGLEEQUAL'),
+    ('right','SINGLEEQUAL','PLUSEQUAL','MINUSEQUAL','DIVIDEEQUAL','TIMESEQUAL'),
     ('left', 'DOUBLEPIPES'),
     ('left', 'DOUBLEAMPERSAND'),
     ('left','BANGEQUAL','DOUBLEEQUAL'),
     ('left', 'LANGLE','RANGLE','LANGLEEQUAL','RANGLEEQUAL'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE', 'PERCENT'),
-    ('right', 'UMINUS','EXCLAMATION','POINTER'),
+    ('right', 'UMINUS','EXCLAMATION','REMOVEREF','ADDR'),
     ('left','ELSE')
 )
 
@@ -71,8 +71,10 @@ def p_statement(p):
                  | compoundStatement
                  | ifStatement
                  | whileStatement
+                 | forStatement
                  | returnStatement
-                 | breakStatement'''
+                 | breakStatement
+                 | continueStatement'''
     p[0] = ('statement', p[1])
 
 def p_expressionStatement(p):
@@ -80,9 +82,42 @@ def p_expressionStatement(p):
                            | SEMICOLON'''
     p[0] = ('expressionStatement',p[1])
 
+def p_expression_dot(p):
+    '''expression : expression DOT ID'''
+    p[0] = ('dotExpression',p[1],p[3])
+
+def p_expression_arrow(p):
+    '''expression : expression LEFTARROW ID'''
+    p[0] = ('leftarrowExpression',p[1],p[3])
+
+def p_expression_getaddr(p):
+    '''expression : ADDR expression'''
+    p[0] = ('getaddrExpression',p[2])
+
+def p_expression_removeref(p):
+    '''expression : TIMES expression %prec REMOVEREF'''
+    p[0] = ('removeref',p[2])
+
+def p_expression_array(p):
+    '''expression : expression LSQUARE expression RSQUARE'''
+    p[0] = ('arrayExpression',p[1],p[3])
+
 def p_expression_assign(p):
     '''expression : ID SINGLEEQUAL expression'''
-    p[0] = ('assign-expression', p[1],p[3])
+    p[0] = ('assignExpression', p[1],p[3])
+
+def p_expression_composite(p):
+    '''expression : expression DIVIDEEQUAL expression
+                  | expression PLUSEQUAL expression
+                  | expression MINUSEQUAL expression
+                  | expression TIMESEQUAL expression'''
+    p[0] = ('compositeExpression',p[1],p[3])
+
+def p_expression_selfoperator(p):
+    '''expression : expression DOUBLEPLUS
+                  | expression DOUBLEMINUS'''
+    p[0] = ('selfoperatorExpression',p[1],p[2])
+
 
 def p_expression_binop(p):
     '''expression : expression PLUS expression
@@ -121,10 +156,10 @@ def p_expr_uminus(p):
     'expression : MINUS expression %prec UMINUS'
     p[0] = ('minus',p[2])
 
-def p_identifier_pointer(p):
-    '''pointerID : POINTER pointerID %prec TIMES
-                 | POINTER ID       %prec TIMES'''
-    p[0] = ('pointerID',p[2])
+# def p_identifier_pointer(p):
+#     '''pointerID : POINTER pointerID %prec TIMES
+#                  | POINTER ID       %prec TIMES'''
+#     p[0] = ('pointerID',p[2])
 
 def p_expr_exclamation(p):
     'expression : EXCLAMATION expression'
@@ -144,6 +179,7 @@ def p_declarationList(p):
         p[0] = (p[1][0], temp)
 
 def p_error(p):
+    print(p)
     print("Syntax error in input!")
 
 def p_declaration(p):
@@ -165,7 +201,7 @@ def p_staticVariableDeclarationList(p):
         p[0] = (p[1][0], temp)
 
 def p_forStatement(p):
-    '''forStatement : FOR LPAREN optionalExpression SEMICOLON optionalExpression SEMICOLON optionalExpression SERPAREN statement'''
+    '''forStatement : FOR LPAREN optionalExpression SEMICOLON optionalExpression SEMICOLON optionalExpression RPAREN statement'''
     p[0] = ('forStatement',p[3],p[5],p[7],p[9])
 
 def p_optionalExpression(p):
@@ -181,13 +217,17 @@ def p_typeSpec(p):
     '''typeSpec : VOID
                 | INT
                 | FLOAT
+                | CHAR
                 | structSpecifier'''
     p[0] = ('typeSpec',p[1])
 
 def p_structSpecifier(p):
     '''structSpecifier : STRUCT ID LCURLY staticVariableDeclarationList RCURLY
                         | STRUCT ID'''
-
+    if len(p)>3:
+        p[0] = ('structSpecifier',p[2],p[4])
+    else:
+        p[0] = ('structSpecifier',p[2])
 
 def p_staticVariableDeclaration(p):
     '''staticVariableDeclaration : typeSpec declaratorList SEMICOLON
@@ -207,16 +247,28 @@ def p_declaratorList(p):
     else:
         temp = p[1][1]
         temp.append(p[3])
-        p[0] = (p[1][0], temp)
+        p[0] = ('declarationList',p[1][0], temp)
 
 def p_declarator(p):
     '''declarator : pointer ID
                  | ID'''
+    if len(p)==3:
+        p[0] = ('declarator',p[1],p[2])
+    else:
+        p[0] = ('declarator',p[1])
 
 def p_pointer(p):
     '''pointer : TIMES
                 | TIMES pointer
     '''
+    if len(p)==3:
+        temp=p[1][1]
+        temp.append(p[2])
+        p[0] = ('pointer',p[1][0], temp)
+    else:
+        temp=list()
+        temp.append(p[1])
+        p[0] = ('pointer', temp)
 
 def p_parameter(p):
     '''parameter : typeSpec ID'''
@@ -277,6 +329,7 @@ def p_breakStatement(p):
     p[0] = ('breakStatement')
 
 parser = yacc.yacc()
+
 
 s = '''
 int main(void){
