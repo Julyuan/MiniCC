@@ -103,8 +103,29 @@ def p_expression_array(p):
     p[0] = ('arrayExpression',p[1],p[3])
 
 def p_expression_assign(p):
-    '''expression : ID SINGLEEQUAL expression'''
+    '''expression : expression SINGLEEQUAL expression'''
     p[0] = ('assignExpression', p[1],p[3])
+
+def p_expression_functioncall(p):
+    '''expression : ID LPAREN argumentExpressionList RPAREN
+                    | ID LPAREN RPAREN'''
+    if len(p)==5:
+        p[0] = ('functioncallExpression',p[1],p[3])
+    else:
+        p[0] = ('funcitioncallExpression',p[1],None)
+
+
+def p_expression_argument_list(p):
+    '''argumentExpressionList : argumentExpressionList COMMA expression
+                     | expression'''
+    if len(p) == 4:
+        temp = p[1][1]
+        temp.append(p[3])
+        p[0] = (p[1][0],temp)
+    else:
+        temp = list()
+        temp.append(p[1])
+        p[0] = ('argumentExpressionList', temp)
 
 def p_expression_composite(p):
     '''expression : expression DIVIDEEQUAL expression
@@ -233,9 +254,9 @@ def p_staticVariableDeclaration(p):
     '''staticVariableDeclaration : typeSpec declaratorList SEMICOLON
                                 | typeSpec declarator LSQUARE INTLITERAL RSQUARE SEMICOLON'''
     if len(p)<=4:
-        p[0] = ('staticVariableDeclaration',p[1])
+        p[0] = ('staticVariableDeclaration',p[1],p[2])
     else:
-        p[0] = ('staticVariableArrayDeclaration',p[1],p[3])
+        p[0] = ('staticVariableArrayDeclaration',p[1],p[2],p[4])
 
 def p_declaratorList(p):
     '''declaratorList : declaratorList COMMA declarator
@@ -247,7 +268,7 @@ def p_declaratorList(p):
     else:
         temp = p[1][1]
         temp.append(p[3])
-        p[0] = ('declarationList',p[1][0], temp)
+        p[0] = ('declaratorList', temp)
 
 def p_declarator(p):
     '''declarator : pointer ID
@@ -264,7 +285,7 @@ def p_pointer(p):
     if len(p)==3:
         temp=p[1][1]
         temp.append(p[2])
-        p[0] = ('pointer',p[1][0], temp)
+        p[0] = ('pointer', temp)
     else:
         temp=list()
         temp.append(p[1])
@@ -305,8 +326,8 @@ def p_localDeclarations(p):
         p[0] = (p[1][0], temp)
 
 def p_localDeclaration(p):
-    '''localDeclaration : typeSpec ID SEMICOLON'''
-    p[0] = ('localDeclaration',p[1],p[2])
+    '''localDeclaration : staticVariableDeclaration'''
+    p[0] = ('localDeclaration',p[1])
 
 def p_optionalElseStatement(p):
     '''optionalElseStatement : ELSE statement
@@ -332,18 +353,32 @@ parser = yacc.yacc()
 
 
 s = '''
-int main(void){
-int a;
-int b;
-int c;
-int d;
-a=1;
-b=2;
-if(a=3)c=4;
-if(a>b&&(c=5))d=6;
-else d=7;
-return 0;
+int a,b;
+int b[10];
+int f(int x,int y){
+	b[2];
+	if(x<=1)
+		return x;
+	return f(x-1,y)+f(x-2,y);
 }
+int main(void){
+	int i;
+	int b[10];
+	b[2]=0;
+	a=5;
+	if(b[2]+3&&(a=(b[2]+5&&a<=5)))
+		b[0]=f(5,b[2]);
+	b[1]=f(6,b[2]);
+	for(i=0;i<5;i++)
+		if(a-1)
+			a++;
+		else if(a&&0)
+			a++;
+		else
+			b[i]=f(i,-1);
+    return 0;
+}
+
 '''
 
 def parse_grammar(s):

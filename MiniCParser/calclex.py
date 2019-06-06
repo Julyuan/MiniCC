@@ -114,7 +114,13 @@ lexer = lex.lex()
 
 
 # Test it out
-data = '''return 0;
+data = '''int a,b[10];
+int f(int x,int y){
+	b[2]=2;
+	if(x<=1)
+		return x;
+	return f(x-1,y)+f(x-2,y);
+}
 '''
 
 # Give the lexer some input
