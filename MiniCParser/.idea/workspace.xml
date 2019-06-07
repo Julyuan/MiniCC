@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd706447-fa73-4712-837f-5b9864ec136d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/calclex.py" beforeDir="false" afterPath="$PROJECT_DIR$/calclex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calcyacc.py" beforeDir="false" afterPath="$PROJECT_DIR$/calcyacc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,14 +81,14 @@
         <counts>
           <entry key="design specification" value="2" />
           <entry key="md" value="1879" />
-          <entry key="py" value="5553" />
+          <entry key="py" value="5781" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="1879" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="5553" />
+          <entry key="Python" value="5781" />
         </counts>
       </usages-collector>
     </session>
@@ -99,14 +98,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calclex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1830">
-              <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
+            <state relative-caret-position="225">
+              <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding>
-                <marker date="1559813910092" expanded="true" signature="1567:1627" ph="..." />
-                <marker date="1559813910092" expanded="true" signature="1647:1652" ph="..." />
-                <marker date="1559813910092" expanded="true" signature="1699:1700" ph="..." />
-                <marker date="1559813910092" expanded="true" signature="1717:1722" ph="..." />
-                <marker date="1559813910092" expanded="true" signature="1799:1804" ph="..." />
+                <marker date="1559914303035" expanded="true" signature="1621:1681" ph="..." />
+                <marker date="1559914303035" expanded="true" signature="1701:1706" ph="..." />
+                <marker date="1559914303035" expanded="true" signature="1753:1754" ph="..." />
+                <marker date="1559914303035" expanded="true" signature="1771:1776" ph="..." />
+                <marker date="1559914303035" expanded="true" signature="1853:1858" ph="..." />
               </folding>
             </state>
           </provider>
@@ -115,13 +114,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calcyacc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="363" column="1" lean-forward="true" selection-start-line="363" selection-start-column="1" selection-end-line="363" selection-end-column="1" />
+            <state relative-caret-position="331">
+              <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1559899478778" expanded="true" signature="1486:1552" ph="..." />
-                <marker date="1559899478778" expanded="true" signature="2596:2824" ph="..." />
-                <marker date="1559899478778" expanded="true" signature="3388:3704" ph="..." />
+                <marker date="1559914864240" expanded="true" signature="1486:1552" ph="..." />
+                <marker date="1559914864240" expanded="true" signature="2345:2442" ph="..." />
+                <marker date="1559914864240" expanded="true" signature="2829:3057" ph="..." />
+                <marker date="1559914864240" expanded="true" signature="3621:3937" ph="..." />
               </folding>
             </state>
           </provider>
@@ -192,7 +192,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>conflic</find>
       <find>parameters</find>
       <find>number</find>
       <find>option</find>
@@ -222,6 +221,7 @@
       <find>self</find>
       <find>array</find>
       <find>LSQUARE</find>
+      <find>pluseq</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -391,7 +391,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32857144" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32857144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -400,7 +400,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29795918" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29795918" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -428,20 +428,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calclex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="122" column="1" selection-start-line="122" selection-start-column="1" selection-end-line="122" selection-end-column="1" />
-          <folding>
-            <marker date="1559813910092" expanded="true" signature="1567:1627" ph="..." />
-            <marker date="1559813910092" expanded="true" signature="1647:1652" ph="..." />
-            <marker date="1559813910092" expanded="true" signature="1699:1700" ph="..." />
-            <marker date="1559813910092" expanded="true" signature="1717:1722" ph="..." />
-            <marker date="1559813910092" expanded="true" signature="1799:1804" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -489,15 +475,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/calclex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding>
+            <marker date="1559914303035" expanded="true" signature="1621:1681" ph="..." />
+            <marker date="1559914303035" expanded="true" signature="1701:1706" ph="..." />
+            <marker date="1559914303035" expanded="true" signature="1753:1754" ph="..." />
+            <marker date="1559914303035" expanded="true" signature="1771:1776" ph="..." />
+            <marker date="1559914303035" expanded="true" signature="1853:1858" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/calcyacc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="363" column="1" lean-forward="true" selection-start-line="363" selection-start-column="1" selection-end-line="363" selection-end-column="1" />
+        <state relative-caret-position="331">
+          <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1559899478778" expanded="true" signature="1486:1552" ph="..." />
-            <marker date="1559899478778" expanded="true" signature="2596:2824" ph="..." />
-            <marker date="1559899478778" expanded="true" signature="3388:3704" ph="..." />
+            <marker date="1559914864240" expanded="true" signature="1486:1552" ph="..." />
+            <marker date="1559914864240" expanded="true" signature="2345:2442" ph="..." />
+            <marker date="1559914864240" expanded="true" signature="2829:3057" ph="..." />
+            <marker date="1559914864240" expanded="true" signature="3621:3937" ph="..." />
           </folding>
         </state>
       </provider>

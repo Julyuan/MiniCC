@@ -78,6 +78,14 @@ def p_statement(p):
                  | continueStatement'''
     p[0] = ('statement', p[1])
 
+def p_expression_getchar(p):
+    '''expression : GETCHAR LPAREN RPAREN'''
+    p[0] = ('getcharExpression')
+
+def p_expression_putchar(p):
+    '''expression : PUTCHAR LPAREN expression RPAERN'''
+    p[0] = ('putcharExpression', p[3])
+
 def p_expressionStatement(p):
     '''expressionStatement : expression SEMICOLON
                            | SEMICOLON'''

@@ -12,7 +12,9 @@ reserved = {
     'char'  : 'CHAR',
     'struct' : 'STRUCT',
     'for' : 'FOR',
-    'continue' : 'CONTINUE'
+    'continue' : 'CONTINUE',
+    'putchar' : 'PUTCHAR',
+    'getchar' : 'GETCHAR'
 }
 tokens = [
     'PLUS',
