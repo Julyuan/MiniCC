@@ -10,6 +10,7 @@ precedence = (
     ('left', 'LANGLE','RANGLE','LANGLEEQUAL','RANGLEEQUAL'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE', 'PERCENT'),
+    ('left', 'LSQUARE'),
     ('right', 'UMINUS','EXCLAMATION','REMOVEREF','ADDR'),
     ('left','ELSE')
 )
@@ -98,13 +99,14 @@ def p_expression_removeref(p):
     '''expression : TIMES expression %prec REMOVEREF'''
     p[0] = ('removeref',p[2])
 
-def p_expression_array(p):
-    '''expression : expression LSQUARE expression RSQUARE'''
-    p[0] = ('arrayExpression',p[1],p[3])
 
 def p_expression_assign(p):
     '''expression : expression SINGLEEQUAL expression'''
     p[0] = ('assignExpression', p[1],p[3])
+
+def p_expression_array(p):
+    '''expression : expression LSQUARE expression RSQUARE'''
+    p[0] = ('arrayExpression',p[1],p[3])
 
 def p_expression_functioncall(p):
     '''expression : ID LPAREN argumentExpressionList RPAREN
@@ -353,29 +355,11 @@ parser = yacc.yacc()
 
 
 s = '''
-int a,b;
+int a;
 int b[10];
-int f(int x,int y){
-	b[2];
-	if(x<=1)
-		return x;
-	return f(x-1,y)+f(x-2,y);
-}
+
 int main(void){
-	int i;
-	int b[10];
-	b[2]=0;
-	a=5;
-	if(b[2]+3&&(a=(b[2]+5&&a<=5)))
-		b[0]=f(5,b[2]);
-	b[1]=f(6,b[2]);
-	for(i=0;i<5;i++)
-		if(a-1)
-			a++;
-		else if(a&&0)
-			a++;
-		else
-			b[i]=f(i,-1);
+    a=b[1];
     return 0;
 }
 

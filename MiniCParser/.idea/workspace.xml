@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd706447-fa73-4712-837f-5b9864ec136d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calcyacc.py" beforeDir="false" afterPath="$PROJECT_DIR$/calcyacc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +15,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/MiniCParser$semantic_analysis.coverage" NAME="semantic_analysis Coverage Results" MODIFIED="1559015482578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MiniCParser$calclex.coverage" NAME="calclex Coverage Results" MODIFIED="1559211949955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MiniCParser$calcyacc.coverage" NAME="calcyacc Coverage Results" MODIFIED="1559816804197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MiniCParser$calcyacc.coverage" NAME="calcyacc Coverage Results" MODIFIED="1559899480630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1055843013">
@@ -80,14 +82,14 @@
         <counts>
           <entry key="design specification" value="2" />
           <entry key="md" value="1879" />
-          <entry key="py" value="5521" />
+          <entry key="py" value="5553" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="1879" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="5521" />
+          <entry key="Python" value="5553" />
         </counts>
       </usages-collector>
     </session>
@@ -113,13 +115,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calcyacc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="366" column="11" lean-forward="true" selection-start-line="366" selection-start-column="11" selection-end-line="366" selection-end-column="11" />
+            <state relative-caret-position="339">
+              <caret line="363" column="1" lean-forward="true" selection-start-line="363" selection-start-column="1" selection-end-line="363" selection-end-column="1" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1559816803057" expanded="true" signature="1461:1527" ph="..." />
-                <marker date="1559816803057" expanded="true" signature="2571:2928" ph="..." />
-                <marker date="1559816803057" expanded="true" signature="3362:3678" ph="..." />
+                <marker date="1559899478778" expanded="true" signature="1486:1552" ph="..." />
+                <marker date="1559899478778" expanded="true" signature="2596:2824" ph="..." />
+                <marker date="1559899478778" expanded="true" signature="3388:3704" ph="..." />
               </folding>
             </state>
           </provider>
@@ -190,7 +192,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>127</find>
       <find>conflic</find>
       <find>parameters</find>
       <find>number</find>
@@ -200,7 +201,6 @@
       <find>struct</find>
       <find>IDLis</find>
       <find>staticVariableDeclarationList</find>
-      <find>array</find>
       <find>UMINUS</find>
       <find>POINTER</find>
       <find>shift</find>
@@ -220,6 +220,8 @@
       <find>local</find>
       <find>declara</find>
       <find>self</find>
+      <find>array</find>
+      <find>LSQUARE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -389,7 +391,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32882884" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32857144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -398,7 +400,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29795918" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29795918" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -489,13 +491,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/calcyacc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="366" column="11" lean-forward="true" selection-start-line="366" selection-start-column="11" selection-end-line="366" selection-end-column="11" />
+        <state relative-caret-position="339">
+          <caret line="363" column="1" lean-forward="true" selection-start-line="363" selection-start-column="1" selection-end-line="363" selection-end-column="1" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1559816803057" expanded="true" signature="1461:1527" ph="..." />
-            <marker date="1559816803057" expanded="true" signature="2571:2928" ph="..." />
-            <marker date="1559816803057" expanded="true" signature="3362:3678" ph="..." />
+            <marker date="1559899478778" expanded="true" signature="1486:1552" ph="..." />
+            <marker date="1559899478778" expanded="true" signature="2596:2824" ph="..." />
+            <marker date="1559899478778" expanded="true" signature="3388:3704" ph="..." />
           </folding>
         </state>
       </provider>
