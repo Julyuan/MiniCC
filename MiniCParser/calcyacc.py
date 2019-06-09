@@ -83,7 +83,7 @@ def p_expression_getchar(p):
     p[0] = ('getcharExpression')
 
 def p_expression_putchar(p):
-    '''expression : PUTCHAR LPAREN expression RPAERN'''
+    '''expression : PUTCHAR LPAREN expression LPAREN'''
     p[0] = ('putcharExpression', p[3])
 
 def p_expressionStatement(p):
@@ -142,7 +142,7 @@ def p_expression_composite(p):
                   | expression PLUSEQUAL expression
                   | expression MINUSEQUAL expression
                   | expression TIMESEQUAL expression'''
-    p[0] = ('compositeExpression',p[1],p[3])
+    p[0] = ('compositeExpression',p[1],p[2],p[3])
 
 def p_expression_selfoperator(p):
     '''expression : expression DOUBLEPLUS
