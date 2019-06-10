@@ -116,6 +116,10 @@ def p_expression_array(p):
     '''expression : expression LSQUARE expression RSQUARE'''
     p[0] = ('arrayExpression',p[1],p[3])
 
+def p_expression_string(p):
+    '''expression : STRINGLITERAL'''
+    p[0] = ('stringExpression',p[1])
+
 def p_expression_functioncall(p):
     '''expression : ID LPAREN argumentExpressionList RPAREN
                     | ID LPAREN RPAREN'''

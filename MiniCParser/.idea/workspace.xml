@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd706447-fa73-4712-837f-5b9864ec136d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calclex.py" beforeDir="false" afterPath="$PROJECT_DIR$/calclex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calcyacc.py" beforeDir="false" afterPath="$PROJECT_DIR$/calcyacc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,40 +66,40 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="design specification" value="1" />
-          <entry key="md" value="1" />
-          <entry key="py" value="2" />
+          <entry key="md" value="2" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="1" />
+          <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="2" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="design specification" value="2" />
           <entry key="md" value="1879" />
-          <entry key="py" value="5832" />
+          <entry key="py" value="5926" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="1879" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="5832" />
+          <entry key="Python" value="5926" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calclex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
+            <state relative-caret-position="398">
+              <caret line="96" column="20" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
               <folding>
                 <marker date="1560176484659" expanded="true" signature="1679:1739" ph="..." />
                 <marker date="1560176484659" expanded="true" signature="1759:1764" ph="..." />
@@ -113,16 +112,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/design specification.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="1290">
+                <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calcyacc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="80" column="28" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+            <state relative-caret-position="316">
+              <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1560091059530" expanded="true" signature="1486:1552" ph="..." />
-                <marker date="1560091059530" expanded="true" signature="2345:2442" ph="..." />
-                <marker date="1560091059530" expanded="true" signature="2829:3057" ph="..." />
-                <marker date="1560091059530" expanded="true" signature="3621:3937" ph="..." />
+                <marker date="1560176753470" expanded="true" signature="1486:1552" ph="..." />
+                <marker date="1560176753470" expanded="true" signature="2345:2442" ph="..." />
+                <marker date="1560176753470" expanded="true" signature="2829:3057" ph="..." />
+                <marker date="1560176753470" expanded="true" signature="3343:3423" ph="..." />
+                <marker date="1560176753470" expanded="true" signature="3728:4044" ph="..." />
               </folding>
             </state>
           </provider>
@@ -131,7 +143,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semantic_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="27">
               <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
               <folding>
                 <marker date="1559211049728" expanded="true" signature="256:266" ph="..." />
@@ -139,18 +151,6 @@
                 <marker date="1559211049728" expanded="true" signature="327:342" ph="..." />
                 <marker date="1559211049728" expanded="true" signature="729:733" ph="..." />
                 <marker date="1559211049728" expanded="true" signature="1198:1203" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Desktop/Research/code/autoindexTest/autoindex/lineitem_query/lineitem_query/lineitem_query.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,7 +176,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>number</find>
       <find>option</find>
       <find>single</find>
       <find>compound</find>
@@ -206,6 +205,7 @@
       <find>LSQUARE</find>
       <find>pluseq</find>
       <find>composi</find>
+      <find>parameter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -218,8 +218,8 @@
         <option value="$PROJECT_DIR$/design specification.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/semantic_analysis.py" />
-        <option value="$PROJECT_DIR$/calcyacc.py" />
         <option value="$PROJECT_DIR$/calclex.py" />
+        <option value="$PROJECT_DIR$/calcyacc.py" />
       </list>
     </option>
   </component>
@@ -369,12 +369,12 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17826618" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17826618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32857144" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32857144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -383,7 +383,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29795918" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29795918" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -399,44 +399,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/design specification.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="522">
-            <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/semantic_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <marker date="1559211049728" expanded="true" signature="256:266" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="284:294" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="327:342" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="729:733" ph="..." />
-            <marker date="1559211049728" expanded="true" signature="1198:1203" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parser.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94470">
           <caret line="6298" selection-start-line="6298" selection-end-line="6298" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parsetab.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -448,6 +416,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/calclex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="96" column="20" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+          <folding>
+            <marker date="1560176484659" expanded="true" signature="1679:1739" ph="..." />
+            <marker date="1560176484659" expanded="true" signature="1759:1764" ph="..." />
+            <marker date="1560176484659" expanded="true" signature="1811:1812" ph="..." />
+            <marker date="1560176484659" expanded="true" signature="1829:1834" ph="..." />
+            <marker date="1560176484659" expanded="true" signature="1911:1916" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/design specification.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1290">
+            <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parsetab.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$USER_HOME$/Desktop/Research/code/autoindexTest/autoindex/lineitem_query/lineitem_query/lineitem_query.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -458,30 +458,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calcyacc.py">
+    <entry file="file://$PROJECT_DIR$/semantic_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="80" column="28" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+        <state relative-caret-position="27">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1560091059530" expanded="true" signature="1486:1552" ph="..." />
-            <marker date="1560091059530" expanded="true" signature="2345:2442" ph="..." />
-            <marker date="1560091059530" expanded="true" signature="2829:3057" ph="..." />
-            <marker date="1560091059530" expanded="true" signature="3621:3937" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="256:266" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="284:294" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="327:342" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="729:733" ph="..." />
+            <marker date="1559211049728" expanded="true" signature="1198:1203" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calclex.py">
+    <entry file="file://$PROJECT_DIR$/calcyacc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
+        <state relative-caret-position="316">
+          <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
           <folding>
-            <marker date="1560176484659" expanded="true" signature="1679:1739" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1759:1764" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1811:1812" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1829:1834" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1911:1916" ph="..." />
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1560176753470" expanded="true" signature="1486:1552" ph="..." />
+            <marker date="1560176753470" expanded="true" signature="2345:2442" ph="..." />
+            <marker date="1560176753470" expanded="true" signature="2829:3057" ph="..." />
+            <marker date="1560176753470" expanded="true" signature="3343:3423" ph="..." />
+            <marker date="1560176753470" expanded="true" signature="3728:4044" ph="..." />
           </folding>
         </state>
       </provider>
