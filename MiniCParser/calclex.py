@@ -51,9 +51,11 @@ tokens = [
     'ADDR',
     'LEFTARROW',
     'FLOATLITERAL',
-    'INTLITERAL'
+    'INTLITERAL',
+    "STRINGLITERAL"
 ] + list(reserved.values())
 
+t_STRINGLITERAL=r'\"(\\.|[^\\"])*\"'
 t_ADDR = r'&'
 t_LEFTARROW = r'\->'
 t_DOUBLEAMPERSAND = r'&&'
@@ -116,13 +118,7 @@ lexer = lex.lex()
 
 
 # Test it out
-data = '''int a,b[10];
-int f(int x,int y){
-	b[2]=2;
-	if(x<=1)
-		return x;
-	return f(x-1,y)+f(x-2,y);
-}
+data = '''"%d\n"
 '''
 
 # Give the lexer some input
