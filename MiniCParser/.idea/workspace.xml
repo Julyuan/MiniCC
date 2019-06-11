@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd706447-fa73-4712-837f-5b9864ec136d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calclex.py" beforeDir="false" afterPath="$PROJECT_DIR$/calclex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calcyacc.py" beforeDir="false" afterPath="$PROJECT_DIR$/calcyacc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,8 +16,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/MiniCParser$semantic_analysis.coverage" NAME="semantic_analysis Coverage Results" MODIFIED="1559015482578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MiniCParser$calclex.coverage" NAME="calclex Coverage Results" MODIFIED="1560176490268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MiniCParser$calcyacc.coverage" NAME="calcyacc Coverage Results" MODIFIED="1559899480630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MiniCParser$calclex.coverage" NAME="calclex Coverage Results" MODIFIED="1560182632020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MiniCParser$calcyacc.coverage" NAME="calcyacc Coverage Results" MODIFIED="1560182685627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1055843013">
@@ -51,16 +55,16 @@
     <session id="2119822090">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="5" />
-          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -81,14 +85,14 @@
         <counts>
           <entry key="design specification" value="2" />
           <entry key="md" value="1879" />
-          <entry key="py" value="5926" />
+          <entry key="py" value="5974" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="1879" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="5926" />
+          <entry key="Python" value="5974" />
         </counts>
       </usages-collector>
     </session>
@@ -98,14 +102,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calclex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="96" column="20" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+            <state relative-caret-position="1815">
+              <caret line="121" selection-start-line="121" selection-end-line="121" />
               <folding>
-                <marker date="1560176484659" expanded="true" signature="1679:1739" ph="..." />
-                <marker date="1560176484659" expanded="true" signature="1759:1764" ph="..." />
-                <marker date="1560176484659" expanded="true" signature="1811:1812" ph="..." />
-                <marker date="1560176484659" expanded="true" signature="1829:1834" ph="..." />
-                <marker date="1560176484659" expanded="true" signature="1911:1916" ph="..." />
+                <marker date="1560182628026" expanded="true" signature="1679:1739" ph="..." />
+                <marker date="1560182628026" expanded="true" signature="1759:1764" ph="..." />
+                <marker date="1560182628026" expanded="true" signature="1811:1812" ph="..." />
+                <marker date="1560182628026" expanded="true" signature="1829:1834" ph="..." />
+                <marker date="1560182628026" expanded="true" signature="1911:1916" ph="..." />
               </folding>
             </state>
           </provider>
@@ -126,15 +130,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/calcyacc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
+            <state relative-caret-position="480">
+              <caret line="308" column="38" selection-start-line="308" selection-start-column="38" selection-end-line="308" selection-end-column="38" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1560176753470" expanded="true" signature="1486:1552" ph="..." />
-                <marker date="1560176753470" expanded="true" signature="2345:2442" ph="..." />
-                <marker date="1560176753470" expanded="true" signature="2829:3057" ph="..." />
-                <marker date="1560176753470" expanded="true" signature="3343:3423" ph="..." />
-                <marker date="1560176753470" expanded="true" signature="3728:4044" ph="..." />
+                <marker date="1560240314813" expanded="true" signature="1486:1552" ph="..." />
+                <marker date="1560240314813" expanded="true" signature="2345:2442" ph="..." />
+                <marker date="1560240314813" expanded="true" signature="2829:3057" ph="..." />
+                <marker date="1560240314813" expanded="true" signature="3343:3419" ph="..." />
+                <marker date="1560240314813" expanded="true" signature="3724:4040" ph="..." />
               </folding>
             </state>
           </provider>
@@ -143,7 +147,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/semantic_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
+            <state relative-caret-position="225">
               <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
               <folding>
                 <marker date="1559211049728" expanded="true" signature="256:266" ph="..." />
@@ -159,8 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.out">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94470">
-              <caret line="6298" selection-start-line="6298" selection-end-line="6298" />
+            <state relative-caret-position="103320">
+              <caret line="6888" selection-start-line="6888" selection-end-line="6888" />
             </state>
           </provider>
         </entry>
@@ -176,8 +180,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>option</find>
-      <find>single</find>
       <find>compound</find>
       <find>struct</find>
       <find>IDLis</find>
@@ -206,6 +208,8 @@
       <find>pluseq</find>
       <find>composi</find>
       <find>parameter</find>
+      <find>call</find>
+      <find>pointer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -239,6 +243,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,7 +255,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,7 +276,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.calclex">
+  <component name="RunManager" selected="Python.calcyacc">
     <configuration name="calclex" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MiniCParser" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -346,8 +350,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.calclex" />
         <item itemvalue="Python.calcyacc" />
+        <item itemvalue="Python.calclex" />
         <item itemvalue="Python.semantic_analysis" />
       </list>
     </recent_temporary>
@@ -369,7 +373,7 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17826618" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18009768" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -399,13 +403,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/parser.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94470">
-          <caret line="6298" selection-start-line="6298" selection-end-line="6298" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -416,16 +413,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parsetab.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Research/code/autoindexTest/autoindex/lineitem_query/lineitem_query/lineitem_query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/calclex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="96" column="20" lean-forward="true" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+        <state relative-caret-position="1815">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
           <folding>
-            <marker date="1560176484659" expanded="true" signature="1679:1739" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1759:1764" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1811:1812" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1829:1834" ph="..." />
-            <marker date="1560176484659" expanded="true" signature="1911:1916" ph="..." />
+            <marker date="1560182628026" expanded="true" signature="1679:1739" ph="..." />
+            <marker date="1560182628026" expanded="true" signature="1759:1764" ph="..." />
+            <marker date="1560182628026" expanded="true" signature="1811:1812" ph="..." />
+            <marker date="1560182628026" expanded="true" signature="1829:1834" ph="..." />
+            <marker date="1560182628026" expanded="true" signature="1911:1916" ph="..." />
           </folding>
         </state>
       </provider>
@@ -445,22 +452,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parsetab.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Research/code/autoindexTest/autoindex/lineitem_query/lineitem_query/lineitem_query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/semantic_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
+        <state relative-caret-position="225">
           <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
             <marker date="1559211049728" expanded="true" signature="256:266" ph="..." />
@@ -472,17 +466,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parser.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103320">
+          <caret line="6888" selection-start-line="6888" selection-end-line="6888" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/calcyacc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
+        <state relative-caret-position="480">
+          <caret line="308" column="38" selection-start-line="308" selection-start-column="38" selection-end-line="308" selection-end-column="38" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1560176753470" expanded="true" signature="1486:1552" ph="..." />
-            <marker date="1560176753470" expanded="true" signature="2345:2442" ph="..." />
-            <marker date="1560176753470" expanded="true" signature="2829:3057" ph="..." />
-            <marker date="1560176753470" expanded="true" signature="3343:3423" ph="..." />
-            <marker date="1560176753470" expanded="true" signature="3728:4044" ph="..." />
+            <marker date="1560240314813" expanded="true" signature="1486:1552" ph="..." />
+            <marker date="1560240314813" expanded="true" signature="2345:2442" ph="..." />
+            <marker date="1560240314813" expanded="true" signature="2829:3057" ph="..." />
+            <marker date="1560240314813" expanded="true" signature="3343:3419" ph="..." />
+            <marker date="1560240314813" expanded="true" signature="3724:4040" ph="..." />
           </folding>
         </state>
       </provider>

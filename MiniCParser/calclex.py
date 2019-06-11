@@ -118,7 +118,10 @@ lexer = lex.lex()
 
 
 # Test it out
-data = '''"%d\n"
+data = '''
+int main(void){
+    printf("%d",a);
+}
 '''
 
 # Give the lexer some input

@@ -306,7 +306,7 @@ def p_pointer(p):
         p[0] = ('pointer', temp)
 
 def p_parameter(p):
-    '''parameter : typeSpec ID'''
+    '''parameter : typeSpec declarator'''
     p[0] = ('parameter',p[1],p[2])
 
 def p_parameterList(p):
@@ -367,11 +367,10 @@ parser = yacc.yacc()
 
 
 s = '''
-int a;
-int b[10];
 
 int main(void){
-    a=b[1];
+    int a;
+    printf("%d",a);
     return 0;
 }
 
