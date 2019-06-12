@@ -10,6 +10,7 @@ reserved = {
     'int'   : 'INT',
     'float' : 'FLOAT',
     'char'  : 'CHAR',
+    'double' : 'DOUBLE',
     'struct' : 'STRUCT',
     'for' : 'FOR',
     'continue' : 'CONTINUE',

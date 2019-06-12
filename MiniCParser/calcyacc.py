@@ -253,6 +253,7 @@ def p_typeSpec(p):
                 | INT
                 | FLOAT
                 | CHAR
+                | DOUBLE
                 | structSpecifier'''
     p[0] = ('typeSpec',p[1])
 
@@ -369,7 +370,7 @@ parser = yacc.yacc()
 s = '''
 
 int main(void){
-    int a;
+    double a;
     printf("%d",a);
     return 0;
 }
