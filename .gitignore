@@ -1,0 +1,10 @@
+venv
+venv/*
+.vscode
+.DS_Store
+.idea
+*.pyc
+.vscode
+.asm
+.mid
+.txt

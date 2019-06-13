@@ -1,3 +1,8 @@
+import os
+import re
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import ply.yacc as yacc
 from calclex import tokens
 
@@ -366,20 +371,19 @@ def p_breakStatement(p):
 
 parser = yacc.yacc()
 
-
-s = '''
-
-int main(void){
-    double a;
-    printf("%d",a);
-    return 0;
-}
-
-'''
-
 def parse_grammar(s):
     result = parser.parse(s)
     return result
 
-result = parser.parse(s)
-print(result)
+if __name__=='__main__':
+    s = '''
+
+    int main(void){
+        double a;
+        printf("%d",a);
+        return 0;
+    }
+
+    '''
+    result = parser.parse(s)
+    print(result)

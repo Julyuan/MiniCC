@@ -115,21 +115,24 @@ def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = reserved.get(t.value, 'ID')
     return t
+
+
 lexer = lex.lex()
 
 
-# Test it out
-data = '''
-int main(void){
-    printf("%d",a);
-}
-'''
+if __name__ =="__main__":
+    # Test it out
+    data = '''
+    int main(void){
+        printf("%d",a);
+    }
+    '''
 
-# Give the lexer some input
-lexer.input(data)
+    # Give the lexer some input
+    lexer.input(data)
 
-# Tokenize
-while True:
-    tok = lexer.token()
-    if not tok: break      # No more input
-    print(tok)
+    # Tokenize
+    while True:
+        tok = lexer.token()
+        if not tok: break      # No more input
+        print(tok)
