@@ -3,6 +3,8 @@ import queue
 import math
 import sys
 
+symbol_table = {}
+
 type_size={"int":4,"char":1,"int*":4,"float":4,"double":8}
 global_var=[]
 local_var=[]
@@ -449,7 +451,7 @@ def parse_parameterList(parameterList):
 	local_para=[]
 	for _ in parameterList[1]:
 		parse_parameter(_)
-def parse_parameters(parameters):
+def parse_parameters(parameters, label_func):
 	assert(parameters[0]=="parameters")
 	global local_para
 	if(parameters[1]=="void"):
@@ -459,6 +461,8 @@ def parse_parameters(parameters):
 	else:
 		assert(False)
 	print("local_para =",local_para)
+	global symbol_table
+	symbol_table.setdefault(label_func, {}).setdefault('local_para', local_para)
 	return
 def parse_functionDeclaration(functionDeclaration):#1-> return type 2->name 3->para 4->body
 	assert(functionDeclaration[0]=="functionDeclaration")
@@ -469,7 +473,7 @@ def parse_functionDeclaration(functionDeclaration):#1-> return type 2->name 3->p
 	max_temp_size=0
 	temp_var_count.put(1)
 	print(label_func,"proc")
-	parse_parameters(functionDeclaration[3])
+	parse_parameters(functionDeclaration[3], label_func)
 	assert(functionDeclaration[4][0]=="compoundStatement")
 	local_var=[]#empty here
 	parse_compoundStatement(functionDeclaration[4])
@@ -482,6 +486,9 @@ def parse_functionDeclaration(functionDeclaration):#1-> return type 2->name 3->p
 		#print(temp_var_count.get(),end="$$")
 	print(label_func,"endp")
 	print(">"*9)
+	global symbol_table
+	symbol_table.setdefault(label_func, {}).setdefault('local_var', local_var)
+
 def parse_staticVariableDeclaration(staticVariableDeclaration):
 	assert(staticVariableDeclaration[0]=="staticVariableDeclaration")
 	assert(len(staticVariableDeclaration)==3)
@@ -522,6 +529,9 @@ def parse_declarationList(declarationList):
 		parse_declaration(_)
 	global global_var
 	print("global_var =",global_var)
+	global symbol_table
+	symbol_table.setdefault('global', {}).setdefault('global_var', global_var)
+
 def parse_program(program):
 	assert(program[0]=="program")
 	if program[1][0]=="declarationList":

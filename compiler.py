@@ -3,6 +3,8 @@ import sys
 from MiniCParser import calcyacc
 from CodeGenerate import genmid
 from CodeGenerate import mid2masm32
+from SemanticAnalysis import scoped_symbol_table
+
 
 class Logger(object):
     def __init__(self, filename="Default.log"):
@@ -53,6 +55,13 @@ sys.stdout = Logger('a.mid')
 genmid.parse_program(result)
 sys.stdout.log.close()
 sys.stdout = sys.stdout.terminal
+
+# print('******'*3)
+# print(genmid.symbol_table)
+
+f = open('a.symtab', 'w')
+f.write(scoped_symbol_table.show_symbol_table(genmid.symbol_table).strip())
+f.close()
 
 f = open('a.mid')
 prog = f.read().strip()
