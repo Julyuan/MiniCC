@@ -4,7 +4,7 @@ from MiniCParser import calcyacc
 from CodeGenerate import genmid
 from CodeGenerate import mid2masm32
 from SemanticAnalysis import scoped_symbol_table
-
+from utils.visualize_syntax_tree import show_syntax_tree
 
 class Logger(object):
     def __init__(self, filename="Default.log"):
@@ -50,6 +50,17 @@ result = calcyacc.parser.parse(s)
 
 # print(type(result), len(result))
 # print(result)
+if result==None:
+    print('Error while generating abstract syntax tree.')
+    exit()
+
+# show syntax tree by picture
+show_syntax_tree(result, 'a.syntax.gv', viewnow=True)
+
+
+f = open('a.syntax', 'w')
+f.write(str(result))
+f.close()
 
 sys.stdout = Logger('a.mid')
 genmid.parse_program(result)

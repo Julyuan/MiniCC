@@ -20,3 +20,10 @@ __pycache__/*
 *.txt
 
 *.symtab
+
+*.syntax
+
+*.gv
+*.gz
+
+*.png

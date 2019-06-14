@@ -64,8 +64,8 @@ def find_addr(expression):#(isglobal or temp,type,byte_baseaddr(origin bp relate
 	for _ in global_var:
 		if _[1]==expression:
 			return (True,_[0],None)
-	print(local_para)
-	print(expression)
+	# print(local_para)
+	print('Semantic Error: Cannot find address for expression:', expression)
 	assert(False)
 def parse_identifier_expression(identifier_expression):
 	assert(identifier_expression[0]=="identifier-expression")

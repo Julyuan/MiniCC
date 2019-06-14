@@ -221,6 +221,7 @@ def p_declarationList(p):
 def p_error(p):
     print(p)
     print("Syntax error in input!")
+    exit()
 
 def p_declaration(p):
     '''declaration : staticVariableDeclaration
