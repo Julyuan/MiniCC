@@ -219,8 +219,8 @@ def p_declarationList(p):
         p[0] = (p[1][0], temp)
 
 def p_error(p):
-    print(p)
-    print("Syntax error in input!")
+    print('Syntax Error occur around', 'line:', p.lineno)
+    print('Syntax Error occur around', p.type,':', p.value)
     exit()
 
 def p_declaration(p):
@@ -381,7 +381,7 @@ if __name__=='__main__':
 
     int main(void){
         double a;
-        printf("%d",a);
+        printf("%d\n",a);
         return 0;
     }
 
