@@ -20,21 +20,9 @@ class Logger(object):
 
 def myhelp():
     print('''
-OVERVIEW: clang LLVM compiler
+OVERVIEW: MINICC compiler
 
-USAGE: clang [options] <inputs>
-
-OPTIONS:
-  -###                    Print (but do not run) the commands to run for this compilation
-  --analyzer-output <value>
-                          Static analyzer report output format (html|plist|plist-multi-file|plist-html|text).
-  --analyze               Run the static analyzer
-  -arcmt-migrate-emit-errors
-                          Emit ARC errors even if the migrator can fix them
-  -arcmt-migrate-report-output <value>
-                          Output path for the plist report
-  -B <dir>                Add <dir> to search path for binaries and object files used implicitly
-  -CC                     Include comments from within macros in preprocessed output
+USAGE: python3 compiler.py <inputfile> <outputfile>
     ''')
 
 # help
