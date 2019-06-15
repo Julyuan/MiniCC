@@ -26,7 +26,7 @@ def parse_data(data):
 			count_end_0ah=0
 			strctx=str(_[3],encoding="ascii").strip("\"")
 			assert(len(strctx)>0)
-			while len(strctx)>0 and strctx[-2:]=="\\n":
+			while len(strctx)>1 and strctx[-2:]=="\\n":
 				count_end_0ah+=1
 				strctx=strctx[:-2]
 			if len(strctx)==0:
