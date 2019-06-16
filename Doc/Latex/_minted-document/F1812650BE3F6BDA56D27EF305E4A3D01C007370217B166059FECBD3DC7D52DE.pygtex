@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{parse\PYGZus{}declarationList} \PYG{o}{\PYGZhy{}\PYGZgt{}}
+\PYG{n}{parse\PYGZus{}declaration} \PYG{o}{\PYGZhy{}\PYGZgt{}}
+\PYG{n}{parse\PYGZus{}staticVariableDeclaration}
+\end{Verbatim}

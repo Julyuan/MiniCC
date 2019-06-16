@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+staticVariableDeclaration : typeSpec declaratorList SEMICOLON
+                          \PYG{p}{|} typeSpec declarator LSQUARE INTLITERAL RSQUARE SEMICOLON
+
+declarator : pointer ID
+           \PYG{p}{|} ID
+
+pointer : TIMES
+        \PYG{p}{|} TIMES pointer
+\end{Verbatim}

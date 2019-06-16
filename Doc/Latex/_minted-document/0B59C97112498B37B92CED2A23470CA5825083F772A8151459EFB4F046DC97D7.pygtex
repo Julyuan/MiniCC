@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+expression : expression DIVIDEEQUAL expression
+           \PYG{p}{|} expression PLUSEQUAL expression
+           \PYG{p}{|} expression MINUSEQUAL expression
+           \PYG{p}{|} expression TIMESEQUAL expression
+
+expression : expression DOUBLEPLUS
+           \PYG{p}{|} expression DOUBLEMINUS
+\end{Verbatim}

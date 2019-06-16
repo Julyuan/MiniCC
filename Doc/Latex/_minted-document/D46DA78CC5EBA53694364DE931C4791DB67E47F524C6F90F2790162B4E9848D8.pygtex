@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{mov} \PYG{n+no}{dword} \PYG{n+no}{ptr} \PYG{p}{[}\PYG{n+no}{ebp\PYGZhy{}4}\PYG{p}{],}\PYG{n+no}{eax}
+\end{Verbatim}

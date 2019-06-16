@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{parse\PYGZus{}functionDeclaration}\PYG{p}{(}\PYG{n}{functionDeclaration}\PYG{p}{):}\PYG{c+c1}{\PYGZsh{}1\PYGZhy{}\PYGZgt{} return type 2\PYGZhy{}\PYGZgt{}name 3\PYGZhy{}\PYGZgt{}para 4\PYGZhy{}\PYGZgt{}body}
+\PYG{c+c1}{\PYGZsh{} ...}
+       \PYG{n}{parse\PYGZus{}parameters}\PYG{p}{(}\PYG{n}{functionDeclaration}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{],} \PYG{n}{label\PYGZus{}func}\PYG{p}{)}
+       \PYG{k}{assert}\PYG{p}{(}\PYG{n}{functionDeclaration}\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{==}\PYG{l+s+s2}{\PYGZdq{}compoundStatement\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} ...}
+       \PYG{k}{global} \PYG{n}{symbol\PYGZus{}table}
+       \PYG{n}{symbol\PYGZus{}table}\PYG{o}{.}\PYG{n}{setdefault}\PYG{p}{(}\PYG{n}{label\PYGZus{}func}\PYG{p}{,} \PYG{p}{\PYGZob{}\PYGZcb{})}\PYG{o}{.}\PYG{n}{setdefault}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}local\PYGZus{}var\PYGZsq{}}\PYG{p}{,} \PYG{n}{local\PYGZus{}var}\PYG{p}{)}
+\end{Verbatim}

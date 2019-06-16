@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{f}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{k}\PYG{p}{;}
+
+\PYG{k+kt}{int} \PYG{n+nf}{go}\PYG{p}{(}\PYG{k+kt}{int}\PYG{o}{*} \PYG{n}{b}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{a}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{fk}\PYG{p}{;}
+    \PYG{k+kt}{double} \PYG{n}{t}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{g}\PYG{p}{;}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{g} \PYG{o}{=} \PYG{n}{a} \PYG{o}{*} \PYG{n}{go}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,} \PYG{n}{a}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+        \PYG{n}{g} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{o}{*}\PYG{n}{b} \PYG{o}{=} \PYG{o}{*}\PYG{n}{b} \PYG{o}{+} \PYG{n}{g}\PYG{p}{;}
+    \PYG{n}{k} \PYG{o}{=} \PYG{n}{k} \PYG{o}{+} \PYG{n}{g}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{g}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int} \PYG{n+nf}{main}\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+    \PYG{n}{k} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{f} \PYG{o}{=} \PYG{n}{go}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{k}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{);}
+    \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{f}\PYG{p}{);}
+    \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{k}\PYG{p}{);}
+    \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{parse\PYGZus{}parameters}\PYG{p}{(}\PYG{n}{parameters}\PYG{p}{,} \PYG{n}{label\PYGZus{}func}\PYG{p}{):}
+       \PYG{c+c1}{\PYGZsh{} ...}
+       \PYG{n}{parse\PYGZus{}parameterList}\PYG{p}{(}\PYG{n}{parameters}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+       \PYG{c+c1}{\PYGZsh{} ...}
+       \PYG{k}{global} \PYG{n}{symbol\PYGZus{}table}
+       \PYG{n}{symbol\PYGZus{}table}\PYG{o}{.}\PYG{n}{setdefault}\PYG{p}{(}\PYG{n}{label\PYGZus{}func}\PYG{p}{,} \PYG{p}{\PYGZob{}\PYGZcb{})}\PYG{o}{.}\PYG{n}{setdefault}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}local\PYGZus{}para\PYGZsq{}}\PYG{p}{,} \PYG{n}{local\PYGZus{}para}\PYG{p}{)}
+\end{Verbatim}

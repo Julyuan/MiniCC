@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+program : declarationList
+declarationList : declarationList declaration
+                \PYG{p}{|} declaration
+declaration : staticVariableDeclaration
+            \PYG{p}{|} functionDeclaration
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{p\PYGZus{}error}\PYG{p}{(}\PYG{n}{p}\PYG{p}{):}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Syntax Error occur around\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}line:\PYGZsq{}}\PYG{p}{,} \PYG{n}{p}\PYG{o}{.}\PYG{n}{lineno}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Syntax Error occur around\PYGZsq{}}\PYG{p}{,} \PYG{n}{p}\PYG{o}{.}\PYG{n}{type}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}:\PYGZsq{}}\PYG{p}{,} \PYG{n}{p}\PYG{o}{.}\PYG{n}{value}\PYG{p}{)}
+\PYG{n+nb}{exit}\PYG{p}{()}
+\end{Verbatim}
