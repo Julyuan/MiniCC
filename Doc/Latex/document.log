@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.12)  16 JUN 2019 23:50
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.12)  16 JUN 2019 23:58
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1317,10 +1317,6 @@ C97D7.pygtex [6])
 C97D7.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/424316217B66257007F7B338B27F4D6B1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/424316217B66257007F7B338B27F4D6B1C007370217B166059FECBD3DC7
 D52DE.pygtex)
@@ -1346,27 +1342,15 @@ C97D7.pygtex [7])
 9284F.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/AD31B119F345D5908B2070FD7BCE31071C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/AD31B119F345D5908B2070FD7BCE31071C007370217B166059FECBD3DC7
 D52DE.pygtex [8])
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/C82587223EE85BC5AD6ED19E02FED75A1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/C82587223EE85BC5AD6ED19E02FED75A1C007370217B166059FECBD3DC7
 D52DE.pygtex) [9]
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/95C72EB2A6F107EE76B2367D293635101C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/95C72EB2A6F107EE76B2367D293635101C007370217B166059FECBD3DC7
@@ -1378,63 +1362,35 @@ D52DE.pygtex)
 90218.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/F1812650BE3F6BDA56D27EF305E4A3D01C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/F1812650BE3F6BDA56D27EF305E4A3D01C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/4C533C54150F6951AB284D6D11A3BCA91C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/4C533C54150F6951AB284D6D11A3BCA91C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/3E740BB1DF28D34D7CF29BC8679CBBC31C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/3E740BB1DF28D34D7CF29BC8679CBBC31C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/2C7963AEB22DB7B9F8942DD8ADF46C5D1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/2C7963AEB22DB7B9F8942DD8ADF46C5D1C007370217B166059FECBD3DC7
 D52DE.pygtex [10])
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/65A7132B671CE6785D22CEA25BCD9BEC1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/65A7132B671CE6785D22CEA25BCD9BEC1C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/B0773D768766572BCED75A0A0FB14AFA1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/B0773D768766572BCED75A0A0FB14AFA1C007370217B166059FECBD3DC7
 D52DE.pygtex) [11]
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/7958532A9232BDD5B13BD924D24F3B2F1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/7958532A9232BDD5B13BD924D24F3B2F1C007370217B166059FECBD3DC7
@@ -1464,6 +1420,14 @@ LaTeX Font Warning: Font shape `TU/STFangsong(0)/m/it' undefined
 
 (./_minted-document/9133A4CFBA7867925F22FFDECF2B38FDB67E47F524C6F90F2790162B4E9
 848D8.pygtex)
+Overfull \hbox (12.55608pt too wide) in paragraph at lines 759--760
+[]\TU/STSong(0)/m/n/10 至 于 这 些 变 量 的 信 息\TU/TimesNewRoman(0)/m/n/10 , \TU/STSon
+g(0)/m/n/10 都 是 \TU/TimesNewRoman(0)/m/n/10 list \TU/STSong(0)/m/n/10 中 的 一 个 个
+ 元 组 列 举 出 来 的\TU/TimesNewRoman(0)/m/n/10 , \TU/STSong(0)/m/n/10 形 如 \TU/TimesN
+ewRoman(0)/m/n/10 ‘(type,name,(is_array,size),offset)‘ 
+ []
+
+[13]
 \openout3 = `document.pyg'.
 
 
@@ -1471,50 +1435,30 @@ LaTeX Font Warning: Font shape `TU/STFangsong(0)/m/it' undefined
 9284F.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/BFD6985E01F9994297156C82BB0386151C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/BFD6985E01F9994297156C82BB0386151C007370217B166059FECBD3DC7
-D52DE.pygtex [13])
+D52DE.pygtex)
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/A5F5A4EBCB8805EC110AAE4E560499101C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/A5F5A4EBCB8805EC110AAE4E560499101C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/02107C9548D4B9B2DBA02F671B7438661C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/02107C9548D4B9B2DBA02F671B7438661C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/703A15A900535A90F4BA8118162DBD511C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/703A15A900535A90F4BA8118162DBD511C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/014EAFACF3353C76FC3B736D344783FA1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/014EAFACF3353C76FC3B736D344783FA1C007370217B166059FECBD3DC7
-D52DE.pygtex)
-Overfull \hbox (25.62737pt too wide) in paragraph at lines 815--816
+D52DE.pygtex) [14]
+Overfull \hbox (25.62737pt too wide) in paragraph at lines 837--838
 []\TU/STSong(0)/m/n/10 至 于 判 定 是 否 是\TU/TimesNewRoman(0)/m/n/10 ” \TU/STSong(0)
 /m/n/10 之 后 不 再 使 用\TU/TimesNewRoman(0)/m/n/10 ” \TU/STSong(0)/m/n/10 的 规 则\TU/
 TimesNewRoman(0)/m/n/10 , \TU/STSong(0)/m/n/10 对 于 任 意 一 个 四 元 式\TU/TimesNewRom
@@ -1526,7 +1470,7 @@ rand1,oprand2,dest)‘,
 
 
 (./_minted-document/A641666CCD7B6381625C49B22F7E5580B67E47F524C6F90F2790162B4E9
-848D8.pygtex [14])
+848D8.pygtex)
 \openout3 = `document.pyg'.
 
 
@@ -1556,84 +1500,48 @@ rand1,oprand2,dest)‘,
 
 
 (./_minted-document/7E54582340CC3D08526E5CEEBC96D9F8B67E47F524C6F90F2790162B4E9
-848D8.pygtex) [15]
+848D8.pygtex [15])
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/378DDB7D50771D8D41154DD4122CBE141C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/378DDB7D50771D8D41154DD4122CBE141C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/4CB3C4552821F8BD816209DA77D6257E1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/4CB3C4552821F8BD816209DA77D6257E1C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/89AF040D278DD5566BB1D7D4F601348E1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/89AF040D278DD5566BB1D7D4F601348E1C007370217B166059FECBD3DC7
-D52DE.pygtex)
+D52DE.pygtex [16])
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/68189EE807A7E326E608B6B2A057BC151C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/68189EE807A7E326E608B6B2A057BC151C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/F092E02F5A0D01F0AC0842804A488A0D1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/F092E02F5A0D01F0AC0842804A488A0D1C007370217B166059FECBD3DC7
-D52DE.pygtex [16])
+D52DE.pygtex)
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/3CE5193A3590B539B47CEB74205D7A6D1C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/3CE5193A3590B539B47CEB74205D7A6D1C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/F766C57C859792596D9B19B5284247A11C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/F766C57C859792596D9B19B5284247A11C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/4213615EE7359F8A3E50B1AF94D00FD81C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
-
 
 (./_minted-document/4213615EE7359F8A3E50B1AF94D00FD81C007370217B166059FECBD3DC7
-D52DE.pygtex)
+D52DE.pygtex) [17]
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
-minted-document/62B0006D0062F39D55F2888706CF5F451C007370217B166059FECBD3DC7D52D
-E.pygtex document.pyg)...executed.
 
 
 (./_minted-document/62B0006D0062F39D55F2888706CF5F451C007370217B166059FECBD3DC7
@@ -1642,7 +1550,7 @@ D52DE.pygtex)
 
 
 (./_minted-document/8C95392CE75C09ADA338F8AD4048D2648EC07F88A443B9E9E54F205D540
-9284F.pygtex [17])
+9284F.pygtex)
 \openout3 = `document.pyg'.
 
 
@@ -1657,83 +1565,7 @@ C97D7.pygtex)
 
 
 (./_minted-document/AB181823D6E30C77D9B112A2D5A7DF34825083F772A8151459EFB4F046D
-C97D7.pygtex)
-runsystem(rm _minted-document/424316217B66257007F7B338B27F4D6B0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/AD31B119F345D5908B2070FD7BCE31070E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/C82587223EE85BC5AD6ED19E02FED75A0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/95C72EB2A6F107EE76B2367D293635100E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/F1812650BE3F6BDA56D27EF305E4A3D00E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/4C533C54150F6951AB284D6D11A3BCA90E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/3E740BB1DF28D34D7CF29BC8679CBBC30E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/2C7963AEB22DB7B9F8942DD8ADF46C5D0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/65A7132B671CE6785D22CEA25BCD9BEC0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/B0773D768766572BCED75A0A0FB14AFA0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/7958532A9232BDD5B13BD924D24F3B2F0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/BFD6985E01F9994297156C82BB0386150E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/A5F5A4EBCB8805EC110AAE4E560499100E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/02107C9548D4B9B2DBA02F671B7438660E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/703A15A900535A90F4BA8118162DBD510E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/014EAFACF3353C76FC3B736D344783FA0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/378DDB7D50771D8D41154DD4122CBE140E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/4CB3C4552821F8BD816209DA77D6257E0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/89AF040D278DD5566BB1D7D4F601348E0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/68189EE807A7E326E608B6B2A057BC150E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/F092E02F5A0D01F0AC0842804A488A0D0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/3CE5193A3590B539B47CEB74205D7A6D0E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/F766C57C859792596D9B19B5284247A10E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/4213615EE7359F8A3E50B1AF94D00FD80E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
-runsystem(rm _minted-document/62B0006D0062F39D55F2888706CF5F450E68ED8B48B5D4E33
-EC6DB1769FD64ED.pygtex)...executed.
-
- [18] (./document.aux)
+C97D7.pygtex [18]) [19] (./document.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1741,12 +1573,12 @@ runsystem(rm document.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 18374 strings out of 492970
- 415603 string characters out of 6133938
- 556673 words of memory out of 5000000
+ 18349 strings out of 492970
+ 414003 string characters out of 6133938
+ 554599 words of memory out of 5000000
  22027 multiletter control sequences out of 15000+600000
  530464 words of font info for 46 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  43i,9n,65p,10475b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on document.pdf (18 pages).
+Output written on document.pdf (19 pages).

@@ -759,13 +759,18 @@ end main
 至于这些变量的信息,都是list中的一个个元组列举出来的,形如`(type,name,(is\_array,size),offset)`
 
 元组的元素说明如下:
-+ **"type"**这是一个python字符串说明标识符类型
-+ **"name"**是一个python字符串说明标识符名字
-+ **"is\_array"**是一个二值变量说明标识符是否对应数组
-+ **"size"**说明标识符占用空间大小(以标识符类型为单位),即`int a[10]`,a在此处的值为10
-+ **offset**偏移地址,全局变量此处为None,局部变量是相对于ebp的位置,函数参数是相对于ebp+8(8表示有4B的ebp和4B的返回地址)的偏移
+\begin{itemize}
+\item \textbf{"type"}这是一个python字符串说明标识符类型
+\item \textbf{"name"}是一个python字符串说明标识符名字
+\item \textbf{"is\_array"}是一个二值变量说明标识符是否对应数组
+\item \textbf{"size"}说明标识符占用空间大小(以标识符类型为单位),即`int a[10]`,a在此处的值为10
+\item \textbf{offset}偏移地址,全局变量此处为None,局部变量是相对于ebp的位置,函数参数是相对于ebp+8(8表示有4B的ebp和4B的返回地址)的偏移
+\end{itemize}
 
 \paragraph{局部变量地址分配}
+
+考虑这样一段函数:
+
 
 \subsection{目标代码生成}
 

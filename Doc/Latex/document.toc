@@ -24,24 +24,24 @@
 \contentsline {paragraph}{函数调用中的字符串常量}{12}
 \contentsline {paragraph}{函数调用协议}{13}
 \contentsline {subsubsection}{\numberline {6.1.3}变量定义(符号表)}{13}
-\contentsline {paragraph}{局部变量地址分配}{13}
-\contentsline {subsection}{\numberline {6.2}目标代码生成}{13}
-\contentsline {section}{\numberline {7}优化考虑}{13}
-\contentsline {subsection}{\numberline {7.1}中间代码优化}{13}
-\contentsline {subsubsection}{\numberline {7.1.1}常数折叠}{13}
+\contentsline {paragraph}{局部变量地址分配}{14}
+\contentsline {subsection}{\numberline {6.2}目标代码生成}{14}
+\contentsline {section}{\numberline {7}优化考虑}{14}
+\contentsline {subsection}{\numberline {7.1}中间代码优化}{14}
+\contentsline {subsubsection}{\numberline {7.1.1}常数折叠}{14}
 \contentsline {subsubsection}{\numberline {7.1.2}堆栈使用优化}{14}
-\contentsline {subsection}{\numberline {7.2}汇编代码优化}{14}
+\contentsline {subsection}{\numberline {7.2}汇编代码优化}{15}
 \contentsline {subsubsection}{\numberline {7.2.1}"脏"寄存器赋值}{15}
 \contentsline {subsubsection}{\numberline {7.2.2}寄存器作为源(src)}{15}
-\contentsline {subsubsection}{\numberline {7.2.3}省略部分写入内存}{15}
+\contentsline {subsubsection}{\numberline {7.2.3}省略部分写入内存}{16}
 \contentsline {section}{\numberline {8}测试案例}{16}
 \contentsline {section}{\numberline {9}其他设计}{16}
 \contentsline {subsection}{\numberline {9.1}语法树可视化}{16}
 \contentsline {subsubsection}{\numberline {9.1.1}树形数据结构的构建}{16}
-\contentsline {subsubsection}{\numberline {9.1.2}采用graphviz中的Digraph可视化树}{16}
+\contentsline {subsubsection}{\numberline {9.1.2}采用graphviz中的Digraph可视化树}{17}
 \contentsline {subsubsection}{\numberline {9.1.3}例子和结果}{17}
 \contentsline {subsection}{\numberline {9.2}错误处理}{17}
 \contentsline {subsubsection}{\numberline {9.2.1}语法错误的处理}{17}
-\contentsline {subsubsection}{\numberline {9.2.2}语义错误的处理}{17}
+\contentsline {subsubsection}{\numberline {9.2.2}语义错误的处理}{18}
 \contentsline {subsubsection}{\numberline {9.2.3}语法错误测试结果}{18}
 \contentsline {subsubsection}{\numberline {9.2.4}语义错误测试}{18}
