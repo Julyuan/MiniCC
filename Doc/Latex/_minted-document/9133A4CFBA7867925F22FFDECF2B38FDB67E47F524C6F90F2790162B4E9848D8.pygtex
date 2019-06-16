@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{code} \PYG{n+no}{segment}
+\PYG{n+nf}{f} \PYG{n+no}{proc}
+\PYG{n+nf}{push} \PYG{n+no}{ebp}
+\PYG{n+nf}{mov} \PYG{n+no}{ebp}\PYG{p}{,}\PYG{n+no}{esp}
+\PYG{n+nf}{mov} \PYG{n+no}{eax}\PYG{p}{,[}\PYG{n+no}{ebp}\PYG{err}{+}\PYG{l+m+mi}{8}\PYG{p}{]}
+\PYG{n+nf}{inc} \PYG{n+no}{eax}
+\PYG{n+nf}{mov} \PYG{n+no}{esp}\PYG{p}{,}\PYG{n+no}{ebp}
+\PYG{n+nf}{pop} \PYG{n+no}{ebp}
+\PYG{n+nf}{ret} \PYG{l+m+mi}{4}
+\PYG{n+nf}{f} \PYG{n+no}{endp}
+\PYG{n+nf}{main} \PYG{n+no}{proc}
+\PYG{n+nf}{push} \PYG{n+no}{ebp}
+\PYG{n+nf}{mov} \PYG{n+no}{ebp}\PYG{p}{,}\PYG{n+no}{esp}
+\PYG{n+nf}{xor} \PYG{n+no}{eax}\PYG{p}{,}\PYG{n+no}{eax}
+\PYG{n+nf}{push} \PYG{n+no}{eax}
+\PYG{n+nf}{call} \PYG{n+no}{f}
+\PYG{n+nf}{mov} \PYG{n+no}{esp}\PYG{p}{,}\PYG{n+no}{ebp}
+\PYG{n+nf}{pop} \PYG{n+no}{ebp}
+\PYG{n+nf}{main} \PYG{n+no}{endp}
+\PYG{n+nf}{code} \PYG{n+no}{ends}
+\PYG{n+nf}{end} \PYG{n+no}{main}
+\end{Verbatim}

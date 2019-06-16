@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{;}\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{err}{给局部变量}\PYG{n}{i赋值0}\PYG{p}{,}\PYG{n}{i的基地址在}\PYG{p}{[}\PYG{n}{ebp}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{44}\PYG{p}{],}\PYG{err}{数据宽度是}\PYG{n}{sizeof}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{)}\PYG{o}{=}\PYG{l+m+mi}{4}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}:=\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n+nb+bp}{None}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}i\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{False}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{44}\PYG{p}{)))}
+
+\PYG{p}{;}\PYG{n}{temp\PYGZus{}var\PYGZus{}4}\PYG{o}{=}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{10}\PYG{p}{);}\PYG{err}{其中}\PYG{n}{temp\PYGZus{}var\PYGZus{}4是临时变量}\PYG{p}{,}\PYG{err}{假设函数所有变量的大小为}\PYG{n}{x}\PYG{p}{(}\PYG{n}{Byte}\PYG{p}{),}\PYG{err}{那么}\PYG{n}{temp\PYGZus{}var\PYGZus{}4基地址为}\PYG{p}{[}\PYG{n}{ebp}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{err}{数据宽度是}\PYG{n}{sizeof}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{)}\PYG{o}{=}\PYG{l+m+mi}{4}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZlt{}\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}i\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{False}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{44}\PYG{p}{)),} \PYG{l+m+mi}{10}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}temp\PYGZus{}var\PYGZus{}4\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)))}
+
+\PYG{p}{;}\PYG{k}{if}\PYG{p}{(}\PYG{n}{temp\PYGZus{}var\PYGZus{}4}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{n}{goto} \PYG{n}{main\PYGZus{}L2}\PYG{p}{;}\PYG{err}{其中}\PYG{n}{main\PYGZus{}L2是一个标签}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}j==\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}temp\PYGZus{}var\PYGZus{}4\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)),} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}main\PYGZus{}L2\PYGZsq{}}\PYG{p}{)}
+
+\PYG{p}{;}\PYG{err}{参数}\PYG{n}{aFDDN的地址压栈}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}arg\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}aFDDN\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+sa}{b}\PYG{l+s+s1}{\PYGZsq{}\PYGZdq{}f[}\PYG{l+s+si}{\PYGZpc{}d}\PYG{l+s+s1}{]=}\PYG{l+s+si}{\PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}\PYGZbs{}}\PYG{l+s+s1}{n\PYGZdq{}\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}char[]\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{13}\PYG{p}{)),} \PYG{n+nb+bp}{None}\PYG{p}{,} \PYG{n+nb+bp}{None}\PYG{p}{)}
+
+\PYG{p}{;}\PYG{err}{调用函数}\PYG{n}{printf}\PYG{p}{;}\PYG{err}{已经实现将参数压栈}\PYG{p}{,}\PYG{n}{printf的返回值实际上是成功输出的字符个数}\PYG{p}{,}\PYG{err}{返回值最终存入}\PYG{n}{temp\PYGZus{}var\PYGZus{}4}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}call\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}printf\PYGZsq{}}\PYG{p}{,} \PYG{n+nb+bp}{None}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}temp\PYGZus{}var\PYGZus{}4\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)))}
+
+\PYG{p}{;}\PYG{n}{temp\PYGZus{}var\PYGZus{}4}\PYG{o}{=\PYGZam{}}\PYG{n}{k}\PYG{p}{;}\PYG{n}{k是全局变量数据类型是int}\PYG{p}{,}\PYG{n}{temp\PYGZus{}var\PYGZus{}4是临时变量}\PYG{p}{,}\PYG{err}{数据类型}\PYG{n+nb}{int}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}:=(\PYGZam{})\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}k\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{n+nb+bp}{None}\PYG{p}{)),} \PYG{n+nb+bp}{None}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}temp\PYGZus{}var\PYGZus{}4\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{True}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)))}
+
+\PYG{p}{;}\PYG{k}{return} \PYG{n}{g}\PYG{p}{;}\PYG{err}{其中}\PYG{n}{g是局部变量}\PYG{p}{,}\PYG{err}{实际地址为}\PYG{p}{[}\PYG{n}{ebp}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{],}\PYG{err}{数据宽度}\PYG{n}{sizeof}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{)}\PYG{o}{=}\PYG{l+m+mi}{4}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}ret\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}g\PYGZsq{}}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{False}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}int\PYGZsq{}}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{)),} \PYG{n+nb+bp}{None}\PYG{p}{,} \PYG{n+nb+bp}{None}\PYG{p}{)}
+\end{Verbatim}

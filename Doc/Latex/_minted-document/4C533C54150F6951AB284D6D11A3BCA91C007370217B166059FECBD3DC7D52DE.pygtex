@@ -7,6 +7,7 @@
              \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{\PYGZus{}}\PYG{p}{)}\PYG{o}{==}\PYG{l+m+mi}{2}\PYG{p}{:}
                   \PYG{n}{global\PYGZus{}var}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{var\PYGZus{}type}\PYG{p}{,}\PYG{n}{\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],(}\PYG{n+nb+bp}{False}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n+nb+bp}{None}\PYG{p}{))}  \PYG{c+c1}{\PYGZsh{} int a}
              \PYG{k}{else}\PYG{p}{:}  \PYG{c+c1}{\PYGZsh{} pointer}
-                   \PYG{n}{global\PYGZus{}var}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{var\PYGZus{}type}\PYG{o}{+}\PYG{n}{\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],(}\PYG{n+nb+bp}{False}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n+nb+bp}{None}\PYG{p}{))}  \PYG{c+c1}{\PYGZsh{} int *a}
+                   \PYG{n}{global\PYGZus{}var}\PYG{o}{.}\PYG{n}{append}\PYG{p}{((}\PYG{n}{var\PYGZus{}type}\PYG{o}{+}\PYG{n}{\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n}{\PYGZus{}}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{],(}\PYG{n+nb+bp}{False}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n+nb+bp}{None}\PYG{p}{))}
+                     \PYG{c+c1}{\PYGZsh{} int *a}
        \PYG{k}{return}
 \end{Verbatim}

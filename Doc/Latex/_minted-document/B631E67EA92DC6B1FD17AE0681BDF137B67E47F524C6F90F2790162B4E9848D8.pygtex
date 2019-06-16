@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{push} \PYG{n+no}{offset} \PYG{p}{[}\PYG{n+no}{aHELLOWORLDN}\PYG{p}{]}
+\PYG{n+nf}{call} \PYG{n+no}{crt\PYGZus{}printf}\PYG{c}{;msvcrt.lib库的printf就叫这个名字}
+\end{Verbatim}

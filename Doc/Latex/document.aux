@@ -18,29 +18,32 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5}符号表设计}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}简介}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}实现细节}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}优化考虑}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}中间代码优化}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}常数折叠}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}堆栈使用优化}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}汇编代码优化}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}"脏"寄存器赋值}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}寄存器作为源(src)}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}省略部分写入内存}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}代码生成}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}简介}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}实现细节}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}测试结果}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}测试案例}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}其他设计}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}语法树可视化}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.1}树形数据结构的构建}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.2}采用graphviz中的Digraph可视化树}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.3}例子和结果}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}错误处理}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.1}语法错误的处理}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.2}语义错误的处理}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.3}语法错误测试结果}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.4}语义错误测试}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}代码生成}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}中间代码生成}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}四元式}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}函数调用}{12}}
+\@writefile{toc}{\contentsline {paragraph}{函数调用中的字符串常量}{12}}
+\@writefile{toc}{\contentsline {paragraph}{函数调用协议}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.3}变量定义(符号表)}{13}}
+\@writefile{toc}{\contentsline {paragraph}{局部变量地址分配}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}目标代码生成}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}优化考虑}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}中间代码优化}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}常数折叠}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}堆栈使用优化}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}汇编代码优化}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}"脏"寄存器赋值}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}寄存器作为源(src)}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.3}省略部分写入内存}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}测试案例}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}其他设计}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}语法树可视化}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.1}树形数据结构的构建}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.2}采用graphviz中的Digraph可视化树}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.3}例子和结果}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}错误处理}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.1}语法错误的处理}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.2}语义错误的处理}{17}}
 \gdef\minted@oldcachelist{,
   default-pyg-prefix.pygstyle,
   default.pygstyle,
@@ -54,17 +57,22 @@
   66BD370B21D5B3D1634046E51EB12D81825083F772A8151459EFB4F046DC97D7.pygtex,
   BFBC221FE34040904DDBA7F6626731B7825083F772A8151459EFB4F046DC97D7.pygtex,
   0B59C97112498B37B92CED2A23470CA5825083F772A8151459EFB4F046DC97D7.pygtex,
-  F3D0907583B1F9E348EDA22C25397AB48EC07F88A443B9E9E54F205D5409284F.pygtex,
+  C5ED7B0661285149F00930BBEE7DD4218EC07F88A443B9E9E54F205D5409284F.pygtex,
   AD31B119F345D5908B2070FD7BCE31071C007370217B166059FECBD3DC7D52DE.pygtex,
   C82587223EE85BC5AD6ED19E02FED75A1C007370217B166059FECBD3DC7D52DE.pygtex,
   95C72EB2A6F107EE76B2367D293635101C007370217B166059FECBD3DC7D52DE.pygtex,
   1CCB9EBC08E51C65B99FA5F74657100AB1BD4095F3857B5FAD496D9268F90218.pygtex,
   F1812650BE3F6BDA56D27EF305E4A3D01C007370217B166059FECBD3DC7D52DE.pygtex,
-  82E6D84686724CFA7FCD087A68125D671C007370217B166059FECBD3DC7D52DE.pygtex,
+  4C533C54150F6951AB284D6D11A3BCA91C007370217B166059FECBD3DC7D52DE.pygtex,
   3E740BB1DF28D34D7CF29BC8679CBBC31C007370217B166059FECBD3DC7D52DE.pygtex,
   2C7963AEB22DB7B9F8942DD8ADF46C5D1C007370217B166059FECBD3DC7D52DE.pygtex,
   65A7132B671CE6785D22CEA25BCD9BEC1C007370217B166059FECBD3DC7D52DE.pygtex,
   B0773D768766572BCED75A0A0FB14AFA1C007370217B166059FECBD3DC7D52DE.pygtex,
+  7958532A9232BDD5B13BD924D24F3B2F1C007370217B166059FECBD3DC7D52DE.pygtex,
+  E10DE80F59DC614AA93B0DDBDA01CE988EC07F88A443B9E9E54F205D5409284F.pygtex,
+  318E646AF0F9AB22EDB618CF77FC0506B67E47F524C6F90F2790162B4E9848D8.pygtex,
+  B631E67EA92DC6B1FD17AE0681BDF137B67E47F524C6F90F2790162B4E9848D8.pygtex,
+  9133A4CFBA7867925F22FFDECF2B38FDB67E47F524C6F90F2790162B4E9848D8.pygtex,
   57B7608B75C6060AAFDA46C2175C43DB8EC07F88A443B9E9E54F205D5409284F.pygtex,
   BFD6985E01F9994297156C82BB0386151C007370217B166059FECBD3DC7D52DE.pygtex,
   A5F5A4EBCB8805EC110AAE4E560499101C007370217B166059FECBD3DC7D52DE.pygtex,
@@ -77,14 +85,19 @@
   4EBF9CE928256883B6F55B097B43F891B67E47F524C6F90F2790162B4E9848D8.pygtex,
   1463D8C85597C42B2ED9511A49550191B67E47F524C6F90F2790162B4E9848D8.pygtex,
   016E317C28DDDBAB44EE79B98571D085B67E47F524C6F90F2790162B4E9848D8.pygtex,
-  47EE61D89B691D4A6C62A9BEABF63563B67E47F524C6F90F2790162B4E9848D8.pygtex,
-  570DC5BA3AD1381DA90F20074A2907251C007370217B166059FECBD3DC7D52DE.pygtex,
-  121449E55D76846C967798692177B6E51C007370217B166059FECBD3DC7D52DE.pygtex,
-  C7B25137B33913A5D677A548808A27751C007370217B166059FECBD3DC7D52DE.pygtex,
+  7E54582340CC3D08526E5CEEBC96D9F8B67E47F524C6F90F2790162B4E9848D8.pygtex,
+  378DDB7D50771D8D41154DD4122CBE141C007370217B166059FECBD3DC7D52DE.pygtex,
+  4CB3C4552821F8BD816209DA77D6257E1C007370217B166059FECBD3DC7D52DE.pygtex,
+  89AF040D278DD5566BB1D7D4F601348E1C007370217B166059FECBD3DC7D52DE.pygtex,
+  68189EE807A7E326E608B6B2A057BC151C007370217B166059FECBD3DC7D52DE.pygtex,
+  F092E02F5A0D01F0AC0842804A488A0D1C007370217B166059FECBD3DC7D52DE.pygtex,
+  3CE5193A3590B539B47CEB74205D7A6D1C007370217B166059FECBD3DC7D52DE.pygtex,
   F766C57C859792596D9B19B5284247A11C007370217B166059FECBD3DC7D52DE.pygtex,
-  296BB82A05572539D5016AFBBA825E461C007370217B166059FECBD3DC7D52DE.pygtex,
-  E218E28FD9D1C6A748A49A8EDD9D3BAF1C007370217B166059FECBD3DC7D52DE.pygtex,
-  2D13565246784B69C163C149D6A83F978EC07F88A443B9E9E54F205D5409284F.pygtex,
+  4213615EE7359F8A3E50B1AF94D00FD81C007370217B166059FECBD3DC7D52DE.pygtex,
+  62B0006D0062F39D55F2888706CF5F451C007370217B166059FECBD3DC7D52DE.pygtex,
+  8C95392CE75C09ADA338F8AD4048D2648EC07F88A443B9E9E54F205D5409284F.pygtex,
   B2FD80D3577170B975AA2CB10B351240825083F772A8151459EFB4F046DC97D7.pygtex,
-  D0221CA804F51FEEAD9393CD6CDAA52B8EC07F88A443B9E9E54F205D5409284F.pygtex,
+  9B694746D3609C9EED50C3EF476A91618EC07F88A443B9E9E54F205D5409284F.pygtex,
   AB181823D6E30C77D9B112A2D5A7DF34825083F772A8151459EFB4F046DC97D7.pygtex}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.3}语法错误测试结果}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.4}语义错误测试}{18}}

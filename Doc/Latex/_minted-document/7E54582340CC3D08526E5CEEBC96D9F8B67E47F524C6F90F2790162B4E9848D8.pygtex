@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nl}{ll0:}
+      \PYG{n+nf}{mov} \PYG{n+no}{dword} \PYG{n+no}{ptr} \PYG{p}{[}\PYG{n+no}{ebp\PYGZhy{}4}\PYG{err}{+}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n+no}{edi}
+      \PYG{n+nf}{mov} \PYG{n+no}{eax}\PYG{p}{,}\PYG{n+no}{edi}
+      \PYG{n+nf}{cmp} \PYG{n+no}{eax}\PYG{p}{,}\PYG{l+m+mi}{0}
+      \PYG{n+nf}{jnz} \PYG{n+no}{ll1}
+      \PYG{n+nf}{jmp} \PYG{n+no}{ll2}
+\PYG{n+nl}{ll1:}
+     \PYG{c}{;...}
+\PYG{n+nl}{ll2:}
+     \PYG{c}{;...}
+\end{Verbatim}

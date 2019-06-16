@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nf}{data} \PYG{n+no}{segment}
+\PYG{n+nf}{aHELLOWORLDN} \PYG{err}{\PYGZdq{}}\PYG{n+no}{helloworld}\PYG{err}{\PYGZdq{}}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{n+no}{ah}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{n+no}{dh}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{err}{\PYGZsq{}}\PYG{n+no}{\PYGZdl{}}\PYG{err}{\PYGZsq{}}
+\PYG{n+nf}{data} \PYG{n+no}{ends}
+\end{Verbatim}

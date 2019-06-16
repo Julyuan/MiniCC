@@ -7,6 +7,8 @@
 \usepackage{listings}
 \usepackage{geometry}
 \usepackage{minted}
+\AtBeginEnvironment{minted}{%
+	\renewcommand{\fcolorbox}[4][]{#4}}
 \usepackage{graphicx}
 
 \geometry{a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
@@ -401,20 +403,20 @@ int ans;
 
 int gcd(int a, int b)
 {
-	int g;
-	if(b==0){
-		g = a;
-	}else{
-		g = gcd(b, a % b);
-	}
-	return g;
+    int g;
+   if(b==0){
+        g = a;
+    }else{
+        g = gcd(b, a % b);
+    }
+    return g;
 }
 
 int main(void)
 {
-	ans = gcd(9, 36) * gcd(3, 6);
-	printf("%d\n", ans);
-	return 0;
+    ans = gcd(9, 36) * gcd(3, 6);
+    printf("%d\n", ans);
+    return 0;
 }
 \end{minted}
 
@@ -548,7 +550,8 @@ def parse_staticVariableDeclaration(staticVariableDeclaration):
              if len(_)==2:
                   global_var.append((var_type,_[1],(False,1),None))  # int a
              else:  # pointer
-                   global_var.append((var_type+_[1][1][0],_[2],(False,1),None))  # int *a
+                   global_var.append((var_type+_[1][1][0],_[2],(False,1),None))
+                     # int *a
        return
 \end{minted}
 
@@ -603,6 +606,168 @@ def parse_functionDeclaration(functionDeclaration):#1-> return type 2->name 3->p
        global symbol_table
        symbol_table.setdefault(label_func, {}).setdefault('local_var', local_var)
 \end{minted}
+
+\section{代码生成}
+
+\subsection{中间代码生成}
+
+生成的中间代码是自定义的四元式,形如`(op,src1,src2,dest)`
+
+\subsubsection{四元式}
+
+四元式内容说明
+
+\begin{itemize}
+	\item  \textbf{op}说明指令的大致运算类型,它可以是某个双目运算符,或是某种赋值运算符,也可以是跳转指令,还可以是一些函数相关的汇编指令,如"call"(表示调用),"arg"(表示函数参数压栈),"ret"(表示函数返回);
+	\item \textbf{src}说明操作数,它可以某个变量,或是某个常数,还可以是常数名字,特定情况下可以为空; 
+	\item \textbf{dest}说明的是操作的目标,通常是一个变量或是变量组(用于说明给数组元素赋值),也可以是标签(用于跳转),特定情况下可以为空.
+\end{itemize}
+
+四元式中的作为操作数的变量不仅仅只有变量名这一个信息,而是作为一个元组,还带有额外信息用于辅助生成汇编代码.
+
+操作数形如`(var\_name,(is\_global\_or\_temp,type,byte\_addr))`
+
+其中:
+
+\begin{itemize}
+\item  \textbf{var\_name}是一个简单python字符串用以说明的变量名字,实际上在生成汇编的过程中只有使用全局变量时才会用到这个信息;
+\item   \textbf{is\_global\_or\_temp}标记变量是否是全局变量或是局部的临时变量,取值为\textbf{True}或\textbf{False},或是一串python的bytes(说明是字符串);
+\item  \textbf{type}是一个简单python字符串用以说明的变量类型,如"\textbf{int}", "\textbf{int*}", "\textbf{double}", "\textbf{char}", "\textbf{float}"等;
+\item  \textbf{byte\_addr}指的是变量的偏移,不过参考的基准略有不同:\begin{itemize}
+				\item  普通全局变量无意义,设为None
+				\item  字符串常量,
+				\item  函数局部参数,设置为相对于"\textbf{返回地址}"(\textbf{return address})的偏移(所以是非负数)
+				\item  局部变量(非临时变量),相对于帧指针\textbf{ebp}的偏移地址(所以是负数)
+				\item  局部变量(临时变量),相对于函数在栈中挖出当前函数所有变量空间后的栈指针\textbf{esp}的偏移地址(所以是正数)
+				\end{itemize}
+\end{itemize}
+
+下方对若干自定义四元式举例说明:
+
+\begin{minted}{python}
+;i=0;给局部变量i赋值0,i的基地址在[ebp-44],数据宽度是sizeof(int)=4
+(':=', 0, None, ('i', (False, 'int', -44)))
+
+;temp_var_4=(i<10);其中temp_var_4是临时变量,假设函数所有变量的大小为x(Byte),那么temp_var_4基地址为[ebp-x+0],数据宽度是sizeof(int)=4
+('<', ('i', (False, 'int', -44)), 10, ('temp_var_4', (True, 'int', 0)))
+
+;if(temp_var_4==0)goto main_L2;其中main_L2是一个标签
+('j==', ('temp_var_4', (True, 'int', 0)), 0, 'main_L2')
+
+;参数aFDDN的地址压栈
+('arg', ('aFDDN', (b'"f[%d]=%d\\n"', 'char[]', 13)), None, None)
+
+;调用函数printf;已经实现将参数压栈,printf的返回值实际上是成功输出的字符个数,返回值最终存入temp_var_4
+('call', 'printf', None, ('temp_var_4', (True, 'int', 0)))
+
+;temp_var_4=&k;k是全局变量数据类型是int,temp_var_4是临时变量,数据类型int
+(':=(&)', ('k', (True, 'int', None)), None, ('temp_var_4', (True, 'int', 0)))
+
+;return g;其中g是局部变量,实际地址为[ebp-4],数据宽度sizeof(int)=4
+('ret', ('g', (False, 'int', -4)), None, None)
+\end{minted}
+
+\subsubsection{函数调用}
+
+这里特殊列出来是因为两个原因:
+\begin{itemize}
+\item 函数调用的时候有个针对字符串常量的特殊处理
+\item 函数调用协议有很多种:\textbf{\_\_stdcall},\textbf{\_\_cdecl},"\textbf{\_\_pascall}","\textbf{\_\_thiscall}"以及\textbf{\_\_fastcall},实现函数调用在默认情况下必须统一为其中某一种.
+\end{itemize}
+
+\paragraph{函数调用中的字符串常量}
+考虑这样一个代码
+
+\begin{minted}{c}
+printf("helloworld\n");
+\end{minted}
+
+在函数调用的过程中,正常的编译器不会把整个字符串压入堆栈(,除非setbuf清空了特定缓冲区),而是仅仅压入字符串的地址.但是为什么某个地址会恰好有这个字符串呢?答案就是,编译器在数据段(全局变量区域)有意构造了这样的字符串.
+
+
+但是给这个字符串取名字也有点问题,毕竟最终的代码我们并不在意它的名字,但是在写汇编的过程中我们需要用符号助记它的基地址,这个名字又不能和其他全局变量重名...最终是参考了\textbf{IDA Pro}逆向可执行文件的时候给字符串命名的方式,自己设计了一个命名机制.
+
+
+这个串会导致在数据段额外增加一些数据:
+
+\begin{minted}{asm}
+data segment
+aHELLOWORLDN "helloworld",0ah,0dh,0,'$'
+data ends
+\end{minted}
+
+由于汇编没有字符串转移,表示"\\n"这个回车字符实际上将其转化为ascii码0ah就行了.至于后面还有0dh,这是因为Windows中,"\\n"实际上是执行了\textbf{回车(光标移到所在行行首)}和\textbf{换行(光标下移一位)}两个操作.再后面的0是c/c++字符串的结束标志.再在之后的'\$'是dos模式下字符的结束标志,放在这里是为了一定程度上避免被解释为dos下的exe运行的时候会出大问题.
+
+
+函数真正调用的时候会被编译成:
+
+\begin{minted}{asm}
+push offset [aHELLOWORLDN]
+call crt_printf;msvcrt.lib库的printf就叫这个名字
+\end{minted}
+
+
+\paragraph{函数调用协议}
+
+调用协议的区别在网上有很多阐释,此处着重说明我们使用的\textbf{\_\_stdcall}
+
+\begin{itemize}
+\item 参数只能通过堆栈传递,进入函数时不会有寄存器储存参数;
+\item 函数的压栈顺序是从右到左的;
+\item  函数结束后,被调用者负责清理栈空间(函数参数占据的栈空间).
+\end{itemize}
+
+前面两个比较好理解,关于最后一个,一两份代码进行说明:
+\textbf{被调用者负责清理栈空间示例}
+
+\begin{minted}{asm}
+code segment
+f proc
+push ebp
+mov ebp,esp
+mov eax,[ebp+8]
+inc eax
+mov esp,ebp
+pop ebp
+ret 4
+f endp
+main proc
+push ebp
+mov ebp,esp
+xor eax,eax
+push eax
+call f
+mov esp,ebp
+pop ebp
+main endp
+code ends
+end main
+\end{minted}
+
+可以看到,被调用者清理栈空间,f函数最后是用`ret 4`返回的,说明找到返回地址之后,堆栈还得弹出4B的空间再返回.
+与之相对的,调用者清理栈空间,f函数最后是用`ret`返回的,找到返回地址直接跳转.在main函数的call之后,还好有一个恢复堆栈的add指令.
+
+由于\textbf{\_\_stdcall}适用于Win API, 我们就延续此传统使用了\textbf{\_\_stdcall}.
+
+\subsubsection{变量定义(符号表)}
+
+由于全局变量能在函数体以外的任何地方定义,我们需要扫描整个语法树在能知道所有的全局变量,因此在所有函数段结束后,输出一个list说明全局变量的信息
+
+
+在函数的中间代码开始之前,输出list说明函数的参数信息.又由于函数体内任何地方都可以定义变量,在函数结束后再输出所有局部变量的信息.
+
+至于这些变量的信息,都是list中的一个个元组列举出来的,形如`(type,name,(is\_array,size),offset)`
+
+元组的元素说明如下:
++ **"type"**这是一个python字符串说明标识符类型
++ **"name"**是一个python字符串说明标识符名字
++ **"is\_array"**是一个二值变量说明标识符是否对应数组
++ **"size"**说明标识符占用空间大小(以标识符类型为单位),即`int a[10]`,a在此处的值为10
++ **offset**偏移地址,全局变量此处为None,局部变量是相对于ebp的位置,函数参数是相对于ebp+8(8表示有4B的ebp和4B的返回地址)的偏移
+
+\paragraph{局部变量地址分配}
+
+\subsection{目标代码生成}
 
 
 \section{优化考虑}
@@ -736,26 +901,20 @@ P.S. block定义为不含跳转指令也没有标签的连续的尽可能长的�
 
 \begin{minted}{asm}
 ll0:
-mov dword ptr [ebp-4+0],edi
-mov eax,edi
-cmp eax,0
-jnz ll1
-jmp ll2
+      mov dword ptr [ebp-4+0],edi
+      mov eax,edi
+      cmp eax,0
+      jnz ll1
+      jmp ll2
 ll1:
-;...
+     ;...
 ll2:
-;...
+     ;...
 \end{minted}
 
 标签\textbf{ll0}到\textbf{jnz}指令(含)的代码构成一个block,但是我们可以明显看到第一条指令给`dword ptr [ebp-4+0]`赋值后就再也没有用到,而且地址的格式是`[ebp-x+y]`(我们保证这种形式的地址是中间变量),说明这是个编译器生成的中间变量,我们依据之前的规则可以省略第一条赋值指令.
 
-\section{代码生成}
 
-\subsection{简介}
-
-\subsection{实现细节}
-
-\subsection{测试结果}
 
 \section{测试案例}
 
@@ -773,25 +932,25 @@ ll2:
 
 \begin{minted}{python}
 class Node:
-def __init__(self, c=[], v=None):
-self.children = c
-self.value = v
+       def __init__(self, c=[], v=None):
+              self.children = c
+              self.value = v
 \end{minted}
 
 (2)从yacc生成的元组表示的语法树构造树形结构
 
 \begin{minted}{python}
 def buildtree(root):
-if type(root)!=tuple:
-return Node([], root)
-node = Node([], root[0])
-if type(root[1]) == list:
-for x in root[1]:
-node.children.append(buildtree(x))
-else:
-for i in range(1, len(root)):
-node.children.append(buildtree(root[i]))
-return node
+       if type(root)!=tuple:
+            return Node([], root)
+       node = Node([], root[0])
+       if type(root[1]) == list:
+            for x in root[1]:
+                   node.children.append(buildtree(x))
+       else:
+               for i in range(1, len(root)):
+                     node.children.append(buildtree(root[i]))
+       return node
 \end{minted}
 
 (3)将语法树树形结构转化为python的dict表示，以符合可视化库graphviz的输入格式
@@ -799,23 +958,52 @@ return node
 \begin{minted}{python}
 
 def tree2dict(root):
-if len(root.children)==0:
-return str(root.value)
-res = {root.value: {}}
-cnt = 0
-for c in root.children:
-res[root.value].setdefault(cnt, tree2dict(c))
-cnt+=1
+       if len(root.children)==0:
+            return str(root.value)
+       res = {root.value: {}}
+       cnt = 0
+       for c in root.children:
+              res[root.value].setdefault(cnt, tree2dict(c))
+              cnt+=1
+       return res
 \end{minted}
 
 \subsubsection{采用graphviz中的Digraph可视化树}
 
 由于多叉树是一种特殊的图，可以采用graphviz图可视化工具进行可视化。
+
 (1)首先创建Digraph对象。
+
+\begin{minted}{python}
+g = Digraph("G", filename=name, format='png', strict=False)
+\end{minted}
 
 (2)利用上述dict定义其边和结点
 
+\begin{minted}{python}
+def _sub_plot(g, tree, inc):
+       global root
+
+       first_label = list(tree.keys())[0]
+       ts = tree[first_label]
+       for i in ts.keys():
+             if isinstance(tree[first_label][i], dict):
+                  root = str(int(root) + 1)
+                  g.node(root, list(tree[first_label][i].keys())[0])
+                  g.edge(inc, root, str(i))
+                  _sub_plot(g, tree[first_label][i], root)
+             else:
+                 root = str(int(root) + 1)
+                 g.node(root, tree[first_label][i])
+                 g.edge(inc, root, str(i))
+\end{minted}
+
 (3)调用可视化接口
+
+
+\begin{minted}{python}
+g.view()
+\end{minted}
 
 \subsubsection{例子和结果}
 
@@ -834,9 +1022,9 @@ d1 = {"no surfacing": {0: "no", 1: {"flippers": {0: "no", 1: "yes"}}}}
 \begin{minted}{python}
 
 def p_error(p):
-print('Syntax Error occur around', 'line:', p.lineno)
-print('Syntax Error occur around', p.type,':', p.value)
-exit()
+       print('Syntax Error occur around', 'line:', p.lineno)
+       print('Syntax Error occur around', p.type,':', p.value)
+       exit()
 
 \end{minted}
 
@@ -853,20 +1041,20 @@ exit()
 \begin{minted}{python}
 
 def find_addr(expression):
-if type(expression)!=str:
-return (None,None,None)
-global local_var,local_para,global_var
-for i in range(len(local_var)):
-if local_var[i][1]==expression:
-return (False,local_var[i][0],local_var[i][3])
-for i in range(len(local_para)):
-if local_para[i][1]==expression:
-return (False,local_para[i][0],local_para[i][3])
-for _ in global_var:
-if _[1]==expression:
-return (True,_[0],None)
-print('Semantic Error: Cannot find address for expression:', expression)
-assert(False)
+       if type(expression)!=str:
+            return (None,None,None)
+       global local_var,local_para,global_var
+       for i in range(len(local_var)):
+             if local_var[i][1]==expression:
+                  return (False,local_var[i][0],local_var[i][3])
+       for i in range(len(local_para)):
+             if local_para[i][1]==expression:
+                  return (False,local_para[i][0],local_para[i][3])
+       for _ in global_var:
+             if _[1]==expression:
+                  return (True,_[0],None) 
+       print('Semantic Error: Cannot find address for expression:', expression)
+       assert(False)
 
 \end{minted}
 
@@ -882,7 +1070,7 @@ int main(void)
     b = 2;
     for(i=0;i<10;i=i+1){
     a = a + b;
-    }
+}
     printf("%d\n", a);
     return 0;
 }

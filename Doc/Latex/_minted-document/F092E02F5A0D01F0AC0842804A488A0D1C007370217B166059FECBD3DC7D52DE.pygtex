@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{\PYGZus{}sub\PYGZus{}plot}\PYG{p}{(}\PYG{n}{g}\PYG{p}{,} \PYG{n}{tree}\PYG{p}{,} \PYG{n}{inc}\PYG{p}{):}
+       \PYG{k}{global} \PYG{n}{root}
+
+       \PYG{n}{first\PYGZus{}label} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{tree}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{())[}\PYG{l+m+mi}{0}\PYG{p}{]}
+       \PYG{n}{ts} \PYG{o}{=} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{first\PYGZus{}label}\PYG{p}{]}
+       \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{ts}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{():}
+             \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{first\PYGZus{}label}\PYG{p}{][}\PYG{n}{i}\PYG{p}{],} \PYG{n+nb}{dict}\PYG{p}{):}
+                  \PYG{n}{root} \PYG{o}{=} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+                  \PYG{n}{g}\PYG{o}{.}\PYG{n}{node}\PYG{p}{(}\PYG{n}{root}\PYG{p}{,} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{first\PYGZus{}label}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{())[}\PYG{l+m+mi}{0}\PYG{p}{])}
+                  \PYG{n}{g}\PYG{o}{.}\PYG{n}{edge}\PYG{p}{(}\PYG{n}{inc}\PYG{p}{,} \PYG{n}{root}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{i}\PYG{p}{))}
+                  \PYG{n}{\PYGZus{}sub\PYGZus{}plot}\PYG{p}{(}\PYG{n}{g}\PYG{p}{,} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{first\PYGZus{}label}\PYG{p}{][}\PYG{n}{i}\PYG{p}{],} \PYG{n}{root}\PYG{p}{)}
+             \PYG{k}{else}\PYG{p}{:}
+                 \PYG{n}{root} \PYG{o}{=} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{root}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+                 \PYG{n}{g}\PYG{o}{.}\PYG{n}{node}\PYG{p}{(}\PYG{n}{root}\PYG{p}{,} \PYG{n}{tree}\PYG{p}{[}\PYG{n}{first\PYGZus{}label}\PYG{p}{][}\PYG{n}{i}\PYG{p}{])}
+                 \PYG{n}{g}\PYG{o}{.}\PYG{n}{edge}\PYG{p}{(}\PYG{n}{inc}\PYG{p}{,} \PYG{n}{root}\PYG{p}{,} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{i}\PYG{p}{))}
+\end{Verbatim}
