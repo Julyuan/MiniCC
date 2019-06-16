@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n+nf}{mov} \PYG{n+no}{dword} \PYG{n+no}{ptr} \PYG{p}{[}\PYG{n+no}{ebp\PYGZhy{}4}\PYG{err}{+}\PYG{l+m+mi}{0}\PYG{p}{],}\PYG{n+no}{eax}
-\PYG{n+nf}{push} \PYG{n+no}{dword} \PYG{n+no}{ptr} \PYG{p}{[}\PYG{n+no}{ebp\PYGZhy{}4}\PYG{err}{+}\PYG{l+m+mi}{0}\PYG{p}{]}
-\end{Verbatim}

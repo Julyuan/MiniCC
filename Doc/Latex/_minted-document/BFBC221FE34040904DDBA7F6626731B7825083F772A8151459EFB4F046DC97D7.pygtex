@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-expression : expression DOT ID
-expression : expression LEFTARROW ID
-expression : ADDR expression
-expression : REMOVEREF expression
-\end{Verbatim}

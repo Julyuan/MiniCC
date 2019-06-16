@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{d1} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}no surfacing\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}no\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{:} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}flippers\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}no\PYGZdq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yes\PYGZdq{}}\PYG{p}{\PYGZcb{}\PYGZcb{}\PYGZcb{}\PYGZcb{}}
-\end{Verbatim}
