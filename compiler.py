@@ -73,17 +73,17 @@ if len(sys.argv) <= 2:
 else:
     asm_name = sys.argv[2]
 
-sys.stdout = Logger(asm_name+'tmp')
+sys.stdout = Logger(asm_name)
 mid2masm32.parse_prog(prog)
 sys.stdout.log.close()
 sys.stdout = sys.stdout.terminal
 
 # do optimization and write it to file
-f=open(asm_name+'tmp',"r")
+f=open(asm_name,"r")
 asm_prog=f.read().strip()
 f.close()
 
-sys.stdout = Logger(asm_name)
+sys.stdout = Logger(asm_name[0:-4]+"_op.asm")
 optim.optimize(asm_prog)
 sys.stdout.log.close()
 sys.stdout = sys.stdout.terminal

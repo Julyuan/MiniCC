@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+m+mf}{.386}
+\PYG{p}{.}\PYG{n}{model} \PYG{n}{flat}\PYG{p}{,}\PYG{n}{stdcall}
+\PYG{n}{include} \PYG{n}{msvcrt}\PYG{p}{.}\PYG{n}{inc}
+\PYG{n}{includelib} \PYG{n}{msvcrt}\PYG{p}{.}\PYG{n}{lib}
+\end{Verbatim}

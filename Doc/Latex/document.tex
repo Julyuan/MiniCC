@@ -10,6 +10,13 @@
 \AtBeginEnvironment{minted}{%
 	\renewcommand{\fcolorbox}[4][]{#4}}
 \usepackage{graphicx}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+	colorlinks=false, %set true if you want colored links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=blue,  %choose some color if you want links to stand out
+}
 
 \geometry{a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
 
@@ -692,7 +699,7 @@ printf("helloworld\n");
 
 \begin{minted}{asm}
 data segment
-aHELLOWORLDN "helloworld",0ah,0dh,0,'$'
+        aHELLOWORLDN "helloworld",0ah,0dh,0,'$'
 data ends
 \end{minted}
 
@@ -723,22 +730,22 @@ call crt_printf;msvcrt.lib库的printf就叫这个名字
 \begin{minted}{asm}
 code segment
 f proc
-push ebp
-mov ebp,esp
-mov eax,[ebp+8]
-inc eax
-mov esp,ebp
-pop ebp
-ret 4
+       push ebp
+       mov ebp,esp 
+       mov eax,[ebp+8]
+       inc eax
+       mov esp,ebp
+       pop ebp
+       ret 4
 f endp
 main proc
-push ebp
-mov ebp,esp
-xor eax,eax
-push eax
-call f
-mov esp,ebp
-pop ebp
+       push ebp
+       mov ebp,esp
+       xor eax,eax
+       push eax
+       call f
+       mov esp,ebp
+       pop ebp
 main endp
 code ends
 end main
@@ -771,9 +778,75 @@ end main
 
 考虑这样一段函数:
 
+\begin{minted}{c}
+int main(){
+    int i;
+    int f[10];
+    for(i=0;i<10;i++)
+        if(i%2==0){
+            int j;
+            j=i*2;
+            f[i]=j/2;
+        }
+        else{
+           int k;
+           k=i*3;
+           f[i]=k/2;
+        }
+        return 0;
+}
+\end{minted}
+
+函数在不同的大括号中定义了不同的新的局部变量,逆向编译出来的程序发现,编译器是给j和k都开辟了特定的栈空间,也就是说j和k对应的地址是没有交叉的.
+
+
+这也大大方便了我们程序的编写,最终我们做到了编译出来的地址分配的效果与下方的程序是完全一致的.
+
+\begin{minted}{c}
+int main(){
+    int i;
+    int f[10];
+    int j;
+    int k;
+    reutrn 0;
+}
+\end{minted}
+
+那么假如将之前函数中的k换成j会怎么样呢?我们是碰到定义才把相应的标识符加到局部变量list的队首,每次使用的时候又从前往后匹配,这样一来保证了作用域的正确性(之前j的作用域在大括号结束后会被再之后的k的作用域所覆盖),因此换了之后可以保证地址不出问题.
 
 \subsection{目标代码生成}
 
+最终期望生成码masm32汇编,能够在Windows操作系统上编译连接并运行,最终也是实现了这个要求.
+
+\subsubsection{代码头}
+
+由于需要利用其它库实现输入输出,因此需要用汇编导入库(保证**msvcrt.inc**和**msvcrt.lib**和代码在同一个目录)
+
+\begin{minted}{c}
+.386
+.model flat,stdcall
+include msvcrt.inc
+includelib msvcrt.lib
+\end{minted}
+
+\subsubsection{数据段}
+
+显然我们只用处理全局变量,我们在中间代码处理完程序后最后输出了一个描述全局变量的list,分析后转成汇编代码即可,如:
+
+\begin{minted}{asm}
+data segment use32
+        data_f dd 0
+        data_k dd 0
+        aD db "%d",0ah,0dh,0,'$'
+data ends        
+\end{minted}
+
+\subsubsection{代码段}
+
+将每条中间代码转化成若干条汇编指令以实现功能即可.一般来说操作都是从内存中取出数据到寄存器,寄存器进行运算后将数据写回另一个地址.
+
+
+有个值得注意的小地方是,mian函数处理有些不同,masm32下`return 0`实际上会回到更高层的调用我们可执行文件的程序,程序不会结束,最终暴力的用`exit(0)`结束整个程序.除此之外,代码段也需要指定程序入口,代码最后一行`end main`就是用伪指令完成了这个操作.
 
 \section{优化考虑}
 
@@ -922,6 +995,8 @@ ll2:
 
 
 \section{测试案例}
+
+由于测试内容过多，在报告里省略不表，具体见文件夹Doc/samples
 
 \section{其他设计}
 
