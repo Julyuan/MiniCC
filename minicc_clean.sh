@@ -1,0 +1,1 @@
+rm a.mid a.symtab a.syntax a.syntax.gv a.syntax.gv.png

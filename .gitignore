@@ -12,19 +12,3 @@ __pycache__/*
 .idea/*
 
 *.pyc
-
-*.asm
-*.asmop
-
-*.mid
-
-*.txt
-
-*.symtab
-
-*.syntax
-
-*.gv
-*.gz
-
-*.asmtmp

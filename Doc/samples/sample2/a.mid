@@ -1,0 +1,51 @@
+go proc
+local_para = [('int*', 'b', (False, 1), 0), ('int', 'a', (False, 1), 4)]
+	('>', ('a', (False, 'int', 4)), 0, ('temp_var_4', (True, 'int', 0)))
+	('j!=', ('temp_var_4', (True, 'int', 0)), 0, 'go_L1')
+	('j', None, None, 'go_L2')
+go_L1:
+	('-', ('a', (False, 'int', 4)), 1, ('temp_var_8', (True, 'int', 4)))
+	('arg', ('temp_var_8', (True, 'int', 4)), None, None)
+	('arg', ('b', (False, 'int*', 0)), None, None)
+	('call', 'go', None, ('temp_var_8', (True, 'int', 4)))
+	('*', ('a', (False, 'int', 4)), ('temp_var_8', (True, 'int', 4)), ('temp_var_4', (True, 'int', 0)))
+	(':=', ('temp_var_4', (True, 'int', 0)), None, ('g', (False, 'int', -4)))
+	('j', None, None, 'go_L3')
+go_L2:
+	(':=', 1, None, ('g', (False, 'int', -4)))
+go_L3:
+	(':=(*)', ('b', (False, 'int*', 0)), None, ('temp_var_8', (True, 'int', 4)))
+	('+', ('temp_var_8', (True, 'int', 4)), ('g', (False, 'int', -4)), ('temp_var_4', (True, 'int', 0)))
+	('(*):=', ('temp_var_4', (True, 'int', 0)), None, ('b', (False, 'int*', 0)))
+	('+', ('k', (True, 'int', None)), ('g', (False, 'int', -4)), ('temp_var_4', (True, 'int', 0)))
+	(':=', ('temp_var_4', (True, 'int', 0)), None, ('k', (True, 'int', None)))
+	('ret', ('g', (False, 'int', -4)), None, None)
+local_var = [('int', 'fk', (False, 1), -16), ('double', 't', (False, 1), -12), ('int', 'g', (False, 1), -4)]
+max_temp_size = 8
+var_size = 16
+para_size = 8
+go endp
+>>>>>>>>>
+main proc
+local_para = []
+	(':=', 0, None, ('k', (True, 'int', None)))
+	('arg', 5, None, None)
+	(':=(&)', ('k', (True, 'int', None)), None, ('temp_var_4', (True, 'int', 0)))
+	('arg', ('temp_var_4', (True, 'int', 0)), None, None)
+	('call', 'go', None, ('temp_var_4', (True, 'int', 0)))
+	(':=', ('temp_var_4', (True, 'int', 0)), None, ('f', (True, 'int', None)))
+	('arg', ('f', (True, 'int', None)), None, None)
+	('arg', ('aDN', (b'"%d\\n"', 'char[]', 7)), None, None)
+	('call', 'printf', None, ('temp_var_4', (True, 'int', 0)))
+	('arg', ('k', (True, 'int', None)), None, None)
+	('arg', ('aDN_0', (b'"%d\\n"', 'char[]', 7)), None, None)
+	('call', 'printf', None, ('temp_var_4', (True, 'int', 0)))
+	('ret', 0, None, None)
+local_var = []
+max_temp_size = 4
+var_size = 0
+para_size = 0
+main endp
+>>>>>>>>>
+global_var = [('int', 'f', (False, 1), None), ('int', 'k', (False, 1), None), ('char', 'aDN', (True, None), b'"%d\\n"'), ('char', 'aDN_0', (True, None), b'"%d\\n"')]
+

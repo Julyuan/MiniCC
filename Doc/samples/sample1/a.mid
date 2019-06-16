@@ -1,0 +1,45 @@
+main proc
+local_para = []
+	(':=', 0, None, ('i', (False, 'int', -44)))
+main_L1:
+	('<', ('i', (False, 'int', -44)), 10, ('temp_var_4', (True, 'int', 0)))
+	('j==', ('temp_var_4', (True, 'int', 0)), 0, 'main_L2')
+	('<=', ('i', (False, 'int', -44)), 1, ('temp_var_4', (True, 'int', 0)))
+	('j!=', ('temp_var_4', (True, 'int', 0)), 0, 'main_L3')
+	('j', None, None, 'main_L4')
+main_L3:
+	('[]:=', ('i', (False, 'int', -44)), None, "('f', (False, 'int', -40))[('i', (False, 'int', -44))]")
+	('j', None, None, 'main_L5')
+main_L4:
+	('-', ('i', (False, 'int', -44)), 1, ('temp_var_12', (True, 'int', 8)))
+	(':=[]', ('f', (False, 'int', -40)), ('temp_var_12', (True, 'int', 8)), ('temp_var_8', (True, 'int', 4)))
+	('-', ('i', (False, 'int', -44)), 2, ('temp_var_16', (True, 'int', 12)))
+	(':=[]', ('f', (False, 'int', -40)), ('temp_var_16', (True, 'int', 12)), ('temp_var_12', (True, 'int', 8)))
+	('+', ('temp_var_8', (True, 'int', 4)), ('temp_var_12', (True, 'int', 8)), ('temp_var_4', (True, 'int', 0)))
+	('[]:=', ('temp_var_4', (True, 'int', 0)), None, "('f', (False, 'int', -40))[('i', (False, 'int', -44))]")
+main_L5:
+	('+', ('i', (False, 'int', -44)), 1, ('temp_var_4', (True, 'int', 0)))
+	(':=', ('temp_var_4', (True, 'int', 0)), None, ('i', (False, 'int', -44)))
+	('j', None, None, 'main_L1')
+main_L2:
+	(':=', 0, None, ('i', (False, 'int', -44)))
+main_L6:
+	('<=', ('i', (False, 'int', -44)), 9, ('temp_var_4', (True, 'int', 0)))
+	('j==', ('temp_var_4', (True, 'int', 0)), 0, 'main_L7')
+	(':=[]', ('f', (False, 'int', -40)), ('i', (False, 'int', -44)), ('temp_var_4', (True, 'int', 0)))
+	('arg', ('temp_var_4', (True, 'int', 0)), None, None)
+	('arg', ('i', (False, 'int', -44)), None, None)
+	('arg', ('aFDDN', (b'"f[%d]=%d\\n"', 'char[]', 13)), None, None)
+	('call', 'printf', None, ('temp_var_4', (True, 'int', 0)))
+	('+', ('i', (False, 'int', -44)), 1, ('temp_var_4', (True, 'int', 0)))
+	(':=', ('temp_var_4', (True, 'int', 0)), None, ('i', (False, 'int', -44)))
+	('j', None, None, 'main_L6')
+main_L7:
+	('ret', 0, None, None)
+local_var = [('int', 'i', (False, 1), -44), ('int', 'f', (True, 10), -40)]
+max_temp_size = 16
+var_size = 44
+para_size = 0
+main endp
+>>>>>>>>>
+global_var = [('char', 'aFDDN', (True, None), b'"f[%d]=%d\\n"')]
