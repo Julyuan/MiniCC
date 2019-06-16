@@ -42,7 +42,7 @@ if result==None:
     exit()
 
 # show syntax tree by picture
-show_syntax_tree(result, 'a.syntax.gv', viewnow=False)
+show_syntax_tree(result, 'a.syntax.gv', viewnow=True)
 
 # write syntax tree tuple to file
 f = open('a.syntax', 'w')
