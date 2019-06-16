@@ -172,10 +172,10 @@ def parse_selfoperatorExpression(selfoperatorExpression):
 	operator=selfoperatorExpression[2]
 	assert(operator=="++" or selfoperatorExpression[2]=="--")
 	if selfoperatorExpression[1][0]=="identifier-expression":
-		print("\t"+str((operator,None,None,selfoperatorExpression[1][1])))
+		print("\t"+str((operator,None,None,(selfoperatorExpression[1][1],find_addr(selfoperatorExpression[1][1])))))
 	elif selfoperatorExpression[1][0]=="arrayExpression":
 		idx=calc_array_index(selfoperatorExpression[1])
-		print("\t"+str(("[]"+operator,None,None,"{}[{}]".format(selfoperatorExpression[1][1][1],idx))))
+		print("\t"+str(("[]"+operator,None,None,"{}[{}]".format((selfoperatorExpression[1][1][1],find_addr(selfoperatorExpression[1][1][1])),idx))))
 		ret_temp_var(idx)
 	return left_value
 def parse_compositeExpression(compositeExpression):
