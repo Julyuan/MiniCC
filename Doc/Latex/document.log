@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.12)  17 JUN 2019 00:37
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.12)  17 JUN 2019 00:50
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1686,9 +1686,13 @@ D52DE.pygtex)
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
+runsystem(pygmentize -l c -f latex -P commandprefix=PYG -F tokenmerge -o _minte
+d-document/9A5DC0D0D4E16402DC09510B3C6F9CDA8EC07F88A443B9E9E54F205D5409284F.pyg
+tex document.pyg)...executed.
 
-(./_minted-document/F766C57C859792596D9B19B5284247A11C007370217B166059FECBD3DC7
-D52DE.pygtex)
+
+(./_minted-document/9A5DC0D0D4E16402DC09510B3C6F9CDA8EC07F88A443B9E9E54F205D540
+9284F.pygtex)
 File: img/tree.png Graphic file (type bmp)
 <img/tree.png>
  [18]
@@ -1722,12 +1726,15 @@ C97D7.pygtex)
 
 (./_minted-document/AB181823D6E30C77D9B112A2D5A7DF34825083F772A8151459EFB4F046D
 C97D7.pygtex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1204.
+runsystem(rm _minted-document/F766C57C859792596D9B19B5284247A11C007370217B16605
+9FECBD3DC7D52DE.pygtex)...executed.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1211.
  [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1204.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1211.
  (./document.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1204.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1204.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1211.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1211.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 56E9520863603F493B413E10B735184F.
@@ -1739,8 +1746,8 @@ runsystem(rm document.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24698 strings out of 492970
- 507437 string characters out of 6133938
+ 24699 strings out of 492970
+ 507501 string characters out of 6133938
  655703 words of memory out of 5000000
  28314 multiletter control sequences out of 15000+600000
  530824 words of font info for 47 fonts, out of 8000000 for 9000
