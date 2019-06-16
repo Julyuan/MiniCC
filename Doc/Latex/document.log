@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.12)  17 JUN 2019 00:24
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.12)  17 JUN 2019 00:37
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1519,7 +1519,7 @@ D52DE.pygtex) [11]
 \openout3 = `document.pyg'.
 
 
-(./_minted-document/7958532A9232BDD5B13BD924D24F3B2F1C007370217B166059FECBD3DC7
+(./_minted-document/ADC9522C4ADAA955A6AD597EA5EAF3471C007370217B166059FECBD3DC7
 D52DE.pygtex)
 \openout3 = `document.pyg'.
 
@@ -1528,18 +1528,14 @@ D52DE.pygtex)
 9284F.pygtex)
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l asm -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-document/514CADF45A744D3CB5408DD93236D34FB67E47F524C6F90F2790162B4E9848D8.p
-ygtex document.pyg)...executed.
-
 
 (./_minted-document/514CADF45A744D3CB5408DD93236D34FB67E47F524C6F90F2790162B4E9
-848D8.pygtex)
+848D8.pygtex [12])
 \openout3 = `document.pyg'.
 
 
 (./_minted-document/B631E67EA92DC6B1FD17AE0681BDF137B67E47F524C6F90F2790162B4E9
-848D8.pygtex [12]
+848D8.pygtex
 
 LaTeX Font Warning: Font shape `TU/STFangsong(0)/m/it' undefined
 (Font)              using `TU/STFangsong(0)/m/n' instead on input line 3.
@@ -1547,14 +1543,10 @@ LaTeX Font Warning: Font shape `TU/STFangsong(0)/m/it' undefined
 )
 \openout3 = `document.pyg'.
 
-runsystem(pygmentize -l asm -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-document/247C68C6433DF3FE5F688C1272E02654B67E47F524C6F90F2790162B4E9848D8.p
-ygtex document.pyg)...executed.
-
 
 (./_minted-document/247C68C6433DF3FE5F688C1272E02654B67E47F524C6F90F2790162B4E9
 848D8.pygtex)
-Overfull \hbox (12.55608pt too wide) in paragraph at lines 766--767
+Overfull \hbox (12.55608pt too wide) in paragraph at lines 771--772
 []\TU/STSong(0)/m/n/10 至 于 这 些 变 量 的 信 息\TU/TimesNewRoman(0)/m/n/10 , \TU/STSon
 g(0)/m/n/10 都 是 \TU/TimesNewRoman(0)/m/n/10 list \TU/STSong(0)/m/n/10 中 的 一 个 个
  元 组 列 举 出 来 的\TU/TimesNewRoman(0)/m/n/10 , \TU/STSong(0)/m/n/10 形 如 \TU/TimesN
@@ -1572,16 +1564,19 @@ ewRoman(0)/m/n/10 ‘(type,name,(is_array,size),offset)‘
 
 (./_minted-document/A4E0E503AB1D6B899AB39664C38542F48EC07F88A443B9E9E54F205D540
 9284F.pygtex)
+Overfull \hbox (13.15504pt too wide) in paragraph at lines 828--829
+   \TU/STSong(0)/m/n/10 由 于 需 要 利 用 其 它 库 实 现 输 入 输 出\TU/TimesNewRoman(0)/m/n/1
+0 , \TU/STSong(0)/m/n/10 因 此 需 要 用 汇 编 导 入 库 \TU/TimesNewRoman(0)/m/n/10 (\TU/S
+TSong(0)/m/n/10 保 证 \TU/TimesNewRoman(0)/m/n/10 **msvcrt.inc** \TU/STSong(0)/m/
+n/10 和 \TU/TimesNewRoman(0)/m/n/10 **msvcrt.lib**
+ []
+
 \openout3 = `document.pyg'.
 
 
 (./_minted-document/9445F9904E3CB6C2EAF88A2D51096F6F8EC07F88A443B9E9E54F205D540
 9284F.pygtex)
 \openout3 = `document.pyg'.
-
-runsystem(pygmentize -l asm -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-document/C6E9718479AC5E78B9717EA24352A4AAB67E47F524C6F90F2790162B4E9848D8.p
-ygtex document.pyg)...executed.
 
 
 (./_minted-document/C6E9718479AC5E78B9717EA24352A4AAB67E47F524C6F90F2790162B4E9
@@ -1616,7 +1611,7 @@ D52DE.pygtex) [15]
 
 (./_minted-document/014EAFACF3353C76FC3B736D344783FA1C007370217B166059FECBD3DC7
 D52DE.pygtex)
-Overfull \hbox (25.62737pt too wide) in paragraph at lines 913--914
+Overfull \hbox (25.62737pt too wide) in paragraph at lines 918--919
 []\TU/STSong(0)/m/n/10 至 于 判 定 是 否 是\TU/TimesNewRoman(0)/m/n/10 ” \TU/STSong(0)
 /m/n/10 之 后 不 再 使 用\TU/TimesNewRoman(0)/m/n/10 ” \TU/STSong(0)/m/n/10 的 规 则\TU/
 TimesNewRoman(0)/m/n/10 , \TU/STSong(0)/m/n/10 对 于 任 意 一 个 四 元 式\TU/TimesNewRom
@@ -1668,12 +1663,12 @@ D52DE.pygtex)
 
 
 (./_minted-document/4CB3C4552821F8BD816209DA77D6257E1C007370217B166059FECBD3DC7
-D52DE.pygtex)
+D52DE.pygtex [17])
 \openout3 = `document.pyg'.
 
 
 (./_minted-document/89AF040D278DD5566BB1D7D4F601348E1C007370217B166059FECBD3DC7
-D52DE.pygtex [17])
+D52DE.pygtex)
 \openout3 = `document.pyg'.
 
 
@@ -1694,16 +1689,19 @@ D52DE.pygtex)
 
 (./_minted-document/F766C57C859792596D9B19B5284247A11C007370217B166059FECBD3DC7
 D52DE.pygtex)
+File: img/tree.png Graphic file (type bmp)
+<img/tree.png>
+ [18]
 \openout3 = `document.pyg'.
 
 
 (./_minted-document/4213615EE7359F8A3E50B1AF94D00FD81C007370217B166059FECBD3DC7
-D52DE.pygtex) [18]
+D52DE.pygtex)
 \openout3 = `document.pyg'.
 
 
 (./_minted-document/62B0006D0062F39D55F2888706CF5F451C007370217B166059FECBD3DC7
-D52DE.pygtex)
+D52DE.pygtex [19])
 \openout3 = `document.pyg'.
 
 
@@ -1723,22 +1721,13 @@ C97D7.pygtex)
 
 
 (./_minted-document/AB181823D6E30C77D9B112A2D5A7DF34825083F772A8151459EFB4F046D
-C97D7.pygtex [19])
-runsystem(rm _minted-document/318E646AF0F9AB22EDB618CF77FC0506B67E47F524C6F90F2
-790162B4E9848D8.pygtex)...executed.
-
-runsystem(rm _minted-document/9133A4CFBA7867925F22FFDECF2B38FDB67E47F524C6F90F2
-790162B4E9848D8.pygtex)...executed.
-
-runsystem(rm _minted-document/5315F49AAE43E8388501B13FBB95EE4DB67E47F524C6F90F2
-790162B4E9848D8.pygtex)...executed.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1197.
+C97D7.pygtex)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1204.
  [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1197.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1204.
  (./document.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1197.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1197.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1204.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1204.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 56E9520863603F493B413E10B735184F.
@@ -1750,10 +1739,10 @@ runsystem(rm document.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24693 strings out of 492970
- 507551 string characters out of 6133938
- 651674 words of memory out of 5000000
- 28310 multiletter control sequences out of 15000+600000
+ 24698 strings out of 492970
+ 507437 string characters out of 6133938
+ 655703 words of memory out of 5000000
+ 28314 multiletter control sequences out of 15000+600000
  530824 words of font info for 47 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  43i,9n,65p,10475b,579s stack positions out of 5000i,500n,10000p,200000b,80000s
